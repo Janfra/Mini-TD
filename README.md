@@ -6,18 +6,18 @@ Mini TD will be a project that I will divide in sections with separate goals. St
 
 ## Section one: Preparing 
 #### Create a simple map
-[ ] Create a grid
-[ ] Populate grid with simple squared objects
+- [ ] Create a grid
+- [ ] Populate grid with simple squared objects
 
 #### Simple path
-[ ] Grid includes a path for enemies to follow
+- [ ] Grid includes a path for enemies to follow
 
 #### Basic placing
-[ ] Grid cells can be used to place a base placeable object
+- [ ] Grid cells can be used to place a base placeable object
 
 ## Section two: Basic TD Mechanics
 #### Expand path
-[ ] Have test objects follow path
+- [ ] Have test objects follow path
 
 #### Enemy detection
-[ ] Placeable objects can include a component that detects objects in path
+- [ ] Placeable objects can include a component that detects objects in path
