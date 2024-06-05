@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d8v3tthmubyg"
+path="res://.godot/imported/Campfire_01.obj-0ed6a7e5c1823d0182c0b4dfcd09bae6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Campfire_01.obj-0ed6a7e5c1823d0182c0b4dfcd09bae6.mesh"]
+
+source_file="res://Assets/Kenney Nature Pack/Campfire_01.obj"
+dest_files=["res://.godot/imported/Campfire_01.obj-0ed6a7e5c1823d0182c0b4dfcd09bae6.mesh", "res://.godot/imported/Campfire_01.obj-0ed6a7e5c1823d0182c0b4dfcd09bae6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

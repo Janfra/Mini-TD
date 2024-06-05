@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b0splp6qqog8h"
+path="res://.godot/imported/Rock_5_01.obj-e1eb9ec3a4a53ceb605a77be6c63a18f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Rock_5_01.obj-e1eb9ec3a4a53ceb605a77be6c63a18f.mesh"]
+
+source_file="res://Assets/Kenney Nature Pack/Rock_5_01.obj"
+dest_files=["res://.godot/imported/Rock_5_01.obj-e1eb9ec3a4a53ceb605a77be6c63a18f.mesh", "res://.godot/imported/Rock_5_01.obj-e1eb9ec3a4a53ceb605a77be6c63a18f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

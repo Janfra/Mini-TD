@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ctlkpvo85mvej"
+path="res://.godot/imported/Plate_River_01.obj-900c1cdb311a9e3cd1e63be229077337.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Plate_River_01.obj-900c1cdb311a9e3cd1e63be229077337.mesh"]
+
+source_file="res://Assets/Kenney Nature Pack/Plate_River_01.obj"
+dest_files=["res://.godot/imported/Plate_River_01.obj-900c1cdb311a9e3cd1e63be229077337.mesh", "res://.godot/imported/Plate_River_01.obj-900c1cdb311a9e3cd1e63be229077337.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

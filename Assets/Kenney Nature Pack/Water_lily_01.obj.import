@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bie52w4bsaot"
+path="res://.godot/imported/Water_lily_01.obj-972b20b2d76b6f444d847fe30ffc2402.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Water_lily_01.obj-972b20b2d76b6f444d847fe30ffc2402.mesh"]
+
+source_file="res://Assets/Kenney Nature Pack/Water_lily_01.obj"
+dest_files=["res://.godot/imported/Water_lily_01.obj-972b20b2d76b6f444d847fe30ffc2402.mesh", "res://.godot/imported/Water_lily_01.obj-972b20b2d76b6f444d847fe30ffc2402.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://crx71g4aopxeh"
+path="res://.godot/imported/Plate_Grass_Dirt_01.obj-c55301e777586ba1bcdec1645e50103b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Plate_Grass_Dirt_01.obj-c55301e777586ba1bcdec1645e50103b.mesh"]
+
+source_file="res://Assets/Kenney Nature Pack/Plate_Grass_Dirt_01.obj"
+dest_files=["res://.godot/imported/Plate_Grass_Dirt_01.obj-c55301e777586ba1bcdec1645e50103b.mesh", "res://.godot/imported/Plate_Grass_Dirt_01.obj-c55301e777586ba1bcdec1645e50103b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

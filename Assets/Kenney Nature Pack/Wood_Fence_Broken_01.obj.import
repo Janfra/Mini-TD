@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ljsfoqdr3gjv"
+path="res://.godot/imported/Wood_Fence_Broken_01.obj-75ebb260e2c5e7a23b35844c5f8db963.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Wood_Fence_Broken_01.obj-75ebb260e2c5e7a23b35844c5f8db963.mesh"]
+
+source_file="res://Assets/Kenney Nature Pack/Wood_Fence_Broken_01.obj"
+dest_files=["res://.godot/imported/Wood_Fence_Broken_01.obj-75ebb260e2c5e7a23b35844c5f8db963.mesh", "res://.godot/imported/Wood_Fence_Broken_01.obj-75ebb260e2c5e7a23b35844c5f8db963.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

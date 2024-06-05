@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b6lv8tmd67mvb"
+path="res://.godot/imported/Fallen_Trunk_01.obj-314b04b1a1ea0e6339962c9bcb0573cf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Fallen_Trunk_01.obj-314b04b1a1ea0e6339962c9bcb0573cf.mesh"]
+
+source_file="res://Assets/Kenney Nature Pack/Fallen_Trunk_01.obj"
+dest_files=["res://.godot/imported/Fallen_Trunk_01.obj-314b04b1a1ea0e6339962c9bcb0573cf.mesh", "res://.godot/imported/Fallen_Trunk_01.obj-314b04b1a1ea0e6339962c9bcb0573cf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -13,3 +13,19 @@ config_version=5
 config/name="Mini-TD"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/aspect="expand"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "orange",
+"res://Resources/": "blue",
+"res://Scripts/": "teal"
+}
+
+[navigation]
+
+2d/stretch/aspect="keep"

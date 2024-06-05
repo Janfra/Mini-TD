@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dupg8r557cwim"
+path="res://.godot/imported/Oak_Dark_01.obj-ca87e24d48018a7887f423f55f792496.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Oak_Dark_01.obj-ca87e24d48018a7887f423f55f792496.mesh"]
+
+source_file="res://Assets/Kenney Nature Pack/Oak_Dark_01.obj"
+dest_files=["res://.godot/imported/Oak_Dark_01.obj-ca87e24d48018a7887f423f55f792496.mesh", "res://.godot/imported/Oak_Dark_01.obj-ca87e24d48018a7887f423f55f792496.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

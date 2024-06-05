@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctw8lc2avc3am"]
+
+[ext_resource type="PackedScene" uid="uid://b4nms1n8k14fx" path="res://Assets/Scenes/grid_generator.tscn" id="1_tvmqg"]
+
+[node name="Test Level One" type="Node3D"]
+
+[node name="Grid Generator" parent="." instance=ExtResource("1_tvmqg")]
+grid_x_size = 5
+grid_y_size = 5
+clear_generation = null
+check_generation = null
+
+[editable path="Grid Generator"]

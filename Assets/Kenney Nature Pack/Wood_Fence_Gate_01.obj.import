@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cxqv14inus0e0"
+path="res://.godot/imported/Wood_Fence_Gate_01.obj-2040af9be6cd8334fffbd8628be306f8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Wood_Fence_Gate_01.obj-2040af9be6cd8334fffbd8628be306f8.mesh"]
+
+source_file="res://Assets/Kenney Nature Pack/Wood_Fence_Gate_01.obj"
+dest_files=["res://.godot/imported/Wood_Fence_Gate_01.obj-2040af9be6cd8334fffbd8628be306f8.mesh", "res://.godot/imported/Wood_Fence_Gate_01.obj-2040af9be6cd8334fffbd8628be306f8.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

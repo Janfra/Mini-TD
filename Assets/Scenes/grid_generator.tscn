@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4nms1n8k14fx"]
+
+[ext_resource type="Script" path="res://Assets/Scenes/grid_generator.gd" id="1_2x432"]
+[ext_resource type="ArrayMesh" uid="uid://cjrx8rws5271n" path="res://Assets/Kenney Nature Pack/Plate_Grass_01.obj" id="2_miqxo"]
+
+[node name="Grid Generator" type="Node3D"]
+script = ExtResource("1_2x432")
+base_block = ExtResource("2_miqxo")

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b41gx1ghc2xm4"
+path="res://.godot/imported/Large_Oak_Green_01.obj-cd4c7366f86ab880c2b27e08f5478ca3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Large_Oak_Green_01.obj-cd4c7366f86ab880c2b27e08f5478ca3.mesh"]
+
+source_file="res://Assets/Kenney Nature Pack/Large_Oak_Green_01.obj"
+dest_files=["res://.godot/imported/Large_Oak_Green_01.obj-cd4c7366f86ab880c2b27e08f5478ca3.mesh", "res://.godot/imported/Large_Oak_Green_01.obj-cd4c7366f86ab880c2b27e08f5478ca3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

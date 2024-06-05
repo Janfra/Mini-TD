@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://blp54sasj7x0o"
+path="res://.godot/imported/Plant_1_01.obj-002376a8a938954454971bcfbdddb312.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Plant_1_01.obj-002376a8a938954454971bcfbdddb312.mesh"]
+
+source_file="res://Assets/Kenney Nature Pack/Plant_1_01.obj"
+dest_files=["res://.godot/imported/Plant_1_01.obj-002376a8a938954454971bcfbdddb312.mesh", "res://.godot/imported/Plant_1_01.obj-002376a8a938954454971bcfbdddb312.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
