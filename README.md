@@ -6,8 +6,8 @@ Mini TD will be a project that I will divide in sections with separate goals. St
 
 ## Section one: Preparing 
 #### Create a simple map
-- [ ] Create a grid
-- [ ] Populate grid with simple squared objects
+- [X] Create a grid
+- [X] Populate grid with simple squared objects
 
 #### Simple path
 - [ ] Grid includes a path for enemies to follow
