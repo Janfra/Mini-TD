@@ -6,8 +6,8 @@ extends Node3D
 
 @export_category("Generation Configuration")
 @export var base_block: Mesh
-@export var grid_x_size: int = 1: set = set_grid_x
-@export var grid_y_size: int = 1: set = set_grid_y
+@export var grid_width: int = 1: set = set_width
+@export var grid_length: int = 1: set = set_lenght
 @export var x_offset:float = 0.0
 @export var z_offset:float = 0.0
 
@@ -29,12 +29,12 @@ func _get_configuration_warnings() -> PackedStringArray:
 	return warning
 	
 
-func set_grid_x(x_size : int) -> void:
-	grid_x_size = max(x_size, 1)
+func set_width(width_size : int) -> void:
+	grid_width = max(width_size, 1)
 	
 
-func set_grid_y(y_size : int) -> void:
-	grid_y_size = max(y_size, 1)
+func set_lenght(length_size : int) -> void:
+	grid_length = max(length_size, 1)
 	
 
 func generate_grid(_start : bool) -> void:
@@ -52,8 +52,8 @@ func generate_grid(_start : bool) -> void:
 		generated_cells = {}
 	
 	var index: int = 0
-	for x in grid_x_size:
-		for y in grid_y_size:
+	for x in grid_width:
+		for y in grid_length:
 			generate_cell(index, Vector2(x, y))
 			index += 1
 			
@@ -83,6 +83,7 @@ func get_block_position(generation_position : Vector2) -> Vector3:
 		printerr("Mesh bounds not found")
 		return Vector3()
 	
+	
 	var block_position_offset: Vector3
 	var mesh_size: Vector3 = mesh_bounds.size
 	var x_offset_multiplier: int = min(generation_position.x, 1)
@@ -90,7 +91,13 @@ func get_block_position(generation_position : Vector2) -> Vector3:
 	
 	block_position_offset.x = (generation_position.x * mesh_size.x + generation_position.x * x_offset) * x_offset_multiplier
 	block_position_offset.z = (generation_position.y * mesh_size.z + generation_position.y * z_offset) * z_offset_multiplier
-	return block_position_offset + global_position
+	
+	var centering_offset: Vector3
+	centering_offset.x = (mesh_size.x * grid_width) / 2 
+	# Remove 1 full block lenght since first block is generated on left side of origin
+	centering_offset.z = (mesh_size.z * (grid_length - 2)) / 2
+	
+	return block_position_offset + (global_position - centering_offset)
 	
 
 func clear_grid(_clear : bool) -> void:

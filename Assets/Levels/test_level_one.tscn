@@ -5,9 +5,5 @@
 [node name="Test Level One" type="Node3D"]
 
 [node name="Grid Generator" parent="." instance=ExtResource("1_tvmqg")]
-grid_x_size = 5
-grid_y_size = 5
-clear_generation = null
-check_generation = null
 
 [editable path="Grid Generator"]
