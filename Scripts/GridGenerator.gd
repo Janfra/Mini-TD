@@ -5,7 +5,7 @@ extends Node3D
 ## Creates a grid with the configuration
 
 @export_category("Generation Configuration")
-@export var base_block: Mesh
+@export var base_block: PackedScene
 @export var grid_width: int = 1: set = set_width
 @export var grid_length: int = 1: set = set_lenght
 @export var x_offset:float = 0.0
@@ -20,6 +20,10 @@ extends Node3D
 		
 
 var generated_cells: Dictionary 
+
+func _enter_tree():
+	generate_grid(false)
+	
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warning: PackedStringArray
@@ -36,6 +40,9 @@ func set_width(width_size : int) -> void:
 func set_lenght(length_size : int) -> void:
 	grid_length = max(length_size, 1)
 	
+
+func save_grid(_save : bool) -> void:
+	pass
 
 func generate_grid(_start : bool) -> void:
 	if start_generation:
@@ -67,35 +74,33 @@ func generate_cell(index : int, generation_position : Vector2) -> void:
 		print("Already have index")
 		return
 	
-	var block_instance:MeshInstance3D = MeshInstance3D.new()
-	add_child(block_instance)
-	block_instance.owner = self
+	var block_instance:Node = base_block.instantiate()
+	GenerationUtils.setup_node_parent(block_instance, "Base Block #%s" % index, self) 
 	generated_cells[index] = block_instance
-	
-	block_instance.mesh = base_block
-	block_instance.global_position = get_block_position(generation_position)
-	block_instance.name = "Base Block #%s" % index
+	block_instance.global_position = get_block_position(generation_position, block_instance)
 	
 
-func get_block_position(generation_position : Vector2) -> Vector3:
-	var mesh_bounds:AABB = base_block.get_aabb()
-	if not mesh_bounds:
-		printerr("Mesh bounds not found")
+func get_block_position(generation_position : Vector2, node : Node) -> Vector3:
+	if not (node is HolderComponent):
 		return Vector3()
 	
+	var holder = node as HolderComponent
+	if not holder:
+		assert(false, "Why are we here")
+		return Vector3()
 	
-	var block_position_offset: Vector3
-	var mesh_size: Vector3 = mesh_bounds.size
+	var block_position_offset: Vector3 = Vector3.ZERO
+	var block_bounds: Vector3 = holder.get_mesh_bounds()
 	var x_offset_multiplier: int = min(generation_position.x, 1)
 	var z_offset_multiplier: int = min(generation_position.y, 1)
 	
-	block_position_offset.x = (generation_position.x * mesh_size.x + generation_position.x * x_offset) * x_offset_multiplier
-	block_position_offset.z = (generation_position.y * mesh_size.z + generation_position.y * z_offset) * z_offset_multiplier
+	block_position_offset.x = (generation_position.x * block_bounds.x + generation_position.x * x_offset) * x_offset_multiplier
+	block_position_offset.z = (generation_position.y * block_bounds.z + generation_position.y * z_offset) * z_offset_multiplier
 	
-	var centering_offset: Vector3
-	centering_offset.x = (mesh_size.x * grid_width) / 2 
-	# Remove 1 full block lenght since first block is generated on left side of origin
-	centering_offset.z = (mesh_size.z * (grid_length - 2)) / 2
+	var centering_offset: Vector3 = Vector3.ZERO
+	# Remove half a block since it is generated with corner on origin
+	centering_offset.x = (block_bounds.x * (grid_width - 1)) / 2 
+	centering_offset.z = (block_bounds.z * (grid_length - 1)) / 2
 	
 	return block_position_offset + (global_position - centering_offset)
 	
@@ -106,3 +111,4 @@ func clear_grid(_clear : bool) -> void:
 		node.queue_free()
 	
 	generated_cells.clear()
+	

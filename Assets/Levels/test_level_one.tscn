@@ -4,6 +4,13 @@
 
 [node name="Test Level One" type="Node3D"]
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.605, 0)
+current = true
+
 [node name="Grid Generator" parent="." instance=ExtResource("1_tvmqg")]
+transform = Transform3D(1, 0, 0, 0, 0.999999, -0.00165806, 0, 0.00165806, 0.999999, 0, 0, 0)
+grid_width = 5
+grid_length = 5
 
 [editable path="Grid Generator"]
