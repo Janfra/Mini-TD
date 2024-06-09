@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://si8sgvx8k6rb"]
+
+[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="1_siyni"]
+
+[node name="Camera3D" type="Camera3D"]
+current = true
+script = ExtResource("1_siyni")
+
+[node name="Left_limit" type="Marker3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Right_limit" type="Marker3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Up_limit" type="Marker3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Down_limit" type="Marker3D" parent="."]
+unique_name_in_owner = true

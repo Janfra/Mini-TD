@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PlaceableData" load_steps=3 format=3 uid="uid://b8fvl4oqt6r02"]
 
 [ext_resource type="PackedScene" uid="uid://b7ghrwyk4rfix" path="res://Assets/Scenes/tower_to_be.tscn" id="1_4yjru"]
-[ext_resource type="Script" path="res://Scripts/PlaceableData.gd" id="1_qd3s6"]
+[ext_resource type="Script" path="res://Scripts/Resources/PlaceableData.gd" id="1_qd3s6"]
 
 [resource]
 script = ExtResource("1_qd3s6")

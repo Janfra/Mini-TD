@@ -4,17 +4,16 @@ extends Node3D
 
 ## Enables the placing of objects on component owner
 
-@export var _placeable: PlaceableData
+@export var _placeable: PlaceableData: set = set_placeable
 @export var _mesh: MeshInstance3D
 @export var _y_offset:float 
 var created_scene: Node
 
 func set_placeable(placeable_data : PlaceableData):
+	_placeable = placeable_data
 	if not placeable_data:
-		printerr("Trying to set invalid placeable")
 		return
 	
-	_placeable = placeable_data
 	_generate_placeable(_placeable.placeable_scene)
 	
 

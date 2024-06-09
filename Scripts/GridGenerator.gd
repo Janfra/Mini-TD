@@ -21,10 +21,6 @@ extends Node3D
 
 var generated_cells: Dictionary 
 
-func _enter_tree():
-	generate_grid(false)
-	
-
 func _get_configuration_warnings() -> PackedStringArray:
 	var warning: PackedStringArray
 	if not base_block:

@@ -1,16 +1,97 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctw8lc2avc3am"]
+[gd_scene load_steps=4 format=3 uid="uid://ctw8lc2avc3am"]
 
 [ext_resource type="PackedScene" uid="uid://b4nms1n8k14fx" path="res://Assets/Scenes/grid_generator.tscn" id="1_tvmqg"]
+[ext_resource type="PackedScene" uid="uid://bijixboocftwl" path="res://Assets/Scenes/holder_component.tscn" id="2_16th4"]
+[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="3_rpv73"]
 
 [node name="Test Level One" type="Node3D"]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.605, 0)
-current = true
 
 [node name="Grid Generator" parent="." instance=ExtResource("1_tvmqg")]
 transform = Transform3D(1, 0, 0, 0, 0.999999, -0.00165806, 0, 0.00165806, 0.999999, 0, 0, 0)
 grid_width = 5
 grid_length = 5
+
+[node name="Base Block #0" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, -6.00002, -0.00994839, -6.00001)
+
+[node name="Base Block #1" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, -6.00002, -0.00497419, -3)
+
+[node name="Base Block #2" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, -6.00002, 0, 0)
+
+[node name="Base Block #3" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, -6.00002, 0.00497419, 3.00001)
+
+[node name="Base Block #4" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, -6.00002, 0.00994839, 6.00001)
+
+[node name="Base Block #5" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, -3.00001, -0.00994839, -6.00001)
+
+[node name="Base Block #6" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, -3.00001, -0.00497419, -3)
+
+[node name="Base Block #7" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, -3.00001, 0, 0)
+
+[node name="Base Block #8" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, -3.00001, 0.00497419, 3.00001)
+
+[node name="Base Block #9" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, -3.00001, 0.00994839, 6.00001)
+
+[node name="Base Block #10" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, 0, -0.00994839, -6.00001)
+
+[node name="Base Block #11" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, 0, -0.00497419, -3)
+
+[node name="Base Block #12" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, 0, 0, 0)
+
+[node name="Base Block #13" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, 0, 0.00497419, 3.00001)
+
+[node name="Base Block #14" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, 0, 0.00994839, 6.00001)
+
+[node name="Base Block #15" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, 3.00001, -0.00994839, -6.00001)
+
+[node name="Base Block #16" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, 3.00001, -0.00497419, -3)
+
+[node name="Base Block #17" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, 3.00001, 0, 0)
+
+[node name="Base Block #18" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, 3.00001, 0.00497419, 3.00001)
+
+[node name="Base Block #19" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, 3.00001, 0.00994839, 6.00001)
+
+[node name="Base Block #20" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, 6.00002, -0.00994839, -6.00001)
+
+[node name="Base Block #21" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, 6.00002, -0.00497419, -3)
+
+[node name="Base Block #22" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, 6.00002, 0, 0)
+
+[node name="Base Block #23" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, 6.00002, 0.00497419, 3.00001)
+
+[node name="Base Block #24" parent="Grid Generator" instance=ExtResource("2_16th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.16415e-10, 0, -1.16415e-10, 1, 6.00002, 0.00994839, 6.00001)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.375691, 0.926745, 0, -0.926745, 0.375691, 0, 14.991, 3.30632)
+
+[node name="CameraController" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.361, 0)
+script = ExtResource("3_rpv73")
+_max_speed = 2.0
 
 [editable path="Grid Generator"]

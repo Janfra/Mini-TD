@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://b7ghrwyk4rfix"]
+[gd_scene load_steps=2 format=3 uid="uid://b7ghrwyk4rfix"]
+
+[ext_resource type="ArrayMesh" uid="uid://lo13j7n4dhyg" path="res://Assets/Kenney Nature Pack/Rock_1_01.obj" id="1_gf6xv"]
 
 [node name="TowerToBe" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0.5)
+mesh = ExtResource("1_gf6xv")
