@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxfcdwcg11w3u"]
+
+[ext_resource type="Script" path="res://Scripts/MapGeneration.gd" id="1_1g4sv"]
+[ext_resource type="PackedScene" uid="uid://b4nms1n8k14fx" path="res://Assets/Scenes/grid_generator.tscn" id="1_yv21r"]
+[ext_resource type="PackedScene" uid="uid://csas3v1hcvwsg" path="res://Assets/Scenes/path.tscn" id="2_l1v4g"]
+
+[node name="MapGeneration" type="Node3D" node_paths=PackedStringArray("grid_generation", "path_generation")]
+script = ExtResource("1_1g4sv")
+grid_generation = NodePath("Grid Generator")
+path_generation = NodePath("EnemyPath")
+
+[node name="Grid Generator" parent="." instance=ExtResource("1_yv21r")]
+
+[node name="EnemyPath" parent="." instance=ExtResource("2_l1v4g")]

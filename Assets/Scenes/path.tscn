@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://csas3v1hcvwsg"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyPathGenerator.gd" id="1_ecdrk"]
+
+[sub_resource type="Curve3D" id="Curve3D_oaoi5"]
+bake_interval = 1.0
+
+[node name="EnemyPath" type="Path3D"]
+curve = SubResource("Curve3D_oaoi5")
+script = ExtResource("1_ecdrk")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="."]
+transform = Transform3D(-4.37113e-08, 0, -1, 0, 0.999999, 0, 0.999999, 0, -4.37114e-08, 0, 0, 0)
+loop = false

@@ -3,17 +3,6 @@
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="1_siyni"]
 
 [node name="Camera3D" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 current = true
 script = ExtResource("1_siyni")
-
-[node name="Left_limit" type="Marker3D" parent="."]
-unique_name_in_owner = true
-
-[node name="Right_limit" type="Marker3D" parent="."]
-unique_name_in_owner = true
-
-[node name="Up_limit" type="Marker3D" parent="."]
-unique_name_in_owner = true
-
-[node name="Down_limit" type="Marker3D" parent="."]
-unique_name_in_owner = true

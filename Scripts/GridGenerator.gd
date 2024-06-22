@@ -6,20 +6,12 @@ extends Node3D
 
 @export_category("Generation Configuration")
 @export var base_block: PackedScene
-@export var grid_width: int = 1: set = set_width
-@export var grid_length: int = 1: set = set_lenght
+@export var grid_width: int = 1: set = _set_width
+@export var grid_length: int = 1: set = _set_lenght
 @export var x_offset:float = 0.0
 @export var z_offset:float = 0.0
 
-@export_category("Generate")
-@export var start_generation: bool = 0: set = generate_grid
-@export var clear_generation: bool = 0: set = clear_grid
-@export var check_generation: bool = 0: 
-	set(value):
-		print(generated_cells)
-		
-
-var generated_cells: Dictionary 
+var _generated_cells: Dictionary 
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warning: PackedStringArray
@@ -29,55 +21,75 @@ func _get_configuration_warnings() -> PackedStringArray:
 	return warning
 	
 
-func set_width(width_size : int) -> void:
-	grid_width = max(width_size, 1)
-	
 
-func set_lenght(length_size : int) -> void:
-	grid_length = max(length_size, 1)
-	
-
-func save_grid(_save : bool) -> void:
-	pass
-
-func generate_grid(_start : bool) -> void:
-	if start_generation:
-		printerr("Already generating")
-		return
-	
+func generate_grid(_start : bool = false) -> void:
 	if not base_block:
 		printerr("Set base block before generating")
 		return
 	
 	print("Generating grid")
-	start_generation = true
-	if not generated_cells:
-		generated_cells = {}
+	if not _generated_cells:
+		_generated_cells = {}
 	
 	var index: int = 0
-	for x in grid_width:
-		for y in grid_length:
-			generate_cell(index, Vector2(x, y))
+	for y in grid_length:
+		for x in grid_width:
+			_generate_cell(index, Vector2(x, y))
 			index += 1
 			
 			print("Generate cell at index: %s" % index)
 	
-	start_generation = false
+
+func clear_grid(_clear : bool) -> void:
+	for cell in _generated_cells.values():
+		var node = cell as Node3D
+		node.queue_free()
+	
+	_generated_cells.clear()
 	
 
-func generate_cell(index : int, generation_position : Vector2) -> void:
-	if generated_cells.has(index):
-		print("Already have index")
-		return
+func get_cell_with_index(index : int) -> HolderComponent:
+	if not _generated_cells.has(index):
+		printerr("Tried to fetch invalid index: %s" %index)
+		return null
 	
-	var block_instance:Node = base_block.instantiate()
-	GenerationUtils.setup_node_parent(block_instance, "Base Block #%s" % index, self) 
-	generated_cells[index] = block_instance
-	block_instance.global_position = get_block_position(generation_position, block_instance)
+	return _generated_cells[index]
+
+func get_random_opposing_border_cells() -> Array[HolderComponent]:
+	var opposing_cells: Array[HolderComponent]
+	var rng = RandomNumberGenerator.new()
+	var is_horizontal : bool = rng.randi_range(0, 1)
+	var cell_index
+	
+	if is_horizontal:
+		cell_index = _get_random_left_border_cell_index(rng)
+		opposing_cells.append(get_cell_with_index(cell_index))
+		
+		cell_index = _get_random_right_border_cell_index(rng)
+		opposing_cells.append(get_cell_with_index(cell_index))
+		
+	else:
+		cell_index = _get_random_top_border_cell_index(rng)
+		opposing_cells.append(get_cell_with_index(cell_index))
+		
+		cell_index = _get_random_bottom_border_cell_index(rng)
+		opposing_cells.append(get_cell_with_index(cell_index))
+		
+	
+	opposing_cells.shuffle()
+	return opposing_cells
+
+func _set_width(width_size : int) -> void:
+	grid_width = max(width_size, 1)
 	
 
-func get_block_position(generation_position : Vector2, node : Node) -> Vector3:
+func _set_lenght(length_size : int) -> void:
+	grid_length = max(length_size, 1)
+	
+
+func _get_block_position(generation_position : Vector2, node : Node) -> Vector3:
 	if not (node is HolderComponent):
+		assert(false, "Base block Node must be a holder component")
 		return Vector3()
 	
 	var holder = node as HolderComponent
@@ -101,10 +113,35 @@ func get_block_position(generation_position : Vector2, node : Node) -> Vector3:
 	return block_position_offset + (global_position - centering_offset)
 	
 
-func clear_grid(_clear : bool) -> void:
-	for cell in generated_cells.values():
-		var node = cell as Node3D
-		node.queue_free()
+func _generate_cell(index : int, generation_position : Vector2) -> void:
+	if _generated_cells.has(index):
+		print("Already have index")
+		return
 	
-	generated_cells.clear()
+	if not base_block.can_instantiate():
+		assert(false, "Base block is not instanteable")
+		return
 	
+	var block_instance:Node = base_block.instantiate()
+	GenerationUtils.setup_node_parent(block_instance, "Base Block #%s" % index, self) 
+	_generated_cells[index] = block_instance
+	block_instance.global_position = _get_block_position(generation_position, block_instance)
+
+func _get_random_top_border_cell_index(rng : RandomNumberGenerator = RandomNumberGenerator.new()) -> int:
+	var random_index = rng.randi_range(0, grid_width - 1)
+	return random_index
+
+func _get_random_bottom_border_cell_index(rng : RandomNumberGenerator = RandomNumberGenerator.new()) -> int:
+	var index_start = grid_width * (grid_length - 1)
+	var random_index = rng.randi_range(index_start, index_start + (grid_width - 1))
+	return random_index
+
+func _get_random_left_border_cell_index(rng : RandomNumberGenerator = RandomNumberGenerator.new()) -> int:
+	var random_index = rng.randi_range(0, grid_length - 1)
+	random_index *= grid_width
+	return random_index
+
+func _get_random_right_border_cell_index(rng : RandomNumberGenerator = RandomNumberGenerator.new()) -> int:
+	var random_index = rng.randi_range(0, grid_length - 1)
+	random_index += (grid_width - 1) * (random_index + 1)
+	return random_index

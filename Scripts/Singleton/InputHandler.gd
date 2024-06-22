@@ -10,7 +10,7 @@ signal clicked
 var _was_moving:bool = false
 var _ui_focused:bool = false
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	_handle_movement_inputs()
 	
 
