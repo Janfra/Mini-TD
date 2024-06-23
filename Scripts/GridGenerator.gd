@@ -4,6 +4,8 @@ extends Node3D
 
 ## Creates a grid with the configuration
 
+signal grid_cells_changed
+
 @export_category("Generation Configuration")
 @export var base_block: PackedScene
 @export var grid_width: int = 1: set = _set_width
@@ -14,16 +16,26 @@ extends Node3D
 var _generated_cells: Dictionary 
 
 class CellHandle:
+	## Handles give access to information from a cell in a grid.
+	## They become invalid if the grid is changed for now
+	
 	var _index: int = -1
 	
-	func _init(set_index : int):
+	func _init(set_index : int, invalidate_on_signal : Signal):
 		if set_index < 0:
 			return
 		
 		_index = set_index
+		if not invalidate_on_signal.is_null():
+			invalidate_on_signal.connect(invalidate_handle.bind())
+		
 	
 	func is_valid() -> bool:
 		return not (_index < 0)
+		
+	
+	func invalidate_handle() -> void:
+		_index = -1
 		
 	
 
@@ -46,6 +58,8 @@ func generate_grid(_start : bool = false) -> void:
 	if not _generated_cells:
 		_generated_cells = {}
 	
+	grid_cells_changed.emit()
+	
 	var index: int = 0
 	for y in grid_length:
 		for x in grid_width:
@@ -60,6 +74,7 @@ func clear_grid(_clear : bool) -> void:
 		var node = cell as Node3D
 		node.queue_free()
 	
+	grid_cells_changed.emit()
 	_generated_cells.clear()
 	
 #endregion
@@ -74,25 +89,36 @@ func get_random_opposing_border_cells() -> Array[CellHandle]:
 	
 	if is_horizontal:
 		cell_index = _get_random_left_border_cell_index(rng)
-		opposing_cells.append(CellHandle.new(cell_index))
+		opposing_cells.append(CellHandle.new(cell_index, grid_cells_changed))
 		
 		cell_index = _get_random_right_border_cell_index(rng)
-		opposing_cells.append(CellHandle.new(cell_index))
+		opposing_cells.append(CellHandle.new(cell_index, grid_cells_changed))
 		
 	else:
 		cell_index = _get_random_top_border_cell_index(rng)
-		opposing_cells.append(CellHandle.new(cell_index))
+		opposing_cells.append(CellHandle.new(cell_index, grid_cells_changed))
 		
 		cell_index = _get_random_bottom_border_cell_index(rng)
-		opposing_cells.append(CellHandle.new(cell_index))
+		opposing_cells.append(CellHandle.new(cell_index, grid_cells_changed))
 		
 	
 	opposing_cells.shuffle()
 	return opposing_cells
 
 func get_cell_position(cell_handle : CellHandle) -> Vector3:
+	if not cell_handle.is_valid():
+		assert(false, "Tried fetchin with invalid handle")
+		return Vector3.ZERO
+	
 	return _get_holder_with_handle(cell_handle).global_position
 	
+
+func get_cells_positions(cell_handles : Array[CellHandle]) -> Array[Vector3]:
+	var positions: Array[Vector3]
+	for cell_handle in cell_handles:
+		positions.append(get_cell_position(cell_handle))
+	
+	return positions
 
 # TEST: Temporary for testing
 func get_cell_mesh(cell_handle : CellHandle) -> MeshInstance3D:
@@ -158,7 +184,7 @@ func _generate_cell(index : int, generation_position : Vector2) -> void:
 
 func _get_holder_with_handle(cell_handle : CellHandle) -> HolderComponent:
 	if not _generated_cells.has(cell_handle._index):
-		printerr("Tried to fetch with invalid index: %s" %cell_handle._index)
+		assert(false, "Tried to fetch with invalid index: %s" %cell_handle._index)
 		return null
 	
 	return _generated_cells[cell_handle._index]
