@@ -13,6 +13,20 @@ extends Node3D
 
 var _generated_cells: Dictionary 
 
+class CellHandle:
+	var _index: int = -1
+	
+	func _init(set_index : int):
+		if set_index < 0:
+			return
+		
+		_index = set_index
+	
+	func is_valid() -> bool:
+		return not (_index < 0)
+		
+	
+
 func _get_configuration_warnings() -> PackedStringArray:
 	var warning: PackedStringArray
 	if not base_block:
@@ -21,7 +35,8 @@ func _get_configuration_warnings() -> PackedStringArray:
 	return warning
 	
 
-
+#region Public Methods
+#region Generation
 func generate_grid(_start : bool = false) -> void:
 	if not base_block:
 		printerr("Set base block before generating")
@@ -47,38 +62,51 @@ func clear_grid(_clear : bool) -> void:
 	
 	_generated_cells.clear()
 	
+#endregion
 
-func get_cell_with_index(index : int) -> HolderComponent:
-	if not _generated_cells.has(index):
-		printerr("Tried to fetch invalid index: %s" %index)
-		return null
+#region Getters
+func get_random_opposing_border_cells() -> Array[CellHandle]:
+	var opposing_cells: Array[CellHandle]
 	
-	return _generated_cells[index]
-
-func get_random_opposing_border_cells() -> Array[HolderComponent]:
-	var opposing_cells: Array[HolderComponent]
 	var rng = RandomNumberGenerator.new()
 	var is_horizontal : bool = rng.randi_range(0, 1)
-	var cell_index
+	var cell_index: int
 	
 	if is_horizontal:
 		cell_index = _get_random_left_border_cell_index(rng)
-		opposing_cells.append(get_cell_with_index(cell_index))
+		opposing_cells.append(CellHandle.new(cell_index))
 		
 		cell_index = _get_random_right_border_cell_index(rng)
-		opposing_cells.append(get_cell_with_index(cell_index))
+		opposing_cells.append(CellHandle.new(cell_index))
 		
 	else:
 		cell_index = _get_random_top_border_cell_index(rng)
-		opposing_cells.append(get_cell_with_index(cell_index))
+		opposing_cells.append(CellHandle.new(cell_index))
 		
 		cell_index = _get_random_bottom_border_cell_index(rng)
-		opposing_cells.append(get_cell_with_index(cell_index))
+		opposing_cells.append(CellHandle.new(cell_index))
 		
 	
 	opposing_cells.shuffle()
 	return opposing_cells
 
+func get_cell_position(cell_handle : CellHandle) -> Vector3:
+	return _get_holder_with_handle(cell_handle).global_position
+	
+
+# TEST: Temporary for testing
+func get_cell_mesh(cell_handle : CellHandle) -> MeshInstance3D:
+	return _get_holder_with_handle(cell_handle)._mesh
+	
+
+func get_cell_path_from_to():
+	pass
+
+#endregion
+#endregion
+
+#region Private Methods
+#region Generation
 func _set_width(width_size : int) -> void:
 	grid_width = max(width_size, 1)
 	
@@ -126,7 +154,16 @@ func _generate_cell(index : int, generation_position : Vector2) -> void:
 	GenerationUtils.setup_node_parent(block_instance, "Base Block #%s" % index, self) 
 	_generated_cells[index] = block_instance
 	block_instance.global_position = _get_block_position(generation_position, block_instance)
+#endregion
 
+func _get_holder_with_handle(cell_handle : CellHandle) -> HolderComponent:
+	if not _generated_cells.has(cell_handle._index):
+		printerr("Tried to fetch with invalid index: %s" %cell_handle._index)
+		return null
+	
+	return _generated_cells[cell_handle._index]
+
+#region Get Random Cell
 func _get_random_top_border_cell_index(rng : RandomNumberGenerator = RandomNumberGenerator.new()) -> int:
 	var random_index = rng.randi_range(0, grid_width - 1)
 	return random_index
@@ -145,3 +182,6 @@ func _get_random_right_border_cell_index(rng : RandomNumberGenerator = RandomNum
 	var random_index = rng.randi_range(0, grid_length - 1)
 	random_index += (grid_width - 1) * (random_index + 1)
 	return random_index
+#endregion
+#endregion
+
