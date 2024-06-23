@@ -4,6 +4,7 @@ extends Node3D
 
 ## Enables the placing of objects on component owner
 
+@export_category("Holding Data")
 @export var _placeable: PlaceableData: set = set_placeable
 @export var _mesh: MeshInstance3D
 @export var _y_offset:float 

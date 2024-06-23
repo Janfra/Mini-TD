@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://csas3v1hcvwsg"]
+[gd_scene load_steps=4 format=3 uid="uid://csas3v1hcvwsg"]
 
-[ext_resource type="Script" path="res://Scripts/EnemyPathGenerator.gd" id="1_ecdrk"]
+[ext_resource type="Script" path="res://Scripts/Components/EnemyPathComponent.gd" id="1_0eo62"]
+[ext_resource type="ArrayMesh" uid="uid://bie52w4bsaot" path="res://Assets/Kenney Nature Pack/Water_lily_01.obj" id="2_kyps0"]
 
 [sub_resource type="Curve3D" id="Curve3D_oaoi5"]
 bake_interval = 1.0
 
-[node name="EnemyPath" type="Path3D"]
+[node name="EnemyPath" type="Path3D" node_paths=PackedStringArray("path_follow")]
 curve = SubResource("Curve3D_oaoi5")
-script = ExtResource("1_ecdrk")
+script = ExtResource("1_0eo62")
+path_follow = NodePath("PathFollow3D")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="."]
 transform = Transform3D(-4.37113e-08, 0, -1, 0, 0.999999, 0, 0.999999, 0, -4.37114e-08, 0, 0, 0)
-loop = false
+
+[node name="PathHint" type="MeshInstance3D" parent="PathFollow3D"]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, -0.3, 0, 0.3)
+mesh = ExtResource("2_kyps0")

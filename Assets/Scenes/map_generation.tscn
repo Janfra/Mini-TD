@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxfcdwcg11w3u"]
+[gd_scene load_steps=6 format=3 uid="uid://dxfcdwcg11w3u"]
 
 [ext_resource type="Script" path="res://Scripts/MapGeneration.gd" id="1_1g4sv"]
 [ext_resource type="PackedScene" uid="uid://b4nms1n8k14fx" path="res://Assets/Scenes/grid_generator.tscn" id="1_yv21r"]
 [ext_resource type="PackedScene" uid="uid://csas3v1hcvwsg" path="res://Assets/Scenes/path.tscn" id="2_l1v4g"]
+[ext_resource type="Script" path="res://Scripts/EnemyManager.gd" id="4_gsnwd"]
+[ext_resource type="Resource" uid="uid://cwp88wni78343" path="res://Resources/EnemyWaves/test_wave.tres" id="5_vhab5"]
 
 [node name="MapGeneration" type="Node3D" node_paths=PackedStringArray("grid_generation", "path_generation")]
 script = ExtResource("1_1g4sv")
@@ -12,3 +14,9 @@ path_generation = NodePath("EnemyPath")
 [node name="Grid Generator" parent="." instance=ExtResource("1_yv21r")]
 
 [node name="EnemyPath" parent="." instance=ExtResource("2_l1v4g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="EnemyManager" type="Node" parent="." node_paths=PackedStringArray("path")]
+script = ExtResource("4_gsnwd")
+path = NodePath("../EnemyPath")
+waves_data = ExtResource("5_vhab5")

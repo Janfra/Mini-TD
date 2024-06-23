@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4nms1n8k14fx"]
 
-[ext_resource type="Script" path="res://Scripts/GridGenerator.gd" id="1_o34rr"]
+[ext_resource type="Script" path="res://Scripts/Components/GridComponent.gd" id="1_tsni6"]
 [ext_resource type="PackedScene" uid="uid://bijixboocftwl" path="res://Assets/Scenes/holder_component.tscn" id="2_a0jtf"]
 
 [node name="Grid Generator" type="Node3D"]
-script = ExtResource("1_o34rr")
+script = ExtResource("1_tsni6")
 base_block = ExtResource("2_a0jtf")

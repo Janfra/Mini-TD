@@ -1,5 +1,5 @@
 @tool
-class_name GridGenerator
+class_name GridComponent
 extends Node3D
 
 ## Creates a grid with the configuration
@@ -14,6 +14,9 @@ signal grid_cells_changed
 @export var z_offset:float = 0.0
 
 var _generated_cells: Dictionary 
+var has_generated: bool: 
+	get:
+		return _generated_cells and not _generated_cells.is_empty()
 
 class CellHandle:
 	## Handles give access to information from a cell in a grid.
@@ -36,7 +39,6 @@ class CellHandle:
 	
 	func invalidate_handle() -> void:
 		_index = -1
-		
 	
 
 func _get_configuration_warnings() -> PackedStringArray:

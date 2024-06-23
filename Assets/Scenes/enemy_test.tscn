@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c35r2h228e3pp"]
+
+[ext_resource type="Script" path="res://Assets/Scenes/Enemy.gd" id="1_8w17f"]
+[ext_resource type="ArrayMesh" uid="uid://db3nrypigub38" path="res://Assets/Kenney Nature Pack/Plant_3_01.obj" id="1_ajlf6"]
+[ext_resource type="Script" path="res://Scripts/Components/PathFollowerComponent.gd" id="2_kl1pw"]
+
+[node name="EnemyTest" type="Node3D" node_paths=PackedStringArray("path_follower")]
+script = ExtResource("1_8w17f")
+path_follower = NodePath("PathFollowerComponent")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48, 0, 0.52)
+mesh = ExtResource("1_ajlf6")
+
+[node name="PathFollowerComponent" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("2_kl1pw")
+target = NodePath("..")
+speed = 0.1
