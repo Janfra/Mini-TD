@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c35r2h228e3pp"]
 
-[ext_resource type="Script" path="res://Assets/Scenes/Enemy.gd" id="1_8w17f"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_8w17f"]
 [ext_resource type="ArrayMesh" uid="uid://db3nrypigub38" path="res://Assets/Kenney Nature Pack/Plant_3_01.obj" id="1_ajlf6"]
 [ext_resource type="Script" path="res://Scripts/Components/PathFollowerComponent.gd" id="2_kl1pw"]
 
