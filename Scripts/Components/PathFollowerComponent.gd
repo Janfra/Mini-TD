@@ -14,3 +14,7 @@ func update_distance_traveled(path_handler : EnemyPathComponent, delta : float):
 	var path_data: EnemyPathComponent.PathTravelData = path_handler.get_position_data_along_path(distance_traveled)
 	target.global_position = path_data.position
 	
+	if path_data.is_path_completed:
+		print("Completed path")
+		path_handler.remove_path_follower_listener(self)
+	

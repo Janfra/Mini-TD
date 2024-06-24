@@ -1,26 +1,31 @@
 class_name EnemyManager
 extends Node
 
-signal update_movement(path_handler : EnemyPathComponent, delta : float)
-
 @export_category("Dependencies")
 @export var path: EnemyPathComponent
 @export var waves_data: EnemyWavesData
 
 func _ready() -> void:
 	await get_parent().ready
-	
-	if not waves_data or not waves_data.waves or waves_data.waves.is_empty() or not path:
-		return
-	
-	# TEST: For testing that it follows path correctly
-	var current_wave: EnemySpawnData = waves_data.waves.front()
-	var enemies: Array[Enemy] = current_wave.spawn_enemies_at(path.get_position_data_along_path(0.0).position, self)
-	for enemy in enemies:
-		update_movement.connect(enemy.path_follower.update_distance_traveled.bind())
-		
+	assert(waves_data, "No waves set for level")
+	_spawn_and_setup_wave_enemies()
 	
 
 func _process(delta):
-	update_movement.emit(path, delta)
+	path.update_path_followers_location(delta)
+	if waves_data:
+		waves_data.reduce_spawn_rate_timer_by(delta)
+	
+
+func _spawn_and_setup_wave_enemies() -> void:
+	if not waves_data or not waves_data.is_valid():
+		return
+	
+	# TEST: For testing that it follows path correctly
+	waves_data.start_wave_spawning_at(path.get_beginning_of_path_position(), self)
+	waves_data.enemy_spawned.connect(setup_spawned_enemy.bind())
+	
+
+func setup_spawned_enemy(enemy : Enemy) -> void:
+	path.add_path_follower_listener(enemy.path_follower)
 	

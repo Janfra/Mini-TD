@@ -15,4 +15,4 @@ mesh = ExtResource("1_ajlf6")
 [node name="PathFollowerComponent" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("2_kl1pw")
 target = NodePath("..")
-speed = 0.1
+speed = 1.0

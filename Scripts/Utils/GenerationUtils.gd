@@ -4,7 +4,7 @@ extends RefCounted
 ## Holds static functions that are commonly used across separate classes that require generation
 
 static func setup_node_parent(node : Node, node_name : String, parent_node : Node) -> bool:
-	if not parent_node:
+	if not is_parent_valid(parent_node):
 		assert(false, "No valid parent node defined")
 		return false
 		
@@ -17,4 +17,8 @@ static func setup_node_parent(node : Node, node_name : String, parent_node : Nod
 	
 	node.owner = owner
 	return true
+	
+
+static func is_parent_valid(parent_node : Node) -> bool:
+	return parent_node and parent_node.is_inside_tree()
 	

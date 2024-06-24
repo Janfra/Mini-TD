@@ -1,6 +1,8 @@
 class_name EnemyPathComponent
 extends Path3D
 
+signal updated_movement(path_handler : EnemyPathComponent, delta : float)
+
 @export_category("Dependencies")
 @export var path_follow: PathFollow3D
 
@@ -18,16 +20,35 @@ class PathTravelData:
 		is_path_completed = is_completed
 		
 
+func add_path_follower_listener(follower : PathFollowerComponent) -> void:
+	if not follower:
+		printerr("Trying to add a null path follower")
+		return
+	
+	updated_movement.connect(follower.update_distance_traveled.bind())
+	
+
+func remove_path_follower_listener(follower : PathFollowerComponent) -> void:
+	if not follower:
+		printerr("Trying to add a null path follower")
+		return
+	
+	updated_movement.disconnect(follower.update_distance_traveled.bind())
+	
+
+func update_path_followers_location(delta : float) -> void:
+	updated_movement.emit(self, delta)
+	
+
+func update_display_path_hint(delta : float) -> void:
+	path_follow.progress = display
+	display += delta * display_speed
+	
+
 func add_to_path_given_locations(grid : Array[Vector3]) -> void:
 	for point in grid:
 		curve.add_point(point)
 		
-	
-
-func _process(delta):
-	# Display path 
-	path_follow.progress = display
-	display += delta * display_speed
 	
 
 func get_position_data_along_path(distance_travelled : float) -> PathTravelData:
@@ -38,6 +59,14 @@ func get_position_data_along_path(distance_travelled : float) -> PathTravelData:
 		distance_travelled = curve.get_baked_length()
 		is_path_completed = true
 	
+	return PathTravelData.new(_get_distance_position_on_path(distance_travelled), is_path_completed)
+	
+
+func get_beginning_of_path_position() -> Vector3:
+	return _get_distance_position_on_path(0.0)
+	
+
+func _get_distance_position_on_path(distance_travelled : float) -> Vector3:
 	path_follow.progress = distance_travelled
-	return PathTravelData.new(path_follow.global_position, is_path_completed)
+	return path_follow.global_position
 	

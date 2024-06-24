@@ -2,20 +2,21 @@
 
 [ext_resource type="Script" path="res://Scripts/Resources/Waves/EnemySpawnData.gd" id="2_3rurf"]
 [ext_resource type="Script" path="res://Scripts/Resources/Waves/EnemyWavesData.gd" id="2_f1yfi"]
+[ext_resource type="Script" path="res://Scripts/Resources/Waves/WaveSpawnData.gd" id="3_d6omo"]
 [ext_resource type="PackedScene" uid="uid://c35r2h228e3pp" path="res://Assets/Scenes/enemy_test.tscn" id="3_e40h7"]
-[ext_resource type="Script" path="res://Scripts/Resources/Waves/PerWaveData.gd" id="4_qxnfx"]
 
-[sub_resource type="Resource" id="Resource_n0ox0"]
-script = ExtResource("4_qxnfx")
-enemy_scene = ExtResource("3_e40h7")
-enemy_count = 1
-spawn_rate = 1.0
-spawn_delay = 0.0
-
-[sub_resource type="Resource" id="Resource_yyq6s"]
+[sub_resource type="Resource" id="Resource_8khny"]
 script = ExtResource("2_3rurf")
-spawn_data = Array[ExtResource("4_qxnfx")]([SubResource("Resource_n0ox0")])
+_enemy_scene = ExtResource("3_e40h7")
+_is_first_spawn_instant = true
+_enemy_count = 2
+_spawn_rate = 3.0
+_spawn_delay = 1.0
+
+[sub_resource type="Resource" id="Resource_540js"]
+script = ExtResource("3_d6omo")
+_enemies_spawn_data = Array[ExtResource("2_3rurf")]([SubResource("Resource_8khny")])
 
 [resource]
 script = ExtResource("2_f1yfi")
-waves = Array[ExtResource("2_3rurf")]([SubResource("Resource_yyq6s")])
+_waves = Array[ExtResource("3_d6omo")]([SubResource("Resource_540js")])
