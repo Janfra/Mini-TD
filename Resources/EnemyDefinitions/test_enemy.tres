@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemyDefinitionData" load_steps=3 format=3 uid="uid://eim85uannsa6"]
+
+[ext_resource type="ArrayMesh" uid="uid://dex4uu2byagtf" path="res://Assets/Kenney Nature Pack/Flower_Red_01.obj" id="1_lct12"]
+[ext_resource type="Script" path="res://Scripts/Resources/EnemyDefinitionData.gd" id="1_sk448"]
+
+[resource]
+script = ExtResource("1_sk448")
+mesh = ExtResource("1_lct12")
+movement_speed = 1.0

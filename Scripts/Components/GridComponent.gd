@@ -163,8 +163,8 @@ func _get_block_position(generation_position : Vector2, node : Node) -> Vector3:
 	
 	var centering_offset: Vector3 = Vector3.ZERO
 	# Remove half a block since it is generated with corner on origin
-	centering_offset.x = (block_bounds.x * (grid_width - 1)) / 2 
-	centering_offset.z = (block_bounds.z * (grid_length - 1)) / 2
+	centering_offset.x = (block_bounds.x * (grid_width - 1)) * 0.5
+	centering_offset.z = (block_bounds.z * (grid_length - 1)) * 0.5
 	
 	return block_position_offset + (global_position - centering_offset)
 	

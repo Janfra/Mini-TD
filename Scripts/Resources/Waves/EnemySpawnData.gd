@@ -5,7 +5,7 @@ signal spawn_rate_reached
 signal enemy_count_reached
 
 @export_category("Enemy Spawning Configuration")
-@export var _enemy_scene: PackedScene
+@export var _enemy_definition: EnemyDefinitionData
 @export var _is_first_spawn_instant: bool
 @export var _enemy_count: int
 @export var _spawn_rate: float
@@ -14,7 +14,11 @@ signal enemy_count_reached
 var _current_rate: float = 0.0
 var _current_count: int = 0
 
+# Don't like hard-coded path, but will do for now
+static var _enemy_scene: PackedScene = preload("res://Assets/Scenes/enemy_test.tscn")
+
 func is_valid() -> bool:
+	assert(_enemy_scene, "Enemy Scene Not Found")
 	return _enemy_scene and _enemy_scene.can_instantiate()
 	
 
@@ -26,6 +30,7 @@ func spawn_enemy_at(position : Vector3, parent_to : Node) -> Enemy:
 	
 	GenerationUtils.setup_node_parent(spawned, "Test Enemy", parent_to)
 	spawned.global_position = position
+	spawned.setup_enemy(_enemy_definition)
 	_increase_spawned_count()
 	
 	return spawned
@@ -35,7 +40,7 @@ func get_spawn_delay() -> float:
 	return _spawn_delay
 	
 
-func setup_spawn_rate():
+func setup_spawn_rate() -> void:
 	_current_rate = _spawn_rate
 	
 

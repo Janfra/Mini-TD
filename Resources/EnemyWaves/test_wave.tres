@@ -1,21 +1,30 @@
-[gd_resource type="Resource" script_class="EnemyWavesData" load_steps=7 format=3 uid="uid://cwp88wni78343"]
+[gd_resource type="Resource" script_class="EnemyWavesData" load_steps=9 format=3 uid="uid://cwp88wni78343"]
 
+[ext_resource type="Resource" uid="uid://eim85uannsa6" path="res://Resources/EnemyDefinitions/test_enemy.tres" id="1_gmogh"]
 [ext_resource type="Script" path="res://Scripts/Resources/Waves/EnemySpawnData.gd" id="2_3rurf"]
 [ext_resource type="Script" path="res://Scripts/Resources/Waves/EnemyWavesData.gd" id="2_f1yfi"]
+[ext_resource type="Resource" uid="uid://bq38y1foa4wmw" path="res://Resources/EnemyDefinitions/test_enemy2.tres" id="3_b34dd"]
 [ext_resource type="Script" path="res://Scripts/Resources/Waves/WaveSpawnData.gd" id="3_d6omo"]
-[ext_resource type="PackedScene" uid="uid://c35r2h228e3pp" path="res://Assets/Scenes/enemy_test.tscn" id="3_e40h7"]
 
 [sub_resource type="Resource" id="Resource_8khny"]
 script = ExtResource("2_3rurf")
-_enemy_scene = ExtResource("3_e40h7")
+_enemy_definition = ExtResource("1_gmogh")
 _is_first_spawn_instant = true
+_enemy_count = 2
+_spawn_rate = 3.0
+_spawn_delay = 1.0
+
+[sub_resource type="Resource" id="Resource_1phy8"]
+script = ExtResource("2_3rurf")
+_enemy_definition = ExtResource("3_b34dd")
+_is_first_spawn_instant = false
 _enemy_count = 2
 _spawn_rate = 3.0
 _spawn_delay = 1.0
 
 [sub_resource type="Resource" id="Resource_540js"]
 script = ExtResource("3_d6omo")
-_enemies_spawn_data = Array[ExtResource("2_3rurf")]([SubResource("Resource_8khny")])
+_enemies_spawn_data = Array[ExtResource("2_3rurf")]([SubResource("Resource_8khny"), SubResource("Resource_1phy8")])
 
 [resource]
 script = ExtResource("2_f1yfi")
