@@ -10,14 +10,18 @@ Mini TD will be a project that I will divide in sections with separate goals. St
 - [X] Populate grid with simple squared objects
 
 #### Simple path
-- [ ] Grid includes a path for enemies to follow
+- [X] Grid includes a path for enemies to follow
 
 #### Basic placing
-- [ ] Grid cells can be used to place a base placeable object
+- [X] Grid cells can be used to place a base placeable object
 
 ## Section two: Basic TD Mechanics
 #### Expand path
-- [ ] Have test objects follow path
+- [X] Have test objects follow path
+
+#### Enemy Waves
+- [X] Can create and configure the enemy spawning waves
+- [X] Spawn enemies as per their configuration
 
 #### Enemy detection
 - [ ] Placeable objects can include a component that detects objects in path
