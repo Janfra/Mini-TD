@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cnhh5fn5lwdtn"
+path="res://.godot/imported/Grey_Cliff_Top_01.obj-5f050edc80d6b68d9e992eedcb01ef8e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Grey_Cliff_Top_01.obj-5f050edc80d6b68d9e992eedcb01ef8e.mesh"]
+
+source_file="res://Assets/Kenney Nature Pack/Floor/Grey_Cliff_Top_01.obj"
+dest_files=["res://.godot/imported/Grey_Cliff_Top_01.obj-5f050edc80d6b68d9e992eedcb01ef8e.mesh", "res://.godot/imported/Grey_Cliff_Top_01.obj-5f050edc80d6b68d9e992eedcb01ef8e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

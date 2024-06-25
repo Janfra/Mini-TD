@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c0bnvcguwvulk"
+path="res://.godot/imported/Grey_Cliff_Corner_01.obj-21bf3c4b156e06634fd27b519ca910a4.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Grey_Cliff_Corner_01.obj-21bf3c4b156e06634fd27b519ca910a4.mesh"]
+
+source_file="res://Assets/Kenney Nature Pack/Floor/Grey_Cliff_Corner_01.obj"
+dest_files=["res://.godot/imported/Grey_Cliff_Corner_01.obj-21bf3c4b156e06634fd27b519ca910a4.mesh", "res://.godot/imported/Grey_Cliff_Corner_01.obj-21bf3c4b156e06634fd27b519ca910a4.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

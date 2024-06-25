@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b6ios5c2xhv4f"
+path="res://.godot/imported/Brown_Cliff_Bottom_01.obj-12f9147fc2fe1e1d93cdaec3804099ed.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Brown_Cliff_Bottom_01.obj-12f9147fc2fe1e1d93cdaec3804099ed.mesh"]
+
+source_file="res://Assets/Kenney Nature Pack/Floor/Brown_Cliff_Bottom_01.obj"
+dest_files=["res://.godot/imported/Brown_Cliff_Bottom_01.obj-12f9147fc2fe1e1d93cdaec3804099ed.mesh", "res://.godot/imported/Brown_Cliff_Bottom_01.obj-12f9147fc2fe1e1d93cdaec3804099ed.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
