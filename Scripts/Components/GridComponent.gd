@@ -13,6 +13,16 @@ signal grid_cells_changed
 @export var x_offset:float = 0.0
 @export var z_offset:float = 0.0
 
+@export_category("Debugging")
+@export var _generate_debug_grid:bool: 
+	set(value):
+		if Engine.is_editor_hint():
+			generate_grid()
+@export var _clear_debug_grid:bool:
+	set(value):
+		if Engine.is_editor_hint():
+			clear_grid()
+
 var _generated_cells: Dictionary 
 var has_generated: bool: 
 	get:
@@ -22,9 +32,10 @@ class CellHandle:
 	## Handles give access to information from a cell in a grid.
 	## They become invalid if the grid is changed for now
 	
-	var _index: int = -1
+	const INVALID_INDEX: int = -1
+	var _index: int = INVALID_INDEX
 	
-	func _init(set_index : int, invalidate_on_signal : Signal):
+	func _init(set_index : int, invalidate_on_signal : Signal = Signal()):
 		if set_index < 0:
 			return
 		
@@ -38,7 +49,19 @@ class CellHandle:
 		
 	
 	func invalidate_handle() -> void:
-		_index = -1
+		_index = INVALID_INDEX
+	
+
+class CellData:
+	var holder: HolderComponent
+	var width_position: int
+	var lenght_position: int
+	
+	func _init(set_holder : HolderComponent, set_grid_position : Vector2):
+		holder = set_holder
+		width_position = set_grid_position.x
+		lenght_position = set_grid_position.y
+		
 	
 
 func _get_configuration_warnings() -> PackedStringArray:
@@ -51,7 +74,7 @@ func _get_configuration_warnings() -> PackedStringArray:
 
 #region Public Methods
 #region Generation
-func generate_grid(_start : bool = false) -> void:
+func generate_grid() -> void:
 	if not base_block:
 		printerr("Set base block before generating")
 		return
@@ -71,10 +94,10 @@ func generate_grid(_start : bool = false) -> void:
 			print("Generate cell at index: %s" % index)
 	
 
-func clear_grid(_clear : bool) -> void:
+func clear_grid() -> void:
 	for cell in _generated_cells.values():
-		var node = cell as Node3D
-		node.queue_free()
+		var data:CellData = cell as CellData
+		data.holder.queue_free()
 	
 	grid_cells_changed.emit()
 	_generated_cells.clear()
@@ -82,6 +105,46 @@ func clear_grid(_clear : bool) -> void:
 #endregion
 
 #region Getters
+func get_path_from_to_cell(path_start : CellHandle, path_end : CellHandle) -> Array[CellHandle]:
+	var path: Array[CellHandle]
+	var distance: int = abs(path_start._index - path_end._index)
+	if distance == 0:
+		return path
+	print("Start: %s - End: %s - Distance: %s" % [path_start._index, path_end._index, distance])
+	
+	var start_data: CellData = _get_cell_data_with_handle(path_start)
+	var end_data: CellData = _get_cell_data_with_handle(path_end)
+	
+	var start_width = start_data.width_position
+	var start_lenght = start_data.lenght_position
+	var vector_start = Vector2i(start_width, start_lenght)
+	
+	
+	var end_width = end_data.width_position
+	var end_lenght = end_data.lenght_position
+	var vector_end = Vector2i(end_width, end_lenght)
+	print("Start: %s - End: %s" % [vector_start, vector_end])
+	
+	var result_vector = vector_start - vector_end
+	var multiplier_vector = result_vector.sign()
+	multiplier_vector.x *= -1
+	result_vector *= multiplier_vector
+	print("Total steps: %s" % [result_vector])
+	print(multiplier_vector)
+	
+	var current_index: int = path_start._index
+	for x in abs(result_vector.x):
+		current_index += 1 * multiplier_vector.x
+		path.append(_create_cell_handle(current_index))
+		print("x step: %s multiplier: %s index: %s" % [x, multiplier_vector.x, current_index])
+	
+	for y in abs(result_vector.y):
+		current_index += _convert_lenght_to_index(1) * multiplier_vector.y
+		path.append(_create_cell_handle(current_index))
+		print("y step: %s multiplier: %s index: %s" % [y, multiplier_vector.y, current_index])
+	
+	return path
+
 func get_random_opposing_border_cells() -> Array[CellHandle]:
 	var opposing_cells: Array[CellHandle]
 	
@@ -91,17 +154,17 @@ func get_random_opposing_border_cells() -> Array[CellHandle]:
 	
 	if is_horizontal:
 		cell_index = _get_random_left_border_cell_index(rng)
-		opposing_cells.append(CellHandle.new(cell_index, grid_cells_changed))
+		opposing_cells.append(_create_cell_handle(cell_index))
 		
 		cell_index = _get_random_right_border_cell_index(rng)
-		opposing_cells.append(CellHandle.new(cell_index, grid_cells_changed))
+		opposing_cells.append(_create_cell_handle(cell_index))
 		
 	else:
 		cell_index = _get_random_top_border_cell_index(rng)
-		opposing_cells.append(CellHandle.new(cell_index, grid_cells_changed))
+		opposing_cells.append(_create_cell_handle(cell_index))
 		
 		cell_index = _get_random_bottom_border_cell_index(rng)
-		opposing_cells.append(CellHandle.new(cell_index, grid_cells_changed))
+		opposing_cells.append(_create_cell_handle(cell_index))
 		
 	
 	opposing_cells.shuffle()
@@ -112,7 +175,7 @@ func get_cell_position(cell_handle : CellHandle) -> Vector3:
 		assert(false, "Tried fetchin with invalid handle")
 		return Vector3.ZERO
 	
-	return _get_holder_with_handle(cell_handle).global_position
+	return _get_cell_data_with_handle(cell_handle).holder.global_position
 	
 
 func get_cells_positions(cell_handles : Array[CellHandle]) -> Array[Vector3]:
@@ -124,11 +187,8 @@ func get_cells_positions(cell_handles : Array[CellHandle]) -> Array[Vector3]:
 
 # TEST: Temporary for testing
 func get_cell_mesh(cell_handle : CellHandle) -> MeshInstance3D:
-	return _get_holder_with_handle(cell_handle)._mesh
+	return _get_cell_data_with_handle(cell_handle).holder._mesh
 	
-
-func get_cell_path_from_to():
-	pass
 
 #endregion
 #endregion
@@ -143,7 +203,7 @@ func _set_lenght(length_size : int) -> void:
 	grid_length = max(length_size, 1)
 	
 
-func _get_block_position(generation_position : Vector2, node : Node) -> Vector3:
+func _get_block_position(grid_position : Vector2, node : Node) -> Vector3:
 	if not (node is HolderComponent):
 		assert(false, "Base block Node must be a holder component")
 		return Vector3()
@@ -155,11 +215,11 @@ func _get_block_position(generation_position : Vector2, node : Node) -> Vector3:
 	
 	var block_position_offset: Vector3 = Vector3.ZERO
 	var block_bounds: Vector3 = holder.get_mesh_bounds()
-	var x_offset_multiplier: int = min(generation_position.x, 1)
-	var z_offset_multiplier: int = min(generation_position.y, 1)
+	var x_offset_multiplier: int = min(grid_position.x, 1)
+	var z_offset_multiplier: int = min(grid_position.y, 1)
 	
-	block_position_offset.x = (generation_position.x * block_bounds.x + generation_position.x * x_offset) * x_offset_multiplier
-	block_position_offset.z = (generation_position.y * block_bounds.z + generation_position.y * z_offset) * z_offset_multiplier
+	block_position_offset.x = (grid_position.x * block_bounds.x + grid_position.x * x_offset) * x_offset_multiplier
+	block_position_offset.z = (grid_position.y * block_bounds.z + grid_position.y * z_offset) * z_offset_multiplier
 	
 	var centering_offset: Vector3 = Vector3.ZERO
 	# Remove half a block since it is generated with corner on origin
@@ -169,7 +229,7 @@ func _get_block_position(generation_position : Vector2, node : Node) -> Vector3:
 	return block_position_offset + (global_position - centering_offset)
 	
 
-func _generate_cell(index : int, generation_position : Vector2) -> void:
+func _generate_cell(index : int, grid_position : Vector2) -> void:
 	if _generated_cells.has(index):
 		print("Already have index")
 		return
@@ -180,16 +240,31 @@ func _generate_cell(index : int, generation_position : Vector2) -> void:
 	
 	var block_instance:Node = base_block.instantiate()
 	GenerationUtils.setup_node_parent(block_instance, "Base Block #%s" % index, self) 
-	_generated_cells[index] = block_instance
-	block_instance.global_position = _get_block_position(generation_position, block_instance)
+	block_instance.global_position = _get_block_position(grid_position, block_instance)
+	_register_cell(index, block_instance, grid_position)
+
+func _register_cell(index : int, holder : HolderComponent, grid_position : Vector2) -> void:
+	_generated_cells[index] = CellData.new(holder, grid_position)
+	
+
 #endregion
 
-func _get_holder_with_handle(cell_handle : CellHandle) -> HolderComponent:
+func _get_cell_data_with_handle(cell_handle : CellHandle) -> CellData:
 	if not _generated_cells.has(cell_handle._index):
 		assert(false, "Tried to fetch with invalid index: %s" %cell_handle._index)
 		return null
 	
 	return _generated_cells[cell_handle._index]
+
+func _create_cell_handle(index : int) -> CellHandle:
+	if not _generated_cells.has(index):
+		return CellHandle.new(CellHandle.INVALID_INDEX)
+	
+	return CellHandle.new(index, grid_cells_changed)
+	
+
+func _convert_lenght_to_index(length_value : int) -> int:
+	return (length_value * grid_width) * -1
 
 #region Get Random Cell
 func _get_random_top_border_cell_index(rng : RandomNumberGenerator = RandomNumberGenerator.new()) -> int:

@@ -25,11 +25,22 @@ func _create_map_grid() -> void:
 
 func _setup_map_enemy_path() -> void:
 	var path_endings: Array[GridComponent.CellHandle] = grid_generation.get_random_opposing_border_cells()
-	path_generation.add_to_path_given_locations(grid_generation.get_cells_positions(path_endings))
+	var path: Array[GridComponent.CellHandle] = grid_generation.get_path_from_to_cell(path_endings[0], path_endings[1])
+	
+	path_generation.add_to_path_given_locations(grid_generation.get_cells_positions(path))
 	print("Point count: %s, lenght: %s" % [path_generation.curve.point_count, path_generation.curve.get_baked_length()])
 	
 	# TEST: For diferrentiating end and beginning of path
-	for path_ending in path_endings:
-		grid_generation.get_cell_mesh(path_ending).transparency = 0.5
+	for point in path:
+		if not point.is_valid():
+			continue
+		
+		grid_generation.get_cell_mesh(point).transparency = 0.5
+		
+	
+	for ending in path_endings:
+		if not ending.is_valid():
+			continue
+		grid_generation.get_cell_mesh(ending).transparency = 0.9
 		
 	
