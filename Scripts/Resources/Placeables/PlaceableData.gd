@@ -5,3 +5,6 @@ extends Resource
 
 @export var placeable_scene: PackedScene
 
+func is_valid() -> bool:
+	return placeable_scene and placeable_scene.can_instantiate()
+	

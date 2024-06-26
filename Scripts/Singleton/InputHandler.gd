@@ -5,13 +5,18 @@ extends Node
 
 signal moved(MoveInput : Vector2)
 signal stopped_moving
-signal clicked
+signal clicked(event : InputEventMouseButton)
+signal just_clicked(event : InputEventMouseButton)
+signal stopped_clicking(event : InputEventMouseButton)
 
 var _was_moving:bool = false
 var _ui_focused:bool = false
 
-func _unhandled_input(_event):
+func _unhandled_input(event) -> void:
 	_handle_movement_inputs()
+	if event is InputEventMouseButton:
+		_handle_clicking(event as InputEventMouseButton)
+		
 	
 
 func set_ui_focused(is_focused : bool) -> void:
@@ -36,9 +41,11 @@ func _handle_movement_inputs() -> void:
 		
 	
 
-func _handle_clicking() -> void:
-	if not Input.is_action_just_pressed("select"):
-		return
+func _handle_clicking(event : InputEventMouseButton) -> void:
+	clicked.emit(event)
 	
-	clicked.emit()
+	if event.is_pressed():
+		just_clicked.emit(event)
+	else:
+		stopped_clicking.emit(event)
 	

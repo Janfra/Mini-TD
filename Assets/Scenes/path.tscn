@@ -16,4 +16,5 @@ transform = Transform3D(-4.37113e-08, 0, -1, 0, 0.999999, 0, 0.999999, 0, -4.371
 
 [node name="PathHint" type="MeshInstance3D" parent="PathFollow3D"]
 transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, -0.3, 0, 0.3)
+visible = false
 mesh = ExtResource("2_kyps0")

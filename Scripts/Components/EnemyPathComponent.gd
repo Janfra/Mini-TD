@@ -3,7 +3,7 @@ extends Path3D
 
 signal updated_movement(path_handler : EnemyPathComponent, delta : float)
 
-@export_category("Dependencies")
+@export_category("Dependsencies")
 @export var path_follow: PathFollow3D
 
 @export_category("Hint")

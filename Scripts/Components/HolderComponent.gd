@@ -1,4 +1,3 @@
-@tool
 class_name HolderComponent
 extends Node3D
 
@@ -12,7 +11,7 @@ var created_scene: Node
 
 func set_placeable(placeable_data : PlaceableData):
 	_placeable = placeable_data
-	if not placeable_data:
+	if not placeable_data or not placeable_data.is_valid():
 		return
 	
 	_generate_placeable(_placeable.placeable_scene)

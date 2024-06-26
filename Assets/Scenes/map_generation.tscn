@@ -14,9 +14,6 @@ path_generation = NodePath("EnemyPath")
 [node name="Grid Generator" parent="." instance=ExtResource("1_yv21r")]
 grid_width = 6
 grid_length = 6
-x_offset = 1.0
-z_offset = 1.0
-_clear_debug_grid = null
 
 [node name="EnemyPath" parent="." instance=ExtResource("2_l1v4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

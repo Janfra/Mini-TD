@@ -63,6 +63,11 @@ move_down={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Terrain"
+3d_physics/layer_2="Enemy"
+
 [navigation]
 
 2d/stretch/aspect="keep"

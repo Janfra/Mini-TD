@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctw8lc2avc3am"]
+[gd_scene load_steps=3 format=3 uid="uid://ctw8lc2avc3am"]
 
 [ext_resource type="PackedScene" uid="uid://dxfcdwcg11w3u" path="res://Assets/Scenes/map_generation.tscn" id="2_k70xm"]
-[ext_resource type="Resource" uid="uid://b8fvl4oqt6r02" path="res://Resources/PlaceableObjects/placeable_test.tres" id="2_owpkx"]
 [ext_resource type="PackedScene" uid="uid://si8sgvx8k6rb" path="res://Assets/Scenes/camera_controller.tscn" id="3_ihval"]
 
 [node name="Test Level One" type="Node3D"]
@@ -12,9 +11,9 @@ transform = Transform3D(1, 0, 0, 0, 0.375691, 0.926745, 0, -0.926745, 0.375691, 
 [node name="Camera3D" parent="." instance=ExtResource("3_ihval")]
 transform = Transform3D(1, 0, 0, 0, 0.0871558, 0.996195, 0, -0.996195, 0.0871558, 0, 10, 0)
 _speed = 4.0
-_placeable = ExtResource("2_owpkx")
 
 [node name="MapGeneration" parent="." instance=ExtResource("2_k70xm")]
 grid_size = Vector2i(6, 6)
 
 [editable path="Camera3D"]
+[editable path="MapGeneration"]

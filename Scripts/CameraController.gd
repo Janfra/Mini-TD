@@ -6,6 +6,9 @@ extends Camera3D
 @export_category("Movement Configuration")
 @export var _speed: float = 1.0
 
+@export_category("Debugging")
+@export var _placeable: PlaceableData
+
 var _velocity:Vector3 = Vector3.ZERO
 var _velocity_last_frame:Vector3 = Vector3.ZERO
 
@@ -13,11 +16,12 @@ var _velocity_last_frame:Vector3 = Vector3.ZERO
 func _ready() -> void:
 	PlayerInputs.moved.connect(_perform_camera_movement.bind())
 	PlayerInputs.stopped_moving.connect(stop_movement.bind())
+	PlayerInputs.just_clicked.connect(_try_select.bind())
 	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta : float) -> void:
+func _physics_process(delta : float) -> void:
 	if not _velocity.is_zero_approx():
 		global_position += _velocity * delta
 	
@@ -33,4 +37,24 @@ func _perform_camera_movement(move_input : Vector2) -> void:
 	movement.z = normalized_input.y
 	
 	_velocity = movement * _speed
+	
+
+func _try_select(event : InputEventMouseButton) -> void:
+	var space = get_world_3d().direct_space_state
+	var start = project_ray_origin(event.position)
+	var end = start + project_ray_normal(event.position) * 1000
+	var ray = PhysicsRayQueryParameters3D.create(start, end)
+	ray.collide_with_areas = true
+	var array = space.intersect_ray(ray)
+	
+	print(array)
+	if array.is_empty():
+		return
+	
+	# TEST: Selecting and building
+	if array.collider is SelectableComponent:
+		var selectable = array.collider as SelectableComponent
+		if selectable.selected_node is HolderComponent:
+			var holder = selectable.selected_node as HolderComponent
+			holder.set_placeable(_placeable)
 	
