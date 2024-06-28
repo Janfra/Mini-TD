@@ -1,6 +1,8 @@
 class_name EnemySpawnData
 extends Resource
 
+static var name_index: int = 0
+
 signal spawn_rate_reached
 signal enemy_count_reached
 
@@ -28,10 +30,12 @@ func spawn_enemy_at(position : Vector3, parent_to : Node) -> Enemy:
 		assert(false, "Non enemy set for enemy wave")
 		return spawned
 	
-	GenerationUtils.setup_node_parent(spawned, "Test Enemy", parent_to)
+	GenerationUtils.setup_node_parent(spawned, "Test Enemy #%s" % name_index, parent_to)
 	spawned.global_position = position
 	spawned.setup_enemy(_enemy_definition)
 	_increase_spawned_count()
+	
+	name_index += 1
 	
 	return spawned
 	

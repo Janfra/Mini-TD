@@ -1,26 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7ghrwyk4rfix"]
+[gd_scene load_steps=6 format=3 uid="uid://b7ghrwyk4rfix"]
 
+[ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_65sfs"]
 [ext_resource type="ArrayMesh" uid="uid://lo13j7n4dhyg" path="res://Assets/Kenney Nature Pack/Rock_1_01.obj" id="1_gf6xv"]
 [ext_resource type="Script" path="res://Scripts/Components/EnemyDetectionComponent.gd" id="2_uf7qf"]
+[ext_resource type="Script" path="res://Scripts/Components/AttackComponent.gd" id="4_dp0r7"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_qgfs1"]
-height = 0.5
-radius = 2.658
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_u0e4s"]
+radius = 10.0
 
-[node name="TowerToBe" type="Node3D"]
+[node name="TowerToBe" type="Node3D" node_paths=PackedStringArray("enemy_detection", "attack_component")]
+script = ExtResource("1_65sfs")
+enemy_detection = NodePath("EnemyDetectionComponent")
+attack_component = NodePath("AttackComponent")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0.5)
 mesh = ExtResource("1_gf6xv")
 
-[node name="EnemyDetectionComponent" type="Area3D" parent="."]
+[node name="EnemyDetectionComponent" type="Area3D" parent="." node_paths=PackedStringArray("collision")]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
+monitorable = false
 script = ExtResource("2_uf7qf")
+collision = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyDetectionComponent"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
-shape = SubResource("CylinderShape3D_qgfs1")
+shape = SubResource("CylinderShape3D_u0e4s")
+
+[node name="AttackComponent" type="Node" parent="."]
+script = ExtResource("4_dp0r7")
 
 [connection signal="area_entered" from="EnemyDetectionComponent" to="EnemyDetectionComponent" method="_on_area_entered"]
 [connection signal="area_exited" from="EnemyDetectionComponent" to="EnemyDetectionComponent" method="_on_area_exited"]

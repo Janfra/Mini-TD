@@ -6,4 +6,4 @@
 [resource]
 script = ExtResource("2_d0oo3")
 mesh = ExtResource("1_mslbl")
-movement_speed = 2.0
+movement_speed = 0.8
