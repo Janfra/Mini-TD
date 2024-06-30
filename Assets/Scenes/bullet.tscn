@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt3flwvvxwwd8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yeh4q"]
+albedo_color = Color(0.386742, 0.0346724, 0.297764, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ahi46"]
+lightmap_size_hint = Vector2i(8, 5)
+material = SubResource("StandardMaterial3D_yeh4q")
+radius = 0.2
+height = 0.5
+radial_segments = 10
+rings = 10
+
+[node name="Bullet" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ahi46")

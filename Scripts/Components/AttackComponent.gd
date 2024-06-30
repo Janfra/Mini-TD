@@ -1,9 +1,12 @@
 class_name AttackComponent
 extends Node
 
+signal attacked_target(enemy : Enemy)
+
 @export_category("Configuration")
 @export var damage: int = 1
 @export var attack_speed: float = 1
+@export var attack_duration: float = 1
 @export var max_targets: int = 1
 @export var target_priority: FocusPriority
 
@@ -60,6 +63,7 @@ func _attack_target() -> void:
 	
 	target.connect_to_dead_event(_target_killed.bind(target))
 	target.deal_damage(damage)
+	attacked_target.emit(target)
 	
 
 func _target_killed(enemy : Enemy) -> void:

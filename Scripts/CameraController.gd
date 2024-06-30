@@ -47,8 +47,8 @@ func _try_select(event : InputEventMouseButton) -> void:
 	ray.collide_with_areas = true
 	var array = space.intersect_ray(ray)
 	
-	print(array)
 	if array.is_empty():
+		printerr("Selection failed")
 		return
 	
 	# TEST: Selecting and building
@@ -57,4 +57,8 @@ func _try_select(event : InputEventMouseButton) -> void:
 		if selectable.selected_node is HolderComponent:
 			var holder = selectable.selected_node as HolderComponent
 			holder.set_placeable(_placeable)
+		else:
+			printerr("Not holder component - %s" % array.collider)
+	else:
+		printerr("Not selectable - %s" % array.collider)
 	
