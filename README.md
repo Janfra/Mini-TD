@@ -41,7 +41,7 @@ Mini TD will be a project that I will divide in sections with separate goals. St
 #### Selection
 - [X] Basic WIP Selection
 
-#### Section three: Beautify Project Part 1
+## Section three: Beautify Project Part 1
 - [X] Create support for attack animations
 - [X] Create basic bullet animation
 - [ ] Add particle effects for bullets - Optional
