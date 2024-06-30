@@ -15,7 +15,7 @@ Mini TD will be a project that I will divide in sections with separate goals. St
 #### Basic placing
 - [X] Grid cells can be used to place a base placeable object
 
-## Section two: Basic TD Mechanics
+## Section two: Basic TD Mechanics Part 1
 #### Expand path
 - [X] Have test objects follow path
 
@@ -23,5 +23,26 @@ Mini TD will be a project that I will divide in sections with separate goals. St
 - [X] Can create and configure the enemy spawning waves
 - [X] Spawn enemies as per their configuration
 
+#### Enemy
+- [X] Enemies are data driven, changing based on defined data
+- [X] Enemies have health and can be killed
+- [X] Enemies move along path at a defined speed
+
 #### Enemy detection
-- [ ] Placeable objects can include a component that detects objects in path
+- [X] Placeable objects can include a component that detects objects in path
+
+#### Attack Component
+- [X] Placeable objects can attack given enemy targets
+
+#### Camera Controller
+- [X] Basic movement for the camera
+- [X] Can select grid cells
+
+#### Selection
+- [X] Basic WIP Selection
+
+#### Section three: Beautify Project Part 1
+- [X] Create support for attack animations
+- [X] Create basic bullet animation
+- [ ] Add particle effects for bullets - Optional
+- [ ] Fixed mesh models materials

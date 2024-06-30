@@ -14,6 +14,10 @@ func set_placeable(placeable_data : PlaceableData):
 	if not placeable_data or not placeable_data.is_valid():
 		return
 	
+	if is_instance_valid(created_scene):
+		print("Holder already used")
+		return
+	
 	_generate_placeable(_placeable.placeable_scene)
 	
 
