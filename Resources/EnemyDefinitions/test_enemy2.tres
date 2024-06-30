@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="EnemyDefinitionData" load_steps=3 format=3 uid="uid://bq38y1foa4wmw"]
 
-[ext_resource type="ArrayMesh" uid="uid://dgkob0v7kba6d" path="res://Assets/Kenney Nature Pack/Grass_01.obj" id="1_mslbl"]
+[ext_resource type="ArrayMesh" uid="uid://c6sueyqrbmedl" path="res://Assets/Kenney Nature Pack/Flower_Yellow_02.obj" id="1_dr11f"]
 [ext_resource type="Script" path="res://Scripts/Resources/EnemyDefinitionData.gd" id="2_d0oo3"]
 
 [resource]
 script = ExtResource("2_d0oo3")
-mesh = ExtResource("1_mslbl")
+mesh = ExtResource("1_dr11f")
 movement_speed = 0.8
+health = 1

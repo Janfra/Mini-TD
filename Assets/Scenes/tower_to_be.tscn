@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b7ghrwyk4rfix"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_65sfs"]
-[ext_resource type="ArrayMesh" uid="uid://lo13j7n4dhyg" path="res://Assets/Kenney Nature Pack/Rock_1_01.obj" id="1_gf6xv"]
+[ext_resource type="ArrayMesh" uid="uid://lo13j7n4dhyg" path="res://Assets/Kenney Nature Pack/Rock_1_01.obj" id="2_o4g2m"]
 [ext_resource type="Script" path="res://Scripts/Components/EnemyDetectionComponent.gd" id="2_uf7qf"]
 [ext_resource type="Script" path="res://Scripts/Components/AttackComponent.gd" id="4_dp0r7"]
 [ext_resource type="Script" path="res://Scripts/Components/AttackAnimationComponent.gd" id="5_lnp2y"]
@@ -17,7 +17,7 @@ attack_component = NodePath("AttackComponent")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0.5)
-mesh = ExtResource("1_gf6xv")
+mesh = ExtResource("2_o4g2m")
 
 [node name="EnemyDetectionComponent" type="Area3D" parent="." node_paths=PackedStringArray("collision")]
 collision_layer = 0
@@ -32,7 +32,7 @@ shape = SubResource("CylinderShape3D_u0e4s")
 [node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("animation_component")]
 script = ExtResource("4_dp0r7")
 animation_component = NodePath("../AttackAnimationComponent")
-attack_duration = 0.4
+attack_duration = 0.6
 
 [node name="AttackAnimationComponent" type="Node" parent="."]
 script = ExtResource("5_lnp2y")

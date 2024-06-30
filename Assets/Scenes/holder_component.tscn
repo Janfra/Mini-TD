@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bijixboocftwl"]
 
 [ext_resource type="Script" path="res://Scripts/Components/HolderComponent.gd" id="1_fmloy"]
-[ext_resource type="ArrayMesh" uid="uid://cjrx8rws5271n" path="res://Assets/Kenney Nature Pack/Floor/Plate_Grass_01.obj" id="2_tilv1"]
+[ext_resource type="ArrayMesh" uid="uid://crx71g4aopxeh" path="res://Assets/Kenney Nature Pack/Plate_Grass_Dirt_01.obj" id="2_letm8"]
 [ext_resource type="Script" path="res://Scripts/Components/SelectableComponent.gd" id="3_lse4o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bf4q5"]
@@ -12,8 +12,8 @@ script = ExtResource("1_fmloy")
 _mesh = NodePath("MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.5)
-mesh = ExtResource("2_tilv1")
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -1.5, 0, -1.5)
+mesh = ExtResource("2_letm8")
 
 [node name="SelectableComponent" type="Area3D" parent="." node_paths=PackedStringArray("selected_node")]
 script = ExtResource("3_lse4o")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c35r2h228e3pp"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_8w17f"]
-[ext_resource type="ArrayMesh" uid="uid://db3nrypigub38" path="res://Assets/Kenney Nature Pack/Plant_3_01.obj" id="1_ajlf6"]
 [ext_resource type="Script" path="res://Scripts/Components/PathFollowerComponent.gd" id="2_kl1pw"]
+[ext_resource type="ArrayMesh" uid="uid://db3nrypigub38" path="res://Assets/Kenney Nature Pack/Plant_3_01.obj" id="2_p4fgu"]
 [ext_resource type="Script" path="res://Scripts/Components/HealthComponent.gd" id="4_c12ir"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f4ns1"]
@@ -14,7 +14,7 @@ _mesh_instance = NodePath("MeshInstance3D")
 _health_component = NodePath("HealthComponent")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_ajlf6")
+mesh = ExtResource("2_p4fgu")
 
 [node name="PathFollowerComponent" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("2_kl1pw")
