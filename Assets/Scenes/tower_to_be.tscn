@@ -29,12 +29,13 @@ collision = NodePath("CollisionShape3D")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyDetectionComponent"]
 shape = SubResource("CylinderShape3D_u0e4s")
 
-[node name="AttackComponent" type="Node" parent="."]
+[node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("animation_component")]
 script = ExtResource("4_dp0r7")
+animation_component = NodePath("../AttackAnimationComponent")
+attack_duration = 0.4
 
-[node name="AttackAnimationComponent" type="Node" parent="." node_paths=PackedStringArray("attack_component")]
+[node name="AttackAnimationComponent" type="Node" parent="."]
 script = ExtResource("5_lnp2y")
-attack_component = NodePath("../AttackComponent")
 animation_type = ExtResource("6_wx2m2")
 
 [connection signal="area_entered" from="EnemyDetectionComponent" to="EnemyDetectionComponent" method="_on_area_entered"]

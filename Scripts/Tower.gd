@@ -12,11 +12,9 @@ func _ready():
 	
 
 func _attack_enemy(enemy : Enemy) -> void:
-	print("pew pew")
 	attack_component.add_attacking_target(enemy)
 	
 
 func _stop_attacking_enemy(enemy : Enemy) -> void:
-	print("left")
 	attack_component.remove_attacking_target(enemy)
 	

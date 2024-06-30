@@ -1,7 +1,11 @@
 class_name AttackComponent
 extends Node
 
+signal selected_target(enemy : Enemy)
 signal attacked_target(enemy : Enemy)
+
+@export_category("Soft Dependencies")
+@export var animation_component: AttackAnimationComponent
 
 @export_category("Configuration")
 @export var damage: int = 1
@@ -39,7 +43,7 @@ func remove_attacking_target(enemy : Enemy) -> void:
 
 func _setup_attack_timer() -> void:
 	attack_timer = Timer.new()
-	attack_timer.timeout.connect(_attack_target.bind())
+	attack_timer.timeout.connect(_start_attack.bind())
 	attack_timer.one_shot = false
 	GenerationUtils.setup_node_parent(attack_timer, "Attack Speed Timer", self)
 	
@@ -49,6 +53,7 @@ func _check_for_attacking() -> void:
 		return
 	
 	attack_timer.stop()
+	
 
 func _try_start_attacking_timer() -> void:
 	if not attack_timer.is_stopped():
@@ -56,11 +61,33 @@ func _try_start_attacking_timer() -> void:
 	attack_timer.start(attack_speed)
 	
 
-func _attack_target() -> void:
+func _start_attack() -> void:
+	var target = _select_target()
+	if animation_component:
+		_start_animation(target)
+		await animation_component.on_animation_completed
+		
+	_attack_target(target)
+	
+
+func _start_animation(target : Node3D) -> void:
+	var animation_data: AttackAnimation.AttackAnimationData = AttackAnimation.AttackAnimationData.new()
+	animation_data.duration = attack_duration
+	animation_data.owner = get_parent()
+	animation_data.target = target
+	
+	animation_component.start_animation(animation_data)
+	
+
+func _select_target() -> Enemy:
 	var target: Enemy = available_targets.front() as Enemy
 	assert(target, "Timer should be disabled when all targets are removed")
 	print("Attacking %s" % target.name)
+	selected_target.emit(target)
+	return target
 	
+
+func _attack_target(target : Enemy) -> void:
 	target.connect_to_dead_event(_target_killed.bind(target))
 	target.deal_damage(damage)
 	attacked_target.emit(target)
@@ -69,5 +96,4 @@ func _attack_target() -> void:
 func _target_killed(enemy : Enemy) -> void:
 	enemy.disconnect_to_dead_event(_target_killed.bind())
 	remove_attacking_target(enemy)
-	print("Killed target")
 	

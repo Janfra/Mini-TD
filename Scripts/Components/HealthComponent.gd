@@ -10,11 +10,15 @@ signal damaged
 
 @onready var health: int = max_health
 
+var is_health_depleted: bool:
+	get:
+		return health <= 0
+
 func deal_damage(damage : int) -> void:
 	health -= damage
 	damaged.emit()
 	
-	_is_out_of_health()
+	_check_for_health_depleted()
 	
 
 func heal(heal_amount : int) -> void:
@@ -22,10 +26,8 @@ func heal(heal_amount : int) -> void:
 	healed.emit()
 	
 
-func _is_out_of_health() -> bool:
-	var is_health_depleted: bool = health <= 0
+func _check_for_health_depleted() -> void:
 	if is_health_depleted:
 		health_depleted.emit()
-		
+		print("Killed enemy %s" % get_parent().name)
 	
-	return is_health_depleted

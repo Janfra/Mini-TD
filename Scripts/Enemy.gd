@@ -23,6 +23,8 @@ func connect_to_dead_event(callable : Callable) -> void:
 	
 
 func deal_damage(damage : int) -> void:
+	if _health_component.is_health_depleted:
+		return
 	_health_component.deal_damage(damage)
 	
 

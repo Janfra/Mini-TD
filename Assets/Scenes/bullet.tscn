@@ -6,8 +6,8 @@ albedo_color = Color(0.386742, 0.0346724, 0.297764, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_ahi46"]
 lightmap_size_hint = Vector2i(8, 5)
 material = SubResource("StandardMaterial3D_yeh4q")
-radius = 0.2
-height = 0.5
+radius = 0.1
+height = 0.2
 radial_segments = 10
 rings = 10
 
