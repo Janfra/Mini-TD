@@ -3,6 +3,9 @@ extends Node3D
 
 ## Enables the placing of objects on component owner
 
+signal placed_object
+signal changed_mesh
+
 @export_category("Holding Data")
 @export var _placeable: PlaceableData: set = set_placeable
 @export var _mesh: MeshInstance3D
@@ -19,6 +22,19 @@ func set_placeable(placeable_data : PlaceableData):
 		return
 	
 	_generate_placeable(_placeable.placeable_scene)
+	placed_object.emit()
+	
+
+func change_mesh(set_mesh : Mesh) -> void:
+	_mesh.mesh = set_mesh
+	
+
+func get_mesh_bounds() -> Vector3:
+	if not _mesh or not _mesh.get_aabb():
+		assert(false, "There was no valid mesh")
+		return Vector3()
+	
+	return _mesh.get_aabb().size
 	
 
 func _generate_placeable(scene : PackedScene):
@@ -32,12 +48,4 @@ func _generate_placeable(scene : PackedScene):
 	var position_offset = global_position
 	position_offset.y += get_mesh_bounds().y
 	created_scene.global_position = position_offset
-	
-
-func get_mesh_bounds() -> Vector3:
-	if not _mesh or not _mesh.get_aabb():
-		assert(false, "There was no valid mesh")
-		return Vector3()
-	
-	return _mesh.get_aabb().size
 	

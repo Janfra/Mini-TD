@@ -4,6 +4,8 @@ I have decided to try out a new approach to my mini projects. I will outline goa
 ### Plan Description
 Mini TD will be a project that I will divide in sections with separate goals. Starting with be a very small in scope focusing mostly on just exploring common tower defense mechanics, later sections focusing on expanding it to an actual game. I may or may not complete all sections.
 
+#### Disclaimer: Using Kenneys assets for the visuals: https://kenney.nl/assets
+
 ## Section one: Preparing 
 #### Create a simple map
 - [X] Create a grid

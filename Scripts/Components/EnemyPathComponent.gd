@@ -3,7 +3,7 @@ extends Path3D
 
 signal updated_movement(path_handler : EnemyPathComponent, delta : float)
 
-@export_category("Dependsencies")
+@export_category("Dependencies")
 @export var path_follow: PathFollow3D
 
 @export_category("Hint")
@@ -48,6 +48,7 @@ func update_display_path_hint(delta : float) -> void:
 func add_to_path_given_locations(grid : Array[Vector3]) -> void:
 	for point in grid:
 		curve.add_point(point)
+		print(point)
 		
 	
 

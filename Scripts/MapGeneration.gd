@@ -6,6 +6,18 @@ extends Node3D
 
 @export_category("Configuration")
 @export var grid_size: Vector2i
+@export_subgroup("Grid Path")
+@export var path_straight_mesh: Mesh
+@export var path_ending_mesh: Mesh
+@export var path_corner_mesh: Mesh
+@export_subgroup("Grid Border")
+@export var side_border: Mesh
+@export var corner_boder: Mesh
+
+const DOWN_PATH_ROTATION = Vector3(0, 0, 0)
+const RIGHT_PATH_ROTATION = Vector3(0, 90, 0)
+const UP_PATH_ROTATION = Vector3(0, 180, 0)
+const LEFT_PATH_ROTATION = Vector3(0, 270, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,17 +42,63 @@ func _setup_map_enemy_path() -> void:
 	path_generation.add_to_path_given_locations(grid_generation.get_cells_positions(path))
 	print("Point count: %s, lenght: %s" % [path_generation.curve.point_count, path_generation.curve.get_baked_length()])
 	
-	# TEST: For diferrentiating end and beginning of path
+	var index: int
+	var last_direction: Vector3
 	for point in path:
 		if not point.is_valid():
 			continue
 		
-		grid_generation.get_cell_mesh(point).transparency = 0.5
+		if index == path.size() - 1:
+			# Backwards from last direction to point in the direction of last tile before the end of path
+			_setup_path_cell(point, path_ending_mesh, _get_path_ending_direction_rotation(-last_direction))
+			break
+		
+		var next_point = path[index + 1]
+		var direction = grid_generation.get_direction_from_to_cell(point, next_point)
+		var rotation = Vector3.ZERO
+		var current_mesh = path_straight_mesh
+		
+		if index == 0:
+			current_mesh = path_ending_mesh
+			rotation = _get_path_ending_direction_rotation(direction)
+		elif last_direction != direction:
+			current_mesh = path_corner_mesh
+		else:
+			rotation = _get_straight_path_direction_rotation(direction)
+		
+		_setup_path_cell(point, current_mesh, rotation)
+		index += 1
+		last_direction = direction
+	
+
+func _setup_path_cell(cell_handle : GridComponent.CellHandle, mesh : Mesh, rotation : Vector3) -> void:
+	grid_generation.set_cell_mesh(cell_handle, mesh)
+	grid_generation.set_cell_rotation(cell_handle, rotation)
+	
+
+func _get_straight_path_direction_rotation(direction : Vector3) -> Vector3:
+	var rotation: Vector3 = Vector3.ZERO
+	# Path pointing up or down
+	var vertical_product = direction.dot(Vector3.RIGHT)
+	
+	if vertical_product > 0 or vertical_product < 0:
+		rotation = Vector3(0, 90, 0)
+	return rotation
+
+func _get_path_ending_direction_rotation(direction : Vector3) -> Vector3:
+	var horizontal_product = direction.dot(Vector3.RIGHT)
+	var rotation: Vector3 = RIGHT_PATH_ROTATION
+	
+	if horizontal_product > 0 or horizontal_product < 0:
+		if horizontal_product < 0:
+			rotation = LEFT_PATH_ROTATION
+	else:
+		var vertical_product = direction.dot(Vector3.FORWARD)
+		if vertical_product < 0:
+			rotation = DOWN_PATH_ROTATION
+		else:
+			rotation = UP_PATH_ROTATION
 		
 	
-	for ending in path_endings:
-		if not ending.is_valid():
-			continue
-		grid_generation.get_cell_mesh(ending).transparency = 0.9
-		
+	return rotation
 	

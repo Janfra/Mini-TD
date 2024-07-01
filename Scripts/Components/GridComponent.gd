@@ -185,9 +185,22 @@ func get_cells_positions(cell_handles : Array[CellHandle]) -> Array[Vector3]:
 	
 	return positions
 
-# TEST: Temporary for testing
-func get_cell_mesh(cell_handle : CellHandle) -> MeshInstance3D:
-	return _get_cell_data_with_handle(cell_handle).holder._mesh
+func get_direction_from_to_cell(from : CellHandle, to : CellHandle, normalised : bool = true) -> Vector3:
+	var result: Vector3 = get_cell_position(to) - get_cell_position(from)
+	if normalised:
+		result = result.normalized()
+	
+	return result
+
+#endregion
+
+#region Setters
+func set_cell_mesh(cell_handle : CellHandle, set_mesh : Mesh) -> void:
+	_get_cell_data_with_handle(cell_handle).holder._mesh.mesh = set_mesh
+	
+
+func set_cell_rotation(cell_handle : CellHandle, rotation : Vector3) -> void:
+	_get_cell_data_with_handle(cell_handle).holder.rotation_degrees = rotation
 	
 
 #endregion
