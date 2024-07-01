@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://fl6g3oe8d6h"]
+
+[ext_resource type="PackedScene" uid="uid://c3og7uidhv5gg" path="res://Assets/Kenneys Assets/TowerDefense/Tile/Path/tile_endRoundSpawn.glb" id="1_qsfem"]
+[ext_resource type="ArrayMesh" uid="uid://kskjecyig4dt" path="res://Assets/Meshes/path_round_end_spawn_mesh.tres" id="2_k6wyr"]
+
+[node name="tile_endRoundSpawn" instance=ExtResource("1_qsfem")]
+
+[node name="tile_endRoundSpawn" parent="tmpParent" index="0"]
+mesh = ExtResource("2_k6wyr")

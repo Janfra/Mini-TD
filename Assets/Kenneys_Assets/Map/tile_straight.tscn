@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3d44y2b6udmv"]
+
+[ext_resource type="PackedScene" uid="uid://cmcwpmeodq0h1" path="res://Assets/Kenneys Assets/TowerDefense/Tile/Path/tile_straight.glb" id="1_uda3r"]
+[ext_resource type="ArrayMesh" uid="uid://r4yj6pbwureo" path="res://Assets/Meshes/path_straight_mesh.tres" id="2_w8gb1"]
+
+[node name="tile_straight" instance=ExtResource("1_uda3r")]
+
+[node name="tile_straight" parent="tmpParent" index="0"]
+mesh = ExtResource("2_w8gb1")

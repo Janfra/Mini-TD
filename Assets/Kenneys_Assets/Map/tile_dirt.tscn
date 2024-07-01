@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtfwuvt555puy"]
+
+[ext_resource type="PackedScene" uid="uid://dpf2qljmj842t" path="res://Assets/Kenneys Assets/TowerDefense/Tile/tile_dirt.glb" id="1_hs24i"]
+[ext_resource type="ArrayMesh" uid="uid://dmgduwfofciax" path="res://Assets/Meshes/dirt_mesh.tres" id="2_hg0lv"]
+
+[node name="tile_dirt2" instance=ExtResource("1_hs24i")]
+
+[node name="tile_dirt" parent="tmpParent" index="0"]
+mesh = ExtResource("2_hg0lv")

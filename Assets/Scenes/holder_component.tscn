@@ -1,24 +1,25 @@
 [gd_scene load_steps=5 format=3 uid="uid://bijixboocftwl"]
 
 [ext_resource type="Script" path="res://Scripts/Components/HolderComponent.gd" id="1_fmloy"]
-[ext_resource type="ArrayMesh" uid="uid://crx71g4aopxeh" path="res://Assets/Kenney Nature Pack/Plate_Grass_Dirt_01.obj" id="2_letm8"]
+[ext_resource type="ArrayMesh" uid="uid://dmgduwfofciax" path="res://Assets/Meshes/dirt_mesh.tres" id="2_iijsn"]
 [ext_resource type="Script" path="res://Scripts/Components/SelectableComponent.gd" id="3_lse4o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bf4q5"]
-size = Vector3(3, 0.3, 3)
+size = Vector3(1, 0.1, 1)
 
 [node name="HolderComponent" type="Node3D" node_paths=PackedStringArray("_mesh")]
 script = ExtResource("1_fmloy")
 _mesh = NodePath("MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -1.5, 0, -1.5)
-mesh = ExtResource("2_letm8")
+transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("2_iijsn")
 
 [node name="SelectableComponent" type="Area3D" parent="." node_paths=PackedStringArray("selected_node")]
+monitoring = false
 script = ExtResource("3_lse4o")
 selected_node = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SelectableComponent"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2075, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 shape = SubResource("BoxShape3D_bf4q5")

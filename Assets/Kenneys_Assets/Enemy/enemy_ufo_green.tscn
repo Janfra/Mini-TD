@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf2t8qc63xphh"]
+
+[ext_resource type="PackedScene" uid="uid://dw03bu2oe7pvj" path="res://Assets/Kenneys Assets/TowerDefense/Enemy/enemy_ufoGreen.glb" id="1_xus15"]
+[ext_resource type="ArrayMesh" uid="uid://buqu8kex8t7fx" path="res://Assets/Meshes/enemy_ufo_mesh.tres" id="2_3miix"]
+
+[node name="enemy_ufoGreen2" instance=ExtResource("1_xus15")]
+
+[node name="enemy_ufoGreen" parent="tmpParent" index="0"]
+mesh = ExtResource("2_3miix")
