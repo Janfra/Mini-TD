@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyDefinitionData" load_steps=3 format=3 uid="uid://eim85uannsa6"]
 
 [ext_resource type="Script" path="res://Scripts/Resources/EnemyDefinitionData.gd" id="1_sk448"]
-[ext_resource type="ArrayMesh" uid="uid://coi3h0dpau68i" path="res://Assets/Meshes/enemy_ufo_purple_mesh.tres" id="1_tbe7l"]
+[ext_resource type="ArrayMesh" path="res://Assets/Meshes/enemy_ufo_purple_mesh.tres" id="1_tbe7l"]
 
 [resource]
 script = ExtResource("1_sk448")
