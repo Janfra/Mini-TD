@@ -14,12 +14,13 @@ var _ui_focused:bool = false
 
 const DEFAULT_POINTER = preload("res://Assets/Pointers/pointer_c_shaded.png")
 const SELECT_POINTER = preload("res://Assets/Pointers/pointer_c.png")
+const BUILD_POINTER = preload("res://Assets/Pointers/tool_hammer.png")
 
 enum CursorState
 {
 	Default,
 	Select,
-	Construct,
+	Build,
 }
 
 func _unhandled_input(event) -> void:
@@ -46,6 +47,10 @@ func _get_cursor_from_state(state : CursorState) -> CompressedTexture2D:
 		CursorState.Select:
 			return SELECT_POINTER
 		
+		CursorState.Build:
+			return BUILD_POINTER
+		
+	
 	return DEFAULT_POINTER
 	
 
