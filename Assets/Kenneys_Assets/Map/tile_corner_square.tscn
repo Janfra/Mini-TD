@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7144d0ra6g85"]
-
-[ext_resource type="PackedScene" uid="uid://d2xqbg44q1gdd" path="res://Assets/Kenneys Assets/TowerDefense/Tile/Path/tile_cornerSquare.glb" id="1_1obh8"]
-[ext_resource type="ArrayMesh" uid="uid://co0sequms706j" path="res://Assets/Meshes/path_corner_mesh.tres" id="2_yg4xg"]
-
-[node name="tile_cornerSquare" instance=ExtResource("1_1obh8")]
-
-[node name="tile_cornerSquare" parent="tmpParent" index="0"]
-mesh = ExtResource("2_yg4xg")
