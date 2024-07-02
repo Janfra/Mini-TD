@@ -7,7 +7,6 @@ metallic = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0mdw"]
 resource_name = "glass"
-albedo_color = Color(1, 1, 1, 1)
 metallic = 0.75
 roughness = 0.55
 emission_enabled = true

@@ -89,9 +89,9 @@ func generate_grid() -> void:
 	for y in grid_length:
 		for x in grid_width:
 			_generate_cell(index, Vector2(x, y))
+			print("Generate cell at index: %s" % index)
 			index += 1
 			
-			print("Generate cell at index: %s" % index)
 	
 
 func clear_grid() -> void:
@@ -115,33 +115,27 @@ func get_path_from_to_cell(path_start : CellHandle, path_end : CellHandle) -> Ar
 	var start_data: CellData = _get_cell_data_with_handle(path_start)
 	var end_data: CellData = _get_cell_data_with_handle(path_end)
 	
-	var start_width = start_data.width_position
-	var start_lenght = start_data.lenght_position
-	var vector_start = Vector2i(start_width, start_lenght)
-	
-	
-	var end_width = end_data.width_position
-	var end_lenght = end_data.lenght_position
-	var vector_end = Vector2i(end_width, end_lenght)
+	var vector_start = Vector2i(start_data.width_position, start_data.lenght_position)
+	var vector_end = Vector2i(end_data.width_position, end_data.lenght_position)
 	print("Start: %s - End: %s" % [vector_start, vector_end])
 	
-	var result_vector = vector_start - vector_end
+	# Get steps required in index and their direction with multiplier
+	var result_vector =  vector_end - vector_start
 	var multiplier_vector = result_vector.sign()
-	multiplier_vector.x *= -1
-	result_vector *= multiplier_vector
 	print("Total steps: %s" % [result_vector])
-	print(multiplier_vector)
 	
+	# Add start
 	var current_index: int = path_start._index
+	path.append(_create_cell_handle(current_index))
+	
+	# Add each step until end
 	for x in abs(result_vector.x):
 		current_index += 1 * multiplier_vector.x
 		path.append(_create_cell_handle(current_index))
-		print("x step: %s multiplier: %s index: %s" % [x, multiplier_vector.x, current_index])
 	
 	for y in abs(result_vector.y):
 		current_index += _convert_lenght_to_index(1) * multiplier_vector.y
 		path.append(_create_cell_handle(current_index))
-		print("y step: %s multiplier: %s index: %s" % [y, multiplier_vector.y, current_index])
 	
 	return path
 
@@ -277,7 +271,7 @@ func _create_cell_handle(index : int) -> CellHandle:
 	
 
 func _convert_lenght_to_index(length_value : int) -> int:
-	return (length_value * grid_width) * -1
+	return length_value * grid_width
 
 #region Get Random Cell
 func _get_random_top_border_cell_index(rng : RandomNumberGenerator = RandomNumberGenerator.new()) -> int:

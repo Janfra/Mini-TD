@@ -43,11 +43,6 @@ func _set_mesh(set_mesh : Mesh) -> void:
 	
 	_mesh_instance.mesh = set_mesh
 	
-	# Center mesh based on size since assets pivot points is on the corner
-	var bounds = set_mesh.get_aabb().size * 0.5
-	_mesh_instance.global_position.x -= bounds.x
-	_mesh_instance.global_position.z += bounds.z
-	
 
 func _handle_death() -> void:
 	queue_free()
