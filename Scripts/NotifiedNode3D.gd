@@ -10,7 +10,7 @@ signal freed
 @export var lifetime: float
 @export var hide_on_free: Array[Node3D]
 
-func set_off_lifetime() -> void:
+func end_of_lifetime() -> void:
 	freed.emit()
 	for hide in hide_on_free:
 		hide.hide()
