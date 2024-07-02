@@ -44,9 +44,14 @@ Mini TD will be a project that I will divide in sections with separate goals. St
 - [X] Basic WIP Selection
 
 ## Section three: Beautify Project Part 1
+#### Animations
 - [X] Create support for attack animations
 - [X] Create basic bullet animation
+
+#### Bullet Particles
 - [ ] **Optional** - Add particle effects for bullets
+
+#### Meshes
 - [X] Fixed mesh models materials
 	- [X] **Update** - Replaced old meshes with different asset pack
 - [X] Add path mesh to the grid
