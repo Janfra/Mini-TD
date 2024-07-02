@@ -6,6 +6,8 @@ Mini TD will be a project that I will divide in sections with separate goals. St
 
 #### Disclaimer: Using Kenneys assets for the visuals: https://kenney.nl/assets
 
+As an extra I decided to make PRs a requirement just to make sure I keep making descriptions and updating properly
+
 ## Section one: Preparing 
 #### Create a simple map
 - [X] Create a grid
@@ -55,3 +57,6 @@ Mini TD will be a project that I will divide in sections with separate goals. St
 - [X] Fixed mesh models materials
 	- [X] **Update** - Replaced old meshes with different asset pack
 - [X] Add path mesh to the grid
+
+#### Cursor
+- [ ] Add custom cursor to game
