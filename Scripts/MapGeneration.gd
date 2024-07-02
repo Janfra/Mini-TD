@@ -10,14 +10,6 @@ extends Node3D
 @export var path_straight_mesh: Mesh
 @export var path_ending_mesh: Mesh
 @export var path_corner_mesh: Mesh
-@export_subgroup("Grid Border")
-@export var side_border: Mesh
-@export var corner_boder: Mesh
-
-const DOWN_ONE_PATH_ROTATION = Vector3(0, 0, 0)
-const RIGHT_ONE_PATH_ROTATION = Vector3(0, 90, 0)
-const UP_ONE_PATH_ROTATION = Vector3(0, 180, 0)
-const LEFT_ONE_PATH_ROTATION = Vector3(0, 270, 0)
 
 enum FacingDirection
 {
@@ -87,29 +79,37 @@ func _setup_path_cell(cell_handle : GridComponent.CellHandle, mesh : Mesh, rotat
 
 func _get_straight_path_direction_rotation(direction : Vector3) -> Vector3:
 	var rotation: Vector3 = Vector3.ZERO
-	# Path pointing up or down
 	var vertical_product = direction.dot(Vector3.RIGHT)
 	
+	const VERTICAL_ROTATION = Vector3(0, 90, 0)
+	
+	# Path pointing up or down
 	if vertical_product > 0 or vertical_product < 0:
-		rotation = Vector3(0, 90, 0)
+		rotation = VERTICAL_ROTATION
 	return rotation
+	
 
 func _get_path_ending_direction_rotation(direction : Vector3) -> Vector3:
 	var facing_direction = _get_direction_as_enum(direction)
 	var rotation: Vector3 = Vector3.ZERO
 	
+	const DOWN_ROTATION = Vector3(0, 0, 0)
+	const RIGHT_ROTATION = Vector3(0, 90, 0)
+	const UP_ROTATION = Vector3(0, 180, 0)
+	const LEFT_ROTATION = Vector3(0, 270, 0)
+	
 	match facing_direction:
 		FacingDirection.Down:
-			rotation = DOWN_ONE_PATH_ROTATION
+			rotation = DOWN_ROTATION
 		
 		FacingDirection.Right:
-			rotation = RIGHT_ONE_PATH_ROTATION
+			rotation = RIGHT_ROTATION
 		
 		FacingDirection.Up:
-			rotation = UP_ONE_PATH_ROTATION
+			rotation = UP_ROTATION
 		
 		FacingDirection.Left:
-			rotation = LEFT_ONE_PATH_ROTATION
+			rotation = LEFT_ROTATION
 	
 	return rotation
 	
@@ -119,33 +119,39 @@ func _get_path_corner_direction_rotation(last_direction : Vector3, direction : V
 	var facing_direction = _get_direction_as_enum(direction)
 	var rotation: Vector3 = Vector3.ZERO
 	
+	# For visualization of name: Draw shape following direction, corner of shape points
+	const POINT_TOP_LEFT_ROTATION = Vector3(0, 0, 0)
+	const POINT_TOP_RIGHT_ROTATION = Vector3(0, 90, 0)
+	const POINT_BOTTOM_RIGHT_ROTATION = Vector3(0, 180, 0)
+	const POINT_BOTTOM_LEFT_ROTATION = Vector3(0, 270, 0)
+	
 	match last_facing_direction:
 		FacingDirection.Down:
 			if facing_direction == FacingDirection.Right:
-				rotation = Vector3(0, 270, 0)
+				rotation = POINT_BOTTOM_LEFT_ROTATION
 			else:
-				rotation = Vector3(0, 180, 0)
+				rotation = POINT_BOTTOM_RIGHT_ROTATION
 			
 		
 		FacingDirection.Right:
 			if facing_direction == FacingDirection.Up:
-				rotation = Vector3(0, 180, 0)
+				rotation = POINT_BOTTOM_RIGHT_ROTATION
 			else:
-				rotation = Vector3(0, 270, 0)
+				rotation = POINT_BOTTOM_LEFT_ROTATION
 			
 		
 		FacingDirection.Up:
 			if facing_direction == FacingDirection.Right:
-				rotation = Vector3(0, 0, 0)
+				rotation = POINT_TOP_LEFT_ROTATION
 			else:
-				rotation = Vector3(0, 270, 0)
+				rotation = POINT_BOTTOM_LEFT_ROTATION
 			
 		
 		FacingDirection.Left:
 			if facing_direction == FacingDirection.Up:
-				rotation = Vector3(0, 90, 0)
+				rotation = POINT_TOP_RIGHT_ROTATION
 			else:
-				rotation = Vector3(0, 0, 0)
+				rotation = POINT_TOP_LEFT_ROTATION
 			
 	
 	return rotation
