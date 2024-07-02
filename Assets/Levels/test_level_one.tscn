@@ -15,6 +15,6 @@ _speed = 4.0
 _placeable = ExtResource("2_owpkx")
 
 [node name="MapGeneration" parent="." instance=ExtResource("2_k70xm")]
-grid_size = Vector2i(2, 6)
+grid_size = Vector2i(6, 6)
 
 [editable path="Camera3D"]

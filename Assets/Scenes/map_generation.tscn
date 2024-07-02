@@ -18,8 +18,6 @@ path_ending_mesh = ExtResource("3_iy12b")
 path_corner_mesh = ExtResource("4_som84")
 
 [node name="Grid Generator" parent="." instance=ExtResource("1_yv21r")]
-x_offset = 0.1
-z_offset = 0.1
 
 [node name="EnemyPath" parent="." instance=ExtResource("2_l1v4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)

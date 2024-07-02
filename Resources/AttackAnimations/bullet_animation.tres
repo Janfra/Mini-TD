@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Resources/AttackAnimations/BulletAnimation.gd" id="1_ovyjs"]
 
 [sub_resource type="Curve" id="Curve_f6s0s"]
-_data = [Vector2(0, 0), 0.0, 1.29452, 0, 0, Vector2(0.132159, 0.192881), 2.183, 2.183, 0, 0, Vector2(1, 1), 0.15268, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 1.29452, 0, 0, Vector2(0.132159, 0.192881), 2.183, 2.183, 0, 0, Vector2(0.94702, 1), 0.15268, 0.0, 0, 0]
 point_count = 3
 
 [resource]

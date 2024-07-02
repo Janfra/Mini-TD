@@ -1,4 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt3flwvvxwwd8"]
+[gd_scene load_steps=10 format=3 uid="uid://dt3flwvvxwwd8"]
+
+[ext_resource type="Script" path="res://Scripts/NotifiedNode3D.gd" id="1_2lpwb"]
+[ext_resource type="Script" path="res://Scripts/Components/ParticlesComponent.gd" id="1_kps5j"]
+
+[sub_resource type="Curve" id="Curve_5dx2k"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.564, 0.58557), -0.884274, -0.884274, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_8ndjk"]
+curve = SubResource("Curve_5dx2k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pul6v"]
+lifetime_randomness = 0.1
+particle_flag_align_y = true
+emission_shape_scale = Vector3(0.2, 0.2, 0.2)
+emission_shape = 1
+emission_sphere_radius = 0.5
+inherit_velocity_ratio = -0.01
+direction = Vector3(-1, 0, 0)
+spread = 39.82
+gravity = Vector3(0, 0, 0)
+radial_accel_max = 3.0
+damping_max = 1.0
+scale_min = 0.3
+scale_curve = SubResource("CurveTexture_8ndjk")
+scale_over_velocity_min = 1.0
+scale_over_velocity_max = 2.0
+color = Color(0.388235, 0.0352941, 0.298039, 1)
+hue_variation_min = -0.4
+hue_variation_max = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5rv1"]
+albedo_color = Color(0.277117, 0.0174612, 0.209513, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_oobe0"]
+material = SubResource("StandardMaterial3D_y5rv1")
+radius = 0.1
+height = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yeh4q"]
 albedo_color = Color(0.386742, 0.0346724, 0.297764, 1)
@@ -11,7 +49,23 @@ height = 0.2
 radial_segments = 10
 rings = 10
 
-[node name="Bullet" type="Node3D"]
+[node name="NotifiedNode3D" type="Node3D" node_paths=PackedStringArray("hide_on_free")]
+script = ExtResource("1_2lpwb")
+hide_on_free = [NodePath("Bullet")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 7
+lifetime = 0.7
+explosiveness = 0.07
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_pul6v")
+draw_pass_1 = SubResource("SphereMesh_oobe0")
+
+[node name="ParticlesComponent" type="Node" parent="." node_paths=PackedStringArray("target", "particles")]
+script = ExtResource("1_kps5j")
+target = NodePath("..")
+particles = NodePath("../GPUParticles3D")
+is_auto_play = true
+
+[node name="Bullet" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_ahi46")
