@@ -22,6 +22,7 @@ PlayerInputs="*res://Scripts/Singleton/InputHandler.gd"
 [display]
 
 window/stretch/aspect="expand"
+mouse_cursor/custom_image="res://Assets/Pointers/pointer_c_shaded.png"
 
 [file_customization]
 

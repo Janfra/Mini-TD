@@ -12,6 +12,17 @@ signal stopped_clicking(event : InputEventMouseButton)
 var _was_moving:bool = false
 var _ui_focused:bool = false
 
+const DEFAULT_POINTER = preload("res://Assets/Pointers/pointer_c_shaded.png")
+const SELECT_POINTER = preload("res://Assets/Pointers/pointer_c.png")
+const BUILD_POINTER = preload("res://Assets/Pointers/tool_hammer.png")
+
+enum CursorState
+{
+	Default,
+	Select,
+	Build,
+}
+
 func _unhandled_input(event) -> void:
 	_handle_movement_inputs()
 	if event is InputEventMouseButton:
@@ -22,6 +33,25 @@ func _unhandled_input(event) -> void:
 func set_ui_focused(is_focused : bool) -> void:
 	_ui_focused = is_focused
 	# Clear inputs?
+	
+
+func set_cursor(state : CursorState) -> void:
+	Input.set_custom_mouse_cursor(_get_cursor_from_state(state))
+	
+
+func _get_cursor_from_state(state : CursorState) -> CompressedTexture2D:
+	match state:
+		CursorState.Default:
+			return DEFAULT_POINTER
+		
+		CursorState.Select:
+			return SELECT_POINTER
+		
+		CursorState.Build:
+			return BUILD_POINTER
+		
+	
+	return DEFAULT_POINTER
 	
 
 func _handle_movement_inputs() -> void:

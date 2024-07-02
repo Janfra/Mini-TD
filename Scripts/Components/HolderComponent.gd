@@ -49,3 +49,12 @@ func _generate_placeable(scene : PackedScene):
 	position_offset.y += get_mesh_bounds().y
 	created_scene.global_position = position_offset
 	
+
+## TEST: Cursor change
+func _on_selectable_component_mouse_entered():
+	if is_instance_valid(created_scene):
+		PlayerInputs.set_cursor(InputHandler.CursorState.Select)
+	else:
+		PlayerInputs.set_cursor(InputHandler.CursorState.Default)
+		
+	
