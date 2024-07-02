@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c35r2h228e3pp"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_8w17f"]
-[ext_resource type="Script" path="res://Scripts/Components/PathFollowerComponent.gd" id="2_kl1pw"]
+[ext_resource type="Script" path="res://Scripts/Components/Path_Components/PathFollowerComponent.gd" id="2_kl1pw"]
 [ext_resource type="ArrayMesh" uid="uid://buqu8kex8t7fx" path="res://Assets/Meshes/enemy_ufo_mesh.tres" id="2_lxs1r"]
 [ext_resource type="Script" path="res://Scripts/Components/HealthComponent.gd" id="4_c12ir"]
 
