@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cow51hm5x5g6u"
-path="res://.godot/imported/snow_tile_riverBridge.glb-6deb1ec30693d000f2368f65b7579af1.scn"
+path="res://.godot/imported/snow_tile_riverBridge.glb-35ed23243998d0b5e86258e26ea87540.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Snow/snow_tile_riverBridge.glb"
-dest_files=["res://.godot/imported/snow_tile_riverBridge.glb-6deb1ec30693d000f2368f65b7579af1.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Snow/snow_tile_riverBridge.glb"
+dest_files=["res://.godot/imported/snow_tile_riverBridge.glb-35ed23243998d0b5e86258e26ea87540.scn"]
 
 [params]
 

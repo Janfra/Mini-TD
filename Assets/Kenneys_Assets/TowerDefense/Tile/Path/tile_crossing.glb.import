@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://csh4nwaqmne4"
-path="res://.godot/imported/tile_crossing.glb-90fbaaffa3dc1b84c78b76f7eabddf36.scn"
+path="res://.godot/imported/tile_crossing.glb-1e328aad3f78c97e2fca93296e57b7a0.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Tile/Path/tile_crossing.glb"
-dest_files=["res://.godot/imported/tile_crossing.glb-90fbaaffa3dc1b84c78b76f7eabddf36.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Tile/Path/tile_crossing.glb"
+dest_files=["res://.godot/imported/tile_crossing.glb-1e328aad3f78c97e2fca93296e57b7a0.scn"]
 
 [params]
 

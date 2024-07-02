@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bh55dvd6xapgp"
-path="res://.godot/imported/enemy_ufoPurpleWeapon.glb-3832c4abb3487eda1ff2f2a1f0f7ee8b.scn"
+path="res://.godot/imported/enemy_ufoPurpleWeapon.glb-f208c61997e501b5fefbbdb8b83fbc20.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Enemy/enemy_ufoPurpleWeapon.glb"
-dest_files=["res://.godot/imported/enemy_ufoPurpleWeapon.glb-3832c4abb3487eda1ff2f2a1f0f7ee8b.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Enemy/enemy_ufoPurpleWeapon.glb"
+dest_files=["res://.godot/imported/enemy_ufoPurpleWeapon.glb-f208c61997e501b5fefbbdb8b83fbc20.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cl6csnanqo056"
-path="res://.godot/imported/tile_riverBridge.glb-1029e74aafc8d3ea4b14716c0db9b207.scn"
+path="res://.godot/imported/tile_riverBridge.glb-97e1d588a8c206380d3660f81a5de7b9.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Tile/tile_riverBridge.glb"
-dest_files=["res://.godot/imported/tile_riverBridge.glb-1029e74aafc8d3ea4b14716c0db9b207.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Tile/tile_riverBridge.glb"
+dest_files=["res://.godot/imported/tile_riverBridge.glb-97e1d588a8c206380d3660f81a5de7b9.scn"]
 
 [params]
 

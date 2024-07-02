@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://j1budipck3vn"
-path="res://.godot/imported/tile_straightHill.glb-ffce0b7d10729d094ccdedb4f8af153c.scn"
+path="res://.godot/imported/tile_straightHill.glb-291d81e9a7c3cbc1e9c75f71b4859ad6.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Tile/Path/tile_straightHill.glb"
-dest_files=["res://.godot/imported/tile_straightHill.glb-ffce0b7d10729d094ccdedb4f8af153c.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Tile/Path/tile_straightHill.glb"
+dest_files=["res://.godot/imported/tile_straightHill.glb-291d81e9a7c3cbc1e9c75f71b4859ad6.scn"]
 
 [params]
 

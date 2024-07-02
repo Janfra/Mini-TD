@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c57c624irbco1"
-path="res://.godot/imported/tile_transition.glb-fcec3eaaf87cb1935538cea0b8d4f1e0.scn"
+path="res://.godot/imported/tile_transition.glb-b43e7c449c8272d9b442121a4a70ade4.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Tile/Path/tile_transition.glb"
-dest_files=["res://.godot/imported/tile_transition.glb-fcec3eaaf87cb1935538cea0b8d4f1e0.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Tile/Path/tile_transition.glb"
+dest_files=["res://.godot/imported/tile_transition.glb-b43e7c449c8272d9b442121a4a70ade4.scn"]
 
 [params]
 

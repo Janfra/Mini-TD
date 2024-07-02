@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://y2q7myh5ek0q"
-path="res://.godot/imported/detail_treeLarge.glb-76b235aa84dfdf9dbfe24457e1ee3638.scn"
+path="res://.godot/imported/detail_treeLarge.glb-16d130229df566bd70fc14d5ea8b863a.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Detail/detail_treeLarge.glb"
-dest_files=["res://.godot/imported/detail_treeLarge.glb-76b235aa84dfdf9dbfe24457e1ee3638.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Detail/detail_treeLarge.glb"
+dest_files=["res://.godot/imported/detail_treeLarge.glb-16d130229df566bd70fc14d5ea8b863a.scn"]
 
 [params]
 

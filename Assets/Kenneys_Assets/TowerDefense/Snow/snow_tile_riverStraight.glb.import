@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://beyejgkuj1kuo"
-path="res://.godot/imported/snow_tile_riverStraight.glb-341b577203bc2b3ff4025bbc63fbb3fa.scn"
+path="res://.godot/imported/snow_tile_riverStraight.glb-8100e5c133b93fcaec4044406849addc.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Snow/snow_tile_riverStraight.glb"
-dest_files=["res://.godot/imported/snow_tile_riverStraight.glb-341b577203bc2b3ff4025bbc63fbb3fa.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Snow/snow_tile_riverStraight.glb"
+dest_files=["res://.godot/imported/snow_tile_riverStraight.glb-8100e5c133b93fcaec4044406849addc.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dvv0ucdn8tfs6"
-path="res://.godot/imported/detail_rocks.glb-46996e58dd9772ff5ce4459943c20de2.scn"
+path="res://.godot/imported/detail_rocks.glb-d6a603908f3915454506ee86123c4a01.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Detail/detail_rocks.glb"
-dest_files=["res://.godot/imported/detail_rocks.glb-46996e58dd9772ff5ce4459943c20de2.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Detail/detail_rocks.glb"
+dest_files=["res://.godot/imported/detail_rocks.glb-d6a603908f3915454506ee86123c4a01.scn"]
 
 [params]
 

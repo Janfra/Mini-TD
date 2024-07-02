@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c5agqvgpykl6k"
-path="res://.godot/imported/snow_tile_straightHill.glb-9b983e3162b965ec9be35e0a55fa0a2d.scn"
+path="res://.godot/imported/snow_tile_straightHill.glb-ac6067c419cc700e7f891fe9cf2f4da3.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Snow/snow_tile_straightHill.glb"
-dest_files=["res://.godot/imported/snow_tile_straightHill.glb-9b983e3162b965ec9be35e0a55fa0a2d.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Snow/snow_tile_straightHill.glb"
+dest_files=["res://.godot/imported/snow_tile_straightHill.glb-ac6067c419cc700e7f891fe9cf2f4da3.scn"]
 
 [params]
 

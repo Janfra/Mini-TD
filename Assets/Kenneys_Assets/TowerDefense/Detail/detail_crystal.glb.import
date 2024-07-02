@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://g3dt22m2ivgx"
-path="res://.godot/imported/detail_crystal.glb-8a1b8d2781286e71974ab2075c2553db.scn"
+path="res://.godot/imported/detail_crystal.glb-a25ec6a288aea8acf846629a7ddb1767.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Detail/detail_crystal.glb"
-dest_files=["res://.godot/imported/detail_crystal.glb-8a1b8d2781286e71974ab2075c2553db.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Detail/detail_crystal.glb"
+dest_files=["res://.godot/imported/detail_crystal.glb-a25ec6a288aea8acf846629a7ddb1767.scn"]
 
 [params]
 

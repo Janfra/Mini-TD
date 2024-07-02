@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://rmgop6m7554v"
-path="res://.godot/imported/tile_riverSlopeLarge.glb-653007c98aa5c09ab891766d692e16b9.scn"
+path="res://.godot/imported/tile_riverSlopeLarge.glb-f0772f49f2b4395d66a4850bfbaf030a.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Tile/tile_riverSlopeLarge.glb"
-dest_files=["res://.godot/imported/tile_riverSlopeLarge.glb-653007c98aa5c09ab891766d692e16b9.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Tile/tile_riverSlopeLarge.glb"
+dest_files=["res://.godot/imported/tile_riverSlopeLarge.glb-f0772f49f2b4395d66a4850bfbaf030a.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cwswfn2j4biry"
-path="res://.godot/imported/woodStructure.glb-7e42762119b1be43535f7dde208af715.scn"
+path="res://.godot/imported/woodStructure.glb-f1b3a7703d48b6e7468ca67c861e65a6.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/woodStructure.glb"
-dest_files=["res://.godot/imported/woodStructure.glb-7e42762119b1be43535f7dde208af715.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/woodStructure.glb"
+dest_files=["res://.godot/imported/woodStructure.glb-f1b3a7703d48b6e7468ca67c861e65a6.scn"]
 
 [params]
 

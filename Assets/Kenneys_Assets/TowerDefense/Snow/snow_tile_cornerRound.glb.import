@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://db0uuwrguia1"
-path="res://.godot/imported/snow_tile_cornerRound.glb-2634cb3b98000ad589dda49b40fd02cf.scn"
+path="res://.godot/imported/snow_tile_cornerRound.glb-ce605583bc6244740c2ffd16ab9cd4bf.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Snow/snow_tile_cornerRound.glb"
-dest_files=["res://.godot/imported/snow_tile_cornerRound.glb-2634cb3b98000ad589dda49b40fd02cf.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Snow/snow_tile_cornerRound.glb"
+dest_files=["res://.godot/imported/snow_tile_cornerRound.glb-ce605583bc6244740c2ffd16ab9cd4bf.scn"]
 
 [params]
 

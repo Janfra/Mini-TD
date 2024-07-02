@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c3og7uidhv5gg"
-path="res://.godot/imported/tile_endRoundSpawn.glb-36cb73c027877424d26a278ea4446e4a.scn"
+path="res://.godot/imported/tile_endRoundSpawn.glb-a2b7a4d0c0dd9ffd9944bad625454325.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Tile/Path/tile_endRoundSpawn.glb"
-dest_files=["res://.godot/imported/tile_endRoundSpawn.glb-36cb73c027877424d26a278ea4446e4a.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Tile/Path/tile_endRoundSpawn.glb"
+dest_files=["res://.godot/imported/tile_endRoundSpawn.glb-a2b7a4d0c0dd9ffd9944bad625454325.scn"]
 
 [params]
 

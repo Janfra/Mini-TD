@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dk7thpwisc8jd"
-path="res://.godot/imported/towerSquare_bottomA.glb-22b5af085be078b1e77d3c47d356df9e.scn"
+path="res://.godot/imported/towerSquare_bottomA.glb-993de704fc5660a55d0ceaa5cde4f3a1.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Tower/towerSquare_bottomA.glb"
-dest_files=["res://.godot/imported/towerSquare_bottomA.glb-22b5af085be078b1e77d3c47d356df9e.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Tower/towerSquare_bottomA.glb"
+dest_files=["res://.godot/imported/towerSquare_bottomA.glb-993de704fc5660a55d0ceaa5cde4f3a1.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bovxay8obolbx"
-path="res://.godot/imported/snow_detail_tree.glb-0a00b6807d2ee1978f0168eb44603e95.scn"
+path="res://.godot/imported/snow_detail_tree.glb-0136b17fd8a39ba5ffbfb5e611da79dd.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Snow/snow_detail_tree.glb"
-dest_files=["res://.godot/imported/snow_detail_tree.glb-0a00b6807d2ee1978f0168eb44603e95.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Snow/snow_detail_tree.glb"
+dest_files=["res://.godot/imported/snow_detail_tree.glb-0136b17fd8a39ba5ffbfb5e611da79dd.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://y8jjpcw2vw12"
-path="res://.godot/imported/snow_woodStructure_high.glb-0c06609f9b3b93f1165ca1ce7287cd3f.scn"
+path="res://.godot/imported/snow_woodStructure_high.glb-b4ec738bda5776add0906aeeec3be021.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Snow/snow_woodStructure_high.glb"
-dest_files=["res://.godot/imported/snow_woodStructure_high.glb-0c06609f9b3b93f1165ca1ce7287cd3f.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Snow/snow_woodStructure_high.glb"
+dest_files=["res://.godot/imported/snow_woodStructure_high.glb-b4ec738bda5776add0906aeeec3be021.scn"]
 
 [params]
 

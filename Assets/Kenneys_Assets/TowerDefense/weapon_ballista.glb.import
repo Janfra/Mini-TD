@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://da4cvwcdq0hfw"
-path="res://.godot/imported/weapon_ballista.glb-62666e5ba6dee595b4e4a84945cdeca1.scn"
+path="res://.godot/imported/weapon_ballista.glb-057330a509c8e9b161931fc3bad9fcea.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/weapon_ballista.glb"
-dest_files=["res://.godot/imported/weapon_ballista.glb-62666e5ba6dee595b4e4a84945cdeca1.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/weapon_ballista.glb"
+dest_files=["res://.godot/imported/weapon_ballista.glb-057330a509c8e9b161931fc3bad9fcea.scn"]
 
 [params]
 

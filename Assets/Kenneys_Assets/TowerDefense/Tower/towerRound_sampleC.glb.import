@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dhkp3fg6snymt"
-path="res://.godot/imported/towerRound_sampleC.glb-0ba7d04231a903b1a91b5105b9feca25.scn"
+path="res://.godot/imported/towerRound_sampleC.glb-7f914f7ccbba502d906f60157d5ebcab.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Tower/towerRound_sampleC.glb"
-dest_files=["res://.godot/imported/towerRound_sampleC.glb-0ba7d04231a903b1a91b5105b9feca25.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Tower/towerRound_sampleC.glb"
+dest_files=["res://.godot/imported/towerRound_sampleC.glb-7f914f7ccbba502d906f60157d5ebcab.scn"]
 
 [params]
 

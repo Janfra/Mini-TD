@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dnisknsoqrbhl"
-path="res://.godot/imported/weapon_blaster.glb-c1a79b074397cb14e8b01d3eb6e3d7a5.scn"
+path="res://.godot/imported/weapon_blaster.glb-3192a635d19ce7000902ca9ded93562f.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/weapon_blaster.glb"
-dest_files=["res://.godot/imported/weapon_blaster.glb-c1a79b074397cb14e8b01d3eb6e3d7a5.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/weapon_blaster.glb"
+dest_files=["res://.godot/imported/weapon_blaster.glb-3192a635d19ce7000902ca9ded93562f.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bh70qttcwtd2v"
-path="res://.godot/imported/tile_bump.glb-09c1c2c03286151ee7acba87426cfe9f.scn"
+path="res://.godot/imported/tile_bump.glb-67da6bf9964216798547e768897bf990.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Tile/Path/tile_bump.glb"
-dest_files=["res://.godot/imported/tile_bump.glb-09c1c2c03286151ee7acba87426cfe9f.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Tile/Path/tile_bump.glb"
+dest_files=["res://.godot/imported/tile_bump.glb-67da6bf9964216798547e768897bf990.scn"]
 
 [params]
 

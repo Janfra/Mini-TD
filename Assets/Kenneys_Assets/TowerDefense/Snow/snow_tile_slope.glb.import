@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cla4p2er3l73m"
-path="res://.godot/imported/snow_tile_slope.glb-50346f9597b37187c78fec998a8a56bf.scn"
+path="res://.godot/imported/snow_tile_slope.glb-a35dafa6f3f32601c7eda3f30748086a.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Snow/snow_tile_slope.glb"
-dest_files=["res://.godot/imported/snow_tile_slope.glb-50346f9597b37187c78fec998a8a56bf.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Snow/snow_tile_slope.glb"
+dest_files=["res://.godot/imported/snow_tile_slope.glb-a35dafa6f3f32601c7eda3f30748086a.scn"]
 
 [params]
 

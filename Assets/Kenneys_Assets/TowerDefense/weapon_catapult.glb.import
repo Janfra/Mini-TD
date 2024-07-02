@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://de4t8nxhh26sr"
-path="res://.godot/imported/weapon_catapult.glb-4e9c8904bc96802ea986fd63b23f4696.scn"
+path="res://.godot/imported/weapon_catapult.glb-8ed5665641f5a6a55c93b1bd0fbb55dd.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/weapon_catapult.glb"
-dest_files=["res://.godot/imported/weapon_catapult.glb-4e9c8904bc96802ea986fd63b23f4696.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/weapon_catapult.glb"
+dest_files=["res://.godot/imported/weapon_catapult.glb-8ed5665641f5a6a55c93b1bd0fbb55dd.scn"]
 
 [params]
 

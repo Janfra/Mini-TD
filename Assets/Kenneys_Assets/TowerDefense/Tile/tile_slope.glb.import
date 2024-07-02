@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dysbavacv4yoe"
-path="res://.godot/imported/tile_slope.glb-f6f0977d7a31c787822ae2c8e4fd2606.scn"
+path="res://.godot/imported/tile_slope.glb-a9a44f49d171633cc4c99c2525a0b861.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Tile/tile_slope.glb"
-dest_files=["res://.godot/imported/tile_slope.glb-f6f0977d7a31c787822ae2c8e4fd2606.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Tile/tile_slope.glb"
+dest_files=["res://.godot/imported/tile_slope.glb-a9a44f49d171633cc4c99c2525a0b861.scn"]
 
 [params]
 

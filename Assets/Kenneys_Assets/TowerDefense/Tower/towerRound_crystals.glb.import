@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bm662jdxfoan8"
-path="res://.godot/imported/towerRound_crystals.glb-e50a20804da1cde4f333b993c2ff3e19.scn"
+path="res://.godot/imported/towerRound_crystals.glb-17beee8ff2e9990c753dc29fbc949955.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Tower/towerRound_crystals.glb"
-dest_files=["res://.godot/imported/towerRound_crystals.glb-e50a20804da1cde4f333b993c2ff3e19.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Tower/towerRound_crystals.glb"
+dest_files=["res://.godot/imported/towerRound_crystals.glb-17beee8ff2e9990c753dc29fbc949955.scn"]
 
 [params]
 

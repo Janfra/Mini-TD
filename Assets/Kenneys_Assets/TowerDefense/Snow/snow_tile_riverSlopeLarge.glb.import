@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://mhcdgbousnop"
-path="res://.godot/imported/snow_tile_riverSlopeLarge.glb-456a07d18f5e96fa29259863580ed778.scn"
+path="res://.godot/imported/snow_tile_riverSlopeLarge.glb-e500b45f4dd8124625811cc06eaf06d3.scn"
 
 [deps]
 
-source_file="res://Assets/Kenneys Assets/TowerDefense/Snow/snow_tile_riverSlopeLarge.glb"
-dest_files=["res://.godot/imported/snow_tile_riverSlopeLarge.glb-456a07d18f5e96fa29259863580ed778.scn"]
+source_file="res://Assets/Kenneys_Assets/TowerDefense/Snow/snow_tile_riverSlopeLarge.glb"
+dest_files=["res://.godot/imported/snow_tile_riverSlopeLarge.glb-e500b45f4dd8124625811cc06eaf06d3.scn"]
 
 [params]
 
