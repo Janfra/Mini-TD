@@ -51,7 +51,7 @@ As an extra I decided to make PRs a requirement just to make sure I keep making 
 - [X] Create basic bullet animation
 
 #### Bullet Particles
-- [ ] **Optional** - Add particle effects for bullets
+- [X] **Optional** - Add particle effects for bullets
 
 #### Meshes
 - [X] Fixed mesh models materials
@@ -59,4 +59,14 @@ As an extra I decided to make PRs a requirement just to make sure I keep making 
 - [X] Add path mesh to the grid
 
 #### Cursor
-- [ ] Add custom cursor to game
+- [X] Add custom cursor to game
+- [X] Add basic on hover cursor update
+
+#### Particle Component
+- [X] Helps enable and disable the particle effects
+
+## Section four: Prepare Basic Game Loop
+- [ ] Add autoload for handling economy
+	- [ ] **TBD** - Killing enemies generates income
+- [ ] Add players health AKA losing condition
+- [ ] Add basic tower selection
