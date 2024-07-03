@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://csas3v1hcvwsg"]
+[gd_scene load_steps=3 format=3 uid="uid://cy81npxpogaxw"]
 
 [ext_resource type="Script" path="res://Scripts/Components/Path_Components/EnemyPathComponent.gd" id="1_0eo62"]
 
