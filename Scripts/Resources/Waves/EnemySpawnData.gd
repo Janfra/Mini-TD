@@ -17,11 +17,15 @@ var _current_rate: float = 0.0
 var _current_count: int = 0
 
 # Don't like hard-coded path, but will do for now
-static var _enemy_scene: PackedScene = preload("res://Assets/Scenes/enemy_test.tscn")
+static var _enemy_scene: PackedScene = preload("res://Assets/Gameplay_Scenes/enemy_test.tscn")
 
 func is_valid() -> bool:
 	assert(_enemy_scene, "Enemy Scene Not Found")
 	return _enemy_scene and _enemy_scene.can_instantiate()
+	
+
+func can_spawn() -> bool:
+	return _enemy_count > 0 and _enemy_count > _current_count
 	
 
 func spawn_enemy_at(position : Vector3, parent_to : Node) -> Enemy:

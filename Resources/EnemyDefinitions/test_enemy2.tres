@@ -8,3 +8,4 @@ script = ExtResource("2_d0oo3")
 mesh = ExtResource("1_sd5iw")
 movement_speed = 0.8
 health = 1
+value = 1

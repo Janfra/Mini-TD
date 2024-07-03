@@ -10,7 +10,7 @@
 script = ExtResource("2_3rurf")
 _enemy_definition = ExtResource("1_gmogh")
 _is_first_spawn_instant = true
-_enemy_count = 1
+_enemy_count = 5
 _spawn_rate = 3.0
 _spawn_delay = 1.0
 

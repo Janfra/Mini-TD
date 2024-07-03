@@ -33,6 +33,9 @@ func start_wave_spawning_at(position : Vector3, parent_to : Node) -> void:
 			printerr("Enemy data has invalid scene")
 			continue
 		
+		if not enemy_spawn_data.can_spawn():
+			continue
+		
 		enemy_spawn_data.setup_spawn_rate()
 		var tree_delay_timer = _parent.get_tree().create_timer(enemy_spawn_data.get_spawn_delay())
 		tree_delay_timer.timeout.connect(_start_enemy_spawn_rate.bind(enemy_spawn_data))
