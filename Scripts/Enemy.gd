@@ -10,7 +10,9 @@ func setup_enemy(enemy_definition : EnemyDefinitionData) -> void:
 	path_follower.target = self
 	_set_mesh(enemy_definition.mesh)
 	_set_speed(enemy_definition.movement_speed)
-	connect_to_dead_event(_handle_death.bind())
+	
+	# TEST: Temporary for testing generating money
+	connect_to_dead_event(_handle_death.bind(enemy_definition.value))
 	_health_component.health = enemy_definition.health
 	
 
@@ -44,6 +46,7 @@ func _set_mesh(set_mesh : Mesh) -> void:
 	_mesh_instance.mesh = set_mesh
 	
 
-func _handle_death() -> void:
+func _handle_death(value : int) -> void:
+	Economy.add_money(value)
 	queue_free()
 	

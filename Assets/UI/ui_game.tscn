@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhvxplh8y7foq"]
+
+[ext_resource type="Script" path="res://Assets/UI/GameUI.gd" id="1_fjexa"]
+[ext_resource type="Theme" uid="uid://ch35pidq376ny" path="res://Assets/UI/theme_ui.tres" id="2_2p4bm"]
+
+[node name="UI" type="Control" node_paths=PackedStringArray("money_label")]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_fjexa")
+money_label = NodePath("MoneyLabel")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="MoneyLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 162.0
+offset_bottom = 23.0
+theme = ExtResource("2_2p4bm")
+text = "Money: 0"
+autowrap_mode = 3

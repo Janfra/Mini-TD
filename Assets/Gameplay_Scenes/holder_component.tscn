@@ -1,23 +1,23 @@
 [gd_scene load_steps=5 format=3 uid="uid://bijixboocftwl"]
 
-[ext_resource type="Script" path="res://Scripts/Components/HolderComponent.gd" id="1_fmloy"]
-[ext_resource type="ArrayMesh" uid="uid://dmgduwfofciax" path="res://Assets/Meshes/dirt_mesh.tres" id="2_iijsn"]
-[ext_resource type="Script" path="res://Scripts/Components/SelectableComponent.gd" id="3_lse4o"]
+[ext_resource type="Script" path="res://Scripts/Components/HolderComponent.gd" id="1_w0ewd"]
+[ext_resource type="ArrayMesh" uid="uid://dmgduwfofciax" path="res://Assets/Meshes/dirt_mesh.tres" id="2_xlpub"]
+[ext_resource type="Script" path="res://Scripts/Components/SelectableComponent.gd" id="3_r5537"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bf4q5"]
 size = Vector3(1, 0.1, 1)
 
 [node name="HolderComponent" type="Node3D" node_paths=PackedStringArray("_mesh")]
-script = ExtResource("1_fmloy")
+script = ExtResource("1_w0ewd")
 _mesh = NodePath("MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-mesh = ExtResource("2_iijsn")
+mesh = ExtResource("2_xlpub")
 
 [node name="SelectableComponent" type="Area3D" parent="." node_paths=PackedStringArray("selected_node")]
 monitoring = false
-script = ExtResource("3_lse4o")
+script = ExtResource("3_r5537")
 selected_node = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SelectableComponent"]
