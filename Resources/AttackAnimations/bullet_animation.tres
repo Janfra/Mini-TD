@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BulletAnimation" load_steps=4 format=3 uid="uid://cptrc2v10cv84"]
 
-[ext_resource type="PackedScene" uid="uid://dt3flwvvxwwd8" path="res://Assets/Gameplay_Scenes/bullet.tscn" id="1_3ldq4"]
+[ext_resource type="PackedScene" uid="uid://etqkpubpa4qf" path="res://Assets/Gameplay_Scenes/bullet.tscn" id="1_3ldq4"]
 [ext_resource type="Script" path="res://Scripts/Resources/AttackAnimations/BulletAnimation.gd" id="1_ovyjs"]
 
 [sub_resource type="Curve" id="Curve_f6s0s"]

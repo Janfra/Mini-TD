@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dxfcdwcg11w3u" path="res://Assets/Gameplay_Scenes/map_generation.tscn" id="2_k70xm"]
 [ext_resource type="Resource" uid="uid://b8fvl4oqt6r02" path="res://Resources/PlaceableObjects/placeable_test.tres" id="2_owpkx"]
-[ext_resource type="PackedScene" uid="uid://si8sgvx8k6rb" path="res://Assets/Gameplay_Scenes/camera_controller.tscn" id="3_ihval"]
+[ext_resource type="PackedScene" uid="uid://buoo6dh4hyisr" path="res://Assets/Gameplay_Scenes/camera_controller.tscn" id="3_ihval"]
 [ext_resource type="PackedScene" uid="uid://dhvxplh8y7foq" path="res://Assets/UI/ui_game.tscn" id="4_jk3b5"]
 
 [node name="Test Level One" type="Node3D"]

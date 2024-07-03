@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dt3flwvvxwwd8"]
+[gd_scene load_steps=10 format=3 uid="uid://etqkpubpa4qf"]
 
 [ext_resource type="Script" path="res://Scripts/NotifiedNode3D.gd" id="1_2lpwb"]
 [ext_resource type="Script" path="res://Scripts/Components/ParticlesComponent.gd" id="1_kps5j"]
