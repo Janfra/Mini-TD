@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm7d6ffmhjduh"]
+[gd_scene load_steps=5 format=3 uid="uid://bijixboocftwl"]
 
 [ext_resource type="Script" path="res://Scripts/Components/HolderComponent.gd" id="1_w0ewd"]
 [ext_resource type="ArrayMesh" uid="uid://dmgduwfofciax" path="res://Assets/Meshes/dirt_mesh.tres" id="2_xlpub"]

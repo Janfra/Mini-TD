@@ -3,8 +3,13 @@ extends AttackAnimation
 
 @export_category("Dependency")
 @export var animation_scene: PackedScene
+
+@export_category("Configuration")
 @export var is_looking_at_target: bool = false
 @export var travel_speed: Curve
+@export_subgroup("Height Offset")
+@export var height_offset_start: float
+@export var height_offset_end: float
 
 var _generated_bullets: Array[BulletData]
 
@@ -38,10 +43,15 @@ class BulletData:
 		bullet.look_at(animation_data.target.global_position)
 		
 	
-	func update_bullet_position(progress : float) -> void:
-		var updated_position: Vector3 = animation_data.target.global_position
+	func update_bullet_position(progress : float, height_offsets : Vector2) -> void:
 		var start_position: Vector3 = animation_data.owner.global_position
-		bullet.global_position = lerp(start_position, updated_position, progress)
+		var target_position: Vector3 = animation_data.target.global_position
+		
+		# Add start and end offsets
+		start_position.y += height_offsets.x
+		target_position.y += height_offsets.y
+		
+		bullet.global_position = lerp(start_position, target_position, progress)
 		
 	
 	func clear_bullet() -> void:
@@ -89,7 +99,7 @@ func update_animation_duration_by(value : float) -> void:
 		var is_completed: bool = bullet.update_progress_by(value)
 		var progress = bullet.get_progress_value()
 		progress = travel_speed.sample_baked(progress)
-		bullet.update_bullet_position(progress)
+		bullet.update_bullet_position(progress, Vector2(height_offset_start, height_offset_end))
 		
 		if is_completed:
 			completed.emit()

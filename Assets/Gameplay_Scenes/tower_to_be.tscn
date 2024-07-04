@@ -16,6 +16,7 @@ enemy_detection = NodePath("EnemyDetectionComponent")
 attack_component = NodePath("AttackComponent")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 mesh = ExtResource("2_jwe3w")
 
 [node name="EnemyDetectionComponent" type="Area3D" parent="." node_paths=PackedStringArray("collision")]

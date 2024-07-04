@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/MapGeneration.gd" id="1_1g4sv"]
 [ext_resource type="PackedScene" uid="uid://b4nms1n8k14fx" path="res://Assets/Gameplay_Scenes/grid_generator.tscn" id="1_yv21r"]
 [ext_resource type="ArrayMesh" uid="uid://r4yj6pbwureo" path="res://Assets/Meshes/path_straight_mesh.tres" id="2_0n20a"]
-[ext_resource type="PackedScene" uid="uid://cy81npxpogaxw" path="res://Assets/Gameplay_Scenes/path.tscn" id="2_l1v4g"]
+[ext_resource type="PackedScene" uid="uid://csas3v1hcvwsg" path="res://Assets/Gameplay_Scenes/path.tscn" id="2_l1v4g"]
 [ext_resource type="ArrayMesh" uid="uid://kskjecyig4dt" path="res://Assets/Meshes/path_round_end_spawn_mesh.tres" id="3_iy12b"]
 [ext_resource type="Script" path="res://Scripts/EnemyManager.gd" id="4_gsnwd"]
 [ext_resource type="ArrayMesh" uid="uid://co0sequms706j" path="res://Assets/Meshes/path_corner_mesh.tres" id="4_som84"]
@@ -13,6 +13,7 @@
 script = ExtResource("1_1g4sv")
 grid_generation = NodePath("Grid Generator")
 path_generation = NodePath("EnemyPath")
+grid_size = Vector2i(1, 1)
 path_straight_mesh = ExtResource("2_0n20a")
 path_ending_mesh = ExtResource("3_iy12b")
 path_corner_mesh = ExtResource("4_som84")

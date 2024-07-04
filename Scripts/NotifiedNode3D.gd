@@ -12,8 +12,8 @@ signal freed
 
 func end_of_lifetime() -> void:
 	freed.emit()
-	for hide in hide_on_free:
-		hide.hide()
+	for object_to_hide in hide_on_free:
+		object_to_hide.hide()
 		
 	
 	await get_tree().create_timer(abs(lifetime), false).timeout
