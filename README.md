@@ -1,12 +1,12 @@
 # Mini-TD
-I have decided to try out a new approach to my mini projects. I will outline goals directly in this repository. This project I will continue exploring Godot, focusing on experimenting with my first tower defense game.
+I have decided to try out a new approach to my mini projects. I will outline goals directly in this repository. With this project I will continue exploring Godot, focusing on experimenting with my first tower defense game.
 
 ### Plan Description
-Mini TD will be a project that I will divide in sections with separate goals. Starting with be a very small in scope focusing mostly on just exploring common tower defense mechanics, later sections focusing on expanding it to an actual game. I may or may not complete all sections.
+Mini TD will be a project that I will divide in sections with separate main goals. Starting with section small in scope focusing mostly on just exploring common tower defense mechanics, later sections focusing on expanding it to an actual game. I may or may not complete all sections.
 
-#### Disclaimer: Using Kenneys assets for the visuals: https://kenney.nl/assets
+#### Disclaimer: Using Kenneys assets for the art: https://kenney.nl/assets
 
-As an extra I decided to make PRs a requirement just to make sure I keep making descriptions and updating properly
+As an extra I decided to make PRs a requirement just to make sure I keep making descriptions and updating properly.
 
 ## Section one: Preparing 
 #### Create a simple map
