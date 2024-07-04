@@ -53,7 +53,7 @@ func _generate_placeable(scene : PackedScene):
 ## TEST: Cursor change
 func _on_selectable_component_mouse_entered():
 	if is_instance_valid(created_scene):
-		PlayerInputs.set_cursor(InputHandler.CursorState.Select)
+		PlayerInputs.set_cursor(InputHandler.CursorState.Highlight)
 	else:
 		PlayerInputs.set_cursor(InputHandler.CursorState.Default)
 		

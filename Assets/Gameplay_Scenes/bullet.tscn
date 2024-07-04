@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://etqkpubpa4qf"]
+[gd_scene load_steps=10 format=3 uid="uid://dt3flwvvxwwd8"]
 
 [ext_resource type="Script" path="res://Scripts/NotifiedNode3D.gd" id="1_2lpwb"]
 [ext_resource type="Script" path="res://Scripts/Components/ParticlesComponent.gd" id="1_kps5j"]
@@ -19,7 +19,7 @@ emission_sphere_radius = 0.5
 inherit_velocity_ratio = -0.01
 direction = Vector3(-1, 0, 0)
 spread = 39.82
-gravity = Vector3(0, 0, 0)
+gravity = Vector3(0, 1.5, 0)
 radial_accel_max = 3.0
 damping_max = 1.0
 scale_min = 0.3
@@ -58,6 +58,7 @@ amount = 7
 lifetime = 0.7
 explosiveness = 0.07
 collision_base_size = 0.0
+visibility_aabb = AABB(-4, -0.4, -4, 8, 3.186, 8)
 process_material = SubResource("ParticleProcessMaterial_pul6v")
 draw_pass_1 = SubResource("SphereMesh_oobe0")
 
