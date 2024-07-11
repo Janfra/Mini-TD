@@ -1,5 +1,5 @@
 ## Description
-Objectives of PR, why was this a neccessary change
+Objectives of the PR
 
 ## Summary of Changes
 Bullet points with all relevant changes in short
