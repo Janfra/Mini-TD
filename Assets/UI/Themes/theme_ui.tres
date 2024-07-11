@@ -7,6 +7,7 @@ texture = ExtResource("1_lrx2x")
 texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
+modulate_color = Color(0.307562, 2.1358e-07, 7.21961e-08, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b03kd"]
 content_margin_left = 16.0
@@ -24,5 +25,5 @@ Label/colors/font_shadow_color = Color(0, 0, 0, 0.337255)
 Label/constants/outline_size = 1
 Label/constants/shadow_offset_x = -1
 Label/font_sizes/font_size = 22
-PanelContainer/styles/MoneyPanel = SubResource("StyleBoxTexture_12rfw")
+PanelContainer/styles/Health = SubResource("StyleBoxTexture_12rfw")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_b03kd")

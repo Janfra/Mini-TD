@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://si8sgvx8k6rb"]
 
-[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="1_siyni"]
+[ext_resource type="Script" path="res://Scripts/PlayerScripts/CameraController.gd" id="1_siyni"]
 [ext_resource type="Resource" uid="uid://b8fvl4oqt6r02" path="res://Resources/PlaceableObjects/placeable_test.tres" id="2_78ou7"]
 
 [node name="Camera3D" type="Camera3D"]

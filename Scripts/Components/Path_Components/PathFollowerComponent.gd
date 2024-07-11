@@ -9,6 +9,10 @@ extends Node
 
 var _distance_traveled: float
 
+func is_valid() -> bool:
+	return _target and is_instance_valid(_target)
+	
+
 func update_distance_traveled(path_handler : EnemyPathComponent, delta : float):
 	_distance_traveled += speed * delta
 	var path_data: EnemyPathComponent.PathTravelData = path_handler.get_position_data_along_path(_distance_traveled)
@@ -16,6 +20,7 @@ func update_distance_traveled(path_handler : EnemyPathComponent, delta : float):
 	
 	if path_data.is_path_completed:
 		print("Completed path")
+		path_handler.notify_path_completed(self)
 		path_handler.remove_path_follower_listener(self)
 	
 

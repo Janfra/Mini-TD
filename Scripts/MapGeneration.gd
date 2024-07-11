@@ -3,6 +3,7 @@ extends Node3D
 @export_category("Dependencies")
 @export var grid_generation: GridComponent
 @export var path_generation: EnemyPathComponent
+@export var main_building: PlayerMainBuilding
 
 @export_category("Configuration")
 @export var grid_size: Vector2i
@@ -27,6 +28,10 @@ func _ready() -> void:
 		return
 	
 	_setup_map_enemy_path()
+	
+	assert(main_building)
+	if main_building:
+		main_building.setup_building_connections(path_generation)
 	
 
 func _create_map_grid() -> void:

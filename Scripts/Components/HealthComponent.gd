@@ -29,5 +29,4 @@ func heal(heal_amount : int) -> void:
 func _check_for_health_depleted() -> void:
 	if is_health_depleted:
 		health_depleted.emit()
-		print("Killed enemy %s" % get_parent().name)
 	
