@@ -1,25 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://c35r2h228e3pp"]
+[gd_scene load_steps=7 format=3 uid="uid://c35r2h228e3pp"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_8w17f"]
 [ext_resource type="Script" path="res://Scripts/Components/Path_Components/PathFollowerComponent.gd" id="2_kl1pw"]
 [ext_resource type="ArrayMesh" uid="uid://buqu8kex8t7fx" path="res://Assets/Meshes/enemy_ufo_mesh.tres" id="2_lxs1r"]
 [ext_resource type="Script" path="res://Scripts/Components/HealthComponent.gd" id="4_c12ir"]
+[ext_resource type="Script" path="res://Scripts/Components/CurrencyComponent.gd" id="5_5aaii"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f4ns1"]
 
-[node name="EnemyTest" type="Node3D" node_paths=PackedStringArray("path_follower", "_mesh_instance", "_health_component")]
+[node name="EnemyTest" type="Node3D" node_paths=PackedStringArray("path_follower", "_mesh_instance", "_health_component", "_currency_component")]
 script = ExtResource("1_8w17f")
 path_follower = NodePath("PathFollowerComponent")
 _mesh_instance = NodePath("MeshInstance3D")
 _health_component = NodePath("HealthComponent")
+_currency_component = NodePath("CurrencyComponent")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 mesh = ExtResource("2_lxs1r")
 
-[node name="PathFollowerComponent" type="Node" parent="." node_paths=PackedStringArray("target")]
+[node name="PathFollowerComponent" type="Node" parent="."]
 script = ExtResource("2_kl1pw")
-target = NodePath("..")
 speed = 1.0
 
 [node name="HealthComponent" type="Node" parent="."]
@@ -33,3 +34,6 @@ monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_f4ns1")
+
+[node name="CurrencyComponent" type="Node" parent="."]
+script = ExtResource("5_5aaii")
