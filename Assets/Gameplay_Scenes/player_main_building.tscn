@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ji0shpsbrviv"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerScripts/PlayerMainBuilding.gd" id="1_npntm"]
+[ext_resource type="Script" path="res://Scripts/Components/HealthComponent.gd" id="2_skpo1"]
+
+[node name="PlayerMainBuilding" type="Node3D" node_paths=PackedStringArray("health_component")]
+script = ExtResource("1_npntm")
+health_component = NodePath("HealthComponent")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_skpo1")

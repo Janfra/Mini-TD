@@ -6,6 +6,8 @@
 
 [node name="Test Level One" type="Node3D"]
 
+[node name="UI" parent="." instance=ExtResource("4_jk3b5")]
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.375691, 0.926745, 0, -0.926745, 0.375691, 0, 14.991, 3.30632)
 
@@ -15,7 +17,5 @@ _speed = 4.0
 
 [node name="MapGeneration" parent="." instance=ExtResource("2_k70xm")]
 grid_size = Vector2i(6, 6)
-
-[node name="UI" parent="." instance=ExtResource("4_jk3b5")]
 
 [editable path="Camera3D"]

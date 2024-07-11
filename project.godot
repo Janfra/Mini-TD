@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 PlayerInputs="*res://Scripts/Singleton/InputHandler.gd"
 Economy="*res://Scripts/Singleton/EconomyHandler.gd"
+UIEvents="*res://Scripts/Singleton/UINotifier.gd"
+GameEvents="*res://Scripts/Singleton/GameEventsBus.gd"
 
 [display]
 

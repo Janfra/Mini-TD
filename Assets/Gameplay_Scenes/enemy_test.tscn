@@ -26,6 +26,9 @@ speed = 1.0
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("4_c12ir")
 
+[node name="CurrencyComponent" type="Node" parent="."]
+script = ExtResource("5_5aaii")
+
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.355058, 0)
 collision_layer = 2
@@ -34,6 +37,3 @@ monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_f4ns1")
-
-[node name="CurrencyComponent" type="Node" parent="."]
-script = ExtResource("5_5aaii")

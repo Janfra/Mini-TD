@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxfcdwcg11w3u"]
+[gd_scene load_steps=10 format=3 uid="uid://dxfcdwcg11w3u"]
 
 [ext_resource type="Script" path="res://Scripts/MapGeneration.gd" id="1_1g4sv"]
 [ext_resource type="PackedScene" uid="uid://b4nms1n8k14fx" path="res://Assets/Gameplay_Scenes/grid_generator.tscn" id="1_yv21r"]
@@ -7,16 +7,20 @@
 [ext_resource type="ArrayMesh" uid="uid://kskjecyig4dt" path="res://Assets/Meshes/path_round_end_spawn_mesh.tres" id="3_iy12b"]
 [ext_resource type="Script" path="res://Scripts/EnemyManager.gd" id="4_gsnwd"]
 [ext_resource type="ArrayMesh" uid="uid://co0sequms706j" path="res://Assets/Meshes/path_corner_mesh.tres" id="4_som84"]
+[ext_resource type="PackedScene" uid="uid://ji0shpsbrviv" path="res://Assets/Gameplay_Scenes/player_main_building.tscn" id="5_vax04"]
 [ext_resource type="Resource" uid="uid://cwp88wni78343" path="res://Resources/EnemyWaves/test_wave.tres" id="5_vhab5"]
 
-[node name="MapGeneration" type="Node3D" node_paths=PackedStringArray("grid_generation", "path_generation")]
+[node name="MapGeneration" type="Node3D" node_paths=PackedStringArray("grid_generation", "path_generation", "main_building")]
 script = ExtResource("1_1g4sv")
 grid_generation = NodePath("Grid Generator")
 path_generation = NodePath("EnemyPath")
+main_building = NodePath("PlayerMainBuilding")
 grid_size = Vector2i(1, 1)
 path_straight_mesh = ExtResource("2_0n20a")
 path_ending_mesh = ExtResource("3_iy12b")
 path_corner_mesh = ExtResource("4_som84")
+
+[node name="PlayerMainBuilding" parent="." instance=ExtResource("5_vax04")]
 
 [node name="Grid Generator" parent="." instance=ExtResource("1_yv21r")]
 

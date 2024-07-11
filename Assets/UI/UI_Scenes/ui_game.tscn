@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhvxplh8y7foq"]
 
-[ext_resource type="Script" path="res://Scripts/GameUI.gd" id="1_fjexa"]
+[ext_resource type="Script" path="res://Scripts/UI/GameUI.gd" id="1_3gav5"]
 [ext_resource type="Theme" uid="uid://ch35pidq376ny" path="res://Assets/UI/Themes/theme_ui.tres" id="2_2p4bm"]
 
-[node name="UI" type="Control" node_paths=PackedStringArray("money_label")]
+[node name="UI" type="Control" node_paths=PackedStringArray("money_label", "health_label")]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 15
@@ -12,26 +12,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_fjexa")
-money_label = NodePath("PanelContainer/MoneyLabel")
+script = ExtResource("1_3gav5")
+money_label = NodePath("VBoxContainer/MoneyContainer/MoneyLabel")
+health_label = NodePath("VBoxContainer/HealthContainer/HealthLabel")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 410.0
-offset_bottom = 58.0
-scale = Vector2(0.769134, 0.702162)
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 350.0
+offset_bottom = 106.0
+
+[node name="MoneyContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
 theme = ExtResource("2_2p4bm")
 
-[node name="MoneyLabel" type="Label" parent="PanelContainer"]
+[node name="MoneyLabel" type="Label" parent="VBoxContainer/MoneyContainer"]
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("2_2p4bm")
 text = "Money: 0"
+vertical_alignment = 1
+clip_text = true
+
+[node name="HealthContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(11.185, 0)
+layout_mode = 2
+theme = ExtResource("2_2p4bm")
+theme_type_variation = &"Health"
+
+[node name="HealthLabel" type="Label" parent="VBoxContainer/HealthContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("2_2p4bm")
+text = "Health: 0"
 vertical_alignment = 1
 clip_text = true

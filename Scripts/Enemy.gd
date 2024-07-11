@@ -69,6 +69,7 @@ func _set_mesh(set_mesh : Mesh) -> void:
 	
 
 func _handle_death() -> void:
+	print("Killed enemy %s" % name)
 	_currency_component.add_money()
 	queue_free()
 	

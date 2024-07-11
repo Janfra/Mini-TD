@@ -2,6 +2,7 @@ class_name EnemyPathComponent
 extends Path3D
 
 signal updated_movement(path_handler : EnemyPathComponent, delta : float)
+signal completed_path(follower : Node3D)
 
 @export_category("Dependencies")
 @export var path_follow: PathFollow3D
@@ -34,6 +35,13 @@ func remove_path_follower_listener(follower : PathFollowerComponent) -> void:
 		return
 	
 	updated_movement.disconnect(follower.update_distance_traveled.bind())
+	
+
+func notify_path_completed(follower : PathFollowerComponent) -> void:
+	if not follower.is_valid():
+		return
+	
+	completed_path.emit(follower._target)
 	
 
 func update_path_followers_location(delta : float) -> void:
