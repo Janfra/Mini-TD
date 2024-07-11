@@ -66,8 +66,13 @@ As an extra I decided to make PRs a requirement just to make sure I keep making 
 - [X] Helps enable and disable the particle effects
 
 ## Section four: Prepare Basic Game Loop
+#### Basic Economy
 - [X] Add autoload for handling economy
-	- [ ] **TBD** - Killing enemies generates income
+	- [X] **TBD** - Killing enemies generates income
+
+#### Players Health
 - [ ] Add players health AKA losing condition
+
+#### Basic Game UI
 - [ ] Add basic game UI
 - [ ] Add basic tower selection
