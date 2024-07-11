@@ -5,15 +5,15 @@ extends Node3D
 @export var path_follower: PathFollowerComponent
 @export var _mesh_instance: MeshInstance3D
 @export var _health_component: HealthComponent
+@export var _currency_component: CurrencyComponent
 
 func setup_enemy(enemy_definition : EnemyDefinitionData) -> void:
-	path_follower.target = self
+	_setup_path_follower(enemy_definition.movement_speed)
+	_setup_currency(enemy_definition.value)
+	_setup_health(enemy_definition.health)
 	_set_mesh(enemy_definition.mesh)
-	_set_speed(enemy_definition.movement_speed)
 	
-	# TEST: Temporary for testing generating money
-	connect_to_dead_event(_handle_death.bind(enemy_definition.value))
-	_health_component.health = enemy_definition.health
+	connect_to_dead_event(_handle_death.bind())
 	
 
 func disconnect_to_dead_event(callable : Callable) -> void:
@@ -27,11 +27,33 @@ func connect_to_dead_event(callable : Callable) -> void:
 func deal_damage(damage : int) -> void:
 	if _health_component.is_health_depleted:
 		return
+	
 	_health_component.deal_damage(damage)
 	
 
-func _set_speed(set_speed : float) -> void:
+func _setup_path_follower(set_speed : float) -> void:
+	if not path_follower:
+		printerr("No path follower component set in enemy")
+		return
+	
+	path_follower.set_path_follower(self)
 	path_follower.speed = set_speed
+	
+
+func _setup_currency(set_value : int) -> void:
+	if not _currency_component:
+		printerr("No currency component set in enemy")
+		return
+	
+	_currency_component.value = set_value
+	
+
+func _setup_health(set_health : int) -> void:
+	if not _health_component:
+		printerr("No health component set in enemy")
+		return
+	
+	_health_component.health = set_health
 	
 
 func _set_mesh(set_mesh : Mesh) -> void:
@@ -46,7 +68,7 @@ func _set_mesh(set_mesh : Mesh) -> void:
 	_mesh_instance.mesh = set_mesh
 	
 
-func _handle_death(value : int) -> void:
-	Economy.add_money(value)
+func _handle_death() -> void:
+	_currency_component.add_money()
 	queue_free()
 	
