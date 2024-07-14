@@ -22,3 +22,7 @@ static func setup_node_parent(node : Node, node_name : String, parent_node : Nod
 static func is_parent_valid(parent_node : Node) -> bool:
 	return parent_node and parent_node.is_inside_tree()
 	
+
+static func get_trimmed_file_name(object : Resource) -> String:
+	return object.resource_path.get_file().trim_suffix(".tres")
+	

@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dtuk81hi1wwhn"]
+
+[ext_resource type="Texture2D" uid="uid://c38hl0k831ale" path="res://Assets/Kenneys_Assets/Fantasy_UI/panel-border-000.png" id="1_pp0li"]
+
+[resource]
+texture = ExtResource("1_pp0li")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+modulate_color = Color(0, 0, 0, 1)

@@ -14,6 +14,7 @@ transform = Transform3D(1, 0, 0, 0, 0.375691, 0.926745, 0, -0.926745, 0.375691, 
 [node name="Camera3D" parent="." instance=ExtResource("3_ihval")]
 transform = Transform3D(1, 0, 0, 0, 0.0871558, 0.996195, 0, -0.996195, 0.0871558, 0, 3, 0)
 _speed = 4.0
+_placeable = null
 
 [node name="MapGeneration" parent="." instance=ExtResource("2_k70xm")]
 grid_size = Vector2i(6, 6)

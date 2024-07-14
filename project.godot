@@ -35,6 +35,10 @@ folder_colors={
 "res://Scripts/": "teal"
 }
 
+[gui]
+
+theme/custom="res://Assets/UI/Themes/theme_ui.tres"
+
 [input]
 
 move_left={

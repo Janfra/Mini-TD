@@ -14,7 +14,7 @@ var _ui_focused:bool = false
 
 const DEFAULT_POINTER = preload("res://Assets/Pointers/pointer_c_shaded.png")
 const HIGHLIGHT_POINTER = preload("res://Assets/Pointers/outline_pointer_c.png")
-const BUILD_POINTER = preload("res://Assets/Pointers/tool_hammer.png")
+const BUILD_POINTER = preload("res://Assets/Pointers/tool_hammer_outline.png")
 
 enum CursorState
 {
@@ -22,6 +22,11 @@ enum CursorState
 	Highlight,
 	Build,
 }
+
+func _ready() -> void:
+	Input.set_custom_mouse_cursor(_get_cursor_from_state(CursorState.Highlight), Input.CURSOR_POINTING_HAND)
+	Input.set_custom_mouse_cursor(_get_cursor_from_state(CursorState.Build), Input.CURSOR_CAN_DROP)
+	
 
 func _unhandled_input(event) -> void:
 	_handle_movement_inputs()
