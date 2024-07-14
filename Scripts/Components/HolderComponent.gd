@@ -21,7 +21,7 @@ func set_placeable(placeable_data : PlaceableData):
 		print("Holder already used")
 		return
 	
-	_generate_placeable(_placeable.placeable_scene)
+	_setup_placeable(_placeable.instantiate_placeable_to(self) as Node3D)
 	placed_object.emit()
 	
 
@@ -37,17 +37,14 @@ func get_mesh_bounds() -> Vector3:
 	return _mesh.get_aabb().size
 	
 
-func _generate_placeable(scene : PackedScene):
-	if not scene or not scene.can_instantiate():
-		assert(false, "Scene cannot be instantiated")
+func _setup_placeable(placeable_node : Node3D):
+	if not placeable_node:
+		assert(placeable_node, "Placeables for holders should only be Node3D")
 		return
-	
-	created_scene = scene.instantiate()
-	GenerationUtils.setup_node_parent(created_scene, scene.resource_name, self)
 	
 	var position_offset = global_position
 	position_offset.y += get_mesh_bounds().y
-	created_scene.global_position = position_offset
+	placeable_node.global_position = position_offset
 	
 
 ## TEST: Cursor change

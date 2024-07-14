@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PlaceableData" load_steps=3 format=3 uid="uid://citb7vkolnb1n"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/Placeables/PlaceableData.gd" id="1_6leap"]
+[ext_resource type="PackedScene" uid="uid://c35r2h228e3pp" path="res://Assets/Gameplay_Scenes/enemy_test.tscn" id="1_immpk"]
+
+[resource]
+script = ExtResource("1_6leap")
+placeable_scene = ExtResource("1_immpk")

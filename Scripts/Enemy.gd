@@ -7,20 +7,24 @@ extends Node3D
 @export var _health_component: HealthComponent
 @export var _currency_component: CurrencyComponent
 
+func _ready():
+	connect_to_dead_event(_handle_death.bind())
+	
+
 func setup_enemy(enemy_definition : EnemyDefinitionData) -> void:
 	_setup_path_follower(enemy_definition.movement_speed)
 	_setup_currency(enemy_definition.value)
 	_setup_health(enemy_definition.health)
 	_set_mesh(enemy_definition.mesh)
 	
-	connect_to_dead_event(_handle_death.bind())
-	
 
 func disconnect_to_dead_event(callable : Callable) -> void:
+	assert(_health_component)
 	_health_component.health_depleted.disconnect(callable)
 	
 
 func connect_to_dead_event(callable : Callable) -> void:
+	assert(_health_component)
 	_health_component.health_depleted.connect(callable)
 	
 
