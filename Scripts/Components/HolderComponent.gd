@@ -47,10 +47,15 @@ func _setup_placeable(placeable_node : Node3D):
 	var position_offset = global_position
 	position_offset.y += get_mesh_bounds().y
 	created_scene.global_position = position_offset
+	_update_cursor_state()
 	
 
 ## TEST: Cursor change
 func _on_selectable_component_mouse_entered():
+	_update_cursor_state()
+	
+
+func _update_cursor_state() -> void:
 	if is_instance_valid(created_scene):
 		PlayerInputs.set_cursor(InputHandler.CursorState.Highlight)
 	else:

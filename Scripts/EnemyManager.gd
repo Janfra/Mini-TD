@@ -7,7 +7,6 @@ extends Node
 
 func _ready() -> void:
 	await get_parent().ready
-	assert(waves_data, "No waves set for level")
 	_spawn_and_setup_wave_enemies()
 	
 
@@ -19,6 +18,7 @@ func _process(delta):
 
 func _spawn_and_setup_wave_enemies() -> void:
 	if not waves_data or not waves_data.is_valid():
+		printerr("No waves setup")
 		return
 	
 	# TEST: For testing that it follows path correctly

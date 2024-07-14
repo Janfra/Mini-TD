@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhvxplh8y7foq"]
+[gd_scene load_steps=6 format=3 uid="uid://dhvxplh8y7foq"]
 
 [ext_resource type="Script" path="res://Scripts/UI/GameUI.gd" id="1_3gav5"]
 [ext_resource type="Theme" uid="uid://ch35pidq376ny" path="res://Assets/UI/Themes/theme_ui.tres" id="2_2p4bm"]
+[ext_resource type="Resource" uid="uid://hsytkkst11qo" path="res://Resources/PlaceableObjects/PlaceablesAndUI/placeable_test_ui.tres" id="3_77583"]
 [ext_resource type="PackedScene" uid="uid://cqrc5aq7pgx0n" path="res://Assets/UI/UI_Scenes/build_option.tscn" id="3_orx4t"]
-[ext_resource type="Resource" uid="uid://citb7vkolnb1n" path="res://Resources/PlaceableObjects/placeable_test_two.tres" id="4_x868g"]
+[ext_resource type="Resource" uid="uid://bekv6fk1b0845" path="res://Resources/PlaceableObjects/PlaceablesAndUI/placeable_test_ui_two.tres" id="4_i64dq"]
 
-[node name="UI" type="Control" node_paths=PackedStringArray("money_label", "health_label")]
+[node name="UI" type="Control" node_paths=PackedStringArray("money_label", "health_label", "bottom_section", "build_tab")]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 15
@@ -17,6 +18,11 @@ mouse_filter = 2
 script = ExtResource("1_3gav5")
 money_label = NodePath("CanvasLayer/MoneyContainer/MoneyLabel")
 health_label = NodePath("CanvasLayer/HealthContainer/HealthLabel")
+bottom_section = NodePath("CanvasLayer/TabContainer")
+build_tab = NodePath("CanvasLayer/TabContainer/Build")
+spacer_size = 5
+build_option_scene = ExtResource("3_orx4t")
+preloaded_build_options = Array[Resource("res://Scripts/Resources/Placeables/PlaceableAndUIData.gd")]([ExtResource("3_77583"), ExtResource("4_i64dq")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -73,6 +79,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 0
 theme = ExtResource("2_2p4bm")
 theme_type_variation = &"BottomTabSelection"
 tab_alignment = 1
@@ -80,19 +87,6 @@ tab_alignment = 1
 [node name="Build" type="HBoxContainer" parent="CanvasLayer/TabContainer"]
 layout_mode = 2
 alignment = 1
-
-[node name="BuildOption" parent="CanvasLayer/TabContainer/Build" instance=ExtResource("3_orx4t")]
-layout_mode = 2
-
-[node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Build"]
-custom_minimum_size = Vector2(10, 5)
-layout_mode = 2
-
-[node name="BuildOption2" parent="CanvasLayer/TabContainer/Build" instance=ExtResource("3_orx4t")]
-layout_mode = 2
-text = "
-"
-placeable_data = ExtResource("4_x868g")
 
 [node name="Enemies" type="CenterContainer" parent="CanvasLayer/TabContainer"]
 visible = false
