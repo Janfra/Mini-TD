@@ -71,8 +71,8 @@ As an extra I decided to make PRs a requirement just to make sure I keep making 
 	- [X] **TBD** - Killing enemies generates income
 
 #### Players Health
-- [ ] Add players health AKA losing condition
+- [X] Add players health AKA losing condition
 
 #### Basic Game UI
-- [ ] Add basic game UI
-- [ ] Add basic tower selection
+- [x] Add basic game UI
+- [x] Add basic tower selection
