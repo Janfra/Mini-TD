@@ -12,6 +12,6 @@ script = ExtResource("1_ovyjs")
 animation_scene = ExtResource("1_3ldq4")
 is_looking_at_target = false
 travel_speed = SubResource("Curve_f6s0s")
-height_offset_start = 0.3
+height_offset_start = 0.2
 height_offset_end = 0.0
 duration_type = 0

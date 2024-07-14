@@ -15,6 +15,7 @@ var created_scene: Node
 func set_placeable(placeable_data : PlaceableData):
 	_placeable = placeable_data
 	if not placeable_data or not placeable_data.is_valid():
+		printerr("Attempted to set placeable with an invalid placeable")
 		return
 	
 	if is_instance_valid(created_scene):
@@ -42,13 +43,19 @@ func _setup_placeable(placeable_node : Node3D):
 		assert(placeable_node, "Placeables for holders should only be Node3D")
 		return
 	
+	created_scene = placeable_node
 	var position_offset = global_position
 	position_offset.y += get_mesh_bounds().y
-	placeable_node.global_position = position_offset
+	created_scene.global_position = position_offset
+	_update_cursor_state()
 	
 
 ## TEST: Cursor change
 func _on_selectable_component_mouse_entered():
+	_update_cursor_state()
+	
+
+func _update_cursor_state() -> void:
 	if is_instance_valid(created_scene):
 		PlayerInputs.set_cursor(InputHandler.CursorState.Highlight)
 	else:

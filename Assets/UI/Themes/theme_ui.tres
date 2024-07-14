@@ -1,10 +1,11 @@
-[gd_resource type="Theme" load_steps=18 format=3 uid="uid://ch35pidq376ny"]
+[gd_resource type="Theme" load_steps=21 format=3 uid="uid://ch35pidq376ny"]
 
 [ext_resource type="Texture2D" uid="uid://dj0iai6mr6hwl" path="res://Assets/Kenneys_Assets/Fantasy_UI/panel-transparent-center-009.png" id="1_lrx2x"]
 [ext_resource type="Texture2D" uid="uid://bb15wn0mmgn11" path="res://Assets/Kenneys_Assets/Fantasy_UI/panel-007.png" id="1_ubaj7"]
 [ext_resource type="Texture2D" uid="uid://pc3wrm2uxfww" path="res://Assets/Kenneys_Assets/Fantasy_UI/panel-015.png" id="2_bf3l5"]
 [ext_resource type="Texture2D" uid="uid://c38hl0k831ale" path="res://Assets/Kenneys_Assets/Fantasy_UI/panel-border-000.png" id="3_ya8c3"]
 [ext_resource type="StyleBox" uid="uid://dtuk81hi1wwhn" path="res://Assets/UI/UI_Textures/selection_highlight.tres" id="5_ty57r"]
+[ext_resource type="StyleBox" uid="uid://dpfro2cv1adcs" path="res://Assets/UI/UI_Textures/selection_highlight_hover.tres" id="6_euap7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_if63j"]
 texture = ExtResource("1_ubaj7")
@@ -80,6 +81,25 @@ texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 5.0
+modulate_color = Color(0.830335, 0.830335, 0.830335, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqw2s"]
+bg_color = Color(0, 0, 0, 0.65098)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.862732, 0.181688, 0.439752, 1)
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nijj"]
+bg_color = Color(0, 0, 0, 0.65098)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.862732, 0.181688, 0.439752, 1)
+shadow_size = 1
 
 [resource]
 BottomTabSelection/base_type = &"TabContainer"
@@ -108,10 +128,15 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_b03kd")
 SelectionButton/base_type = &"Button"
 SelectionButton/styles/disabled = SubResource("StyleBoxFlat_5hlwj")
 SelectionButton/styles/focus = ExtResource("5_ty57r")
-SelectionButton/styles/hover = ExtResource("5_ty57r")
+SelectionButton/styles/hover = ExtResource("6_euap7")
 SelectionButton/styles/normal = SubResource("StyleBoxEmpty_e85i5")
 SelectionButton/styles/pressed = ExtResource("5_ty57r")
 SelectionOptionContainer/base_type = &"PanelContainer"
 SelectionOptionContainer/styles/panel = SubResource("StyleBoxTexture_81v2y")
+SelectionOptionCost/base_type = &"Label"
+SelectionOptionCost/font_sizes/font_size = 13
+SelectionOptionCost/styles/normal = SubResource("StyleBoxFlat_vqw2s")
 SelectionOptionTitle/base_type = &"Label"
+SelectionOptionTitle/colors/font_color = Color(1, 1, 1, 1)
 SelectionOptionTitle/font_sizes/font_size = 15
+SelectionOptionTitle/styles/normal = SubResource("StyleBoxFlat_5nijj")

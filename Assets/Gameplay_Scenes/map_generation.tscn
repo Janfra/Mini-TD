@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/EnemyManager.gd" id="4_gsnwd"]
 [ext_resource type="ArrayMesh" uid="uid://co0sequms706j" path="res://Assets/Meshes/path_corner_mesh.tres" id="4_som84"]
 [ext_resource type="PackedScene" uid="uid://ji0shpsbrviv" path="res://Assets/Gameplay_Scenes/player_main_building.tscn" id="5_vax04"]
-[ext_resource type="Resource" uid="uid://cwp88wni78343" path="res://Resources/EnemyWaves/test_wave.tres" id="5_vhab5"]
+[ext_resource type="Resource" uid="uid://cwp88wni78343" path="res://Resources/EnemyWaves/test_waves.tres" id="9_pue8y"]
 
 [node name="MapGeneration" type="Node3D" node_paths=PackedStringArray("grid_generation", "path_generation", "main_building")]
 script = ExtResource("1_1g4sv")
@@ -30,4 +30,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 [node name="EnemyManager" type="Node" parent="." node_paths=PackedStringArray("path")]
 script = ExtResource("4_gsnwd")
 path = NodePath("../EnemyPath")
-waves_data = ExtResource("5_vhab5")
+waves_data = ExtResource("9_pue8y")

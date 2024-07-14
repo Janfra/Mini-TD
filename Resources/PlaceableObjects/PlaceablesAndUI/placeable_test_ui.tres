@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlaceableAndUIData" load_steps=4 format=3 uid="uid://hsytkkst11qo"]
+
+[ext_resource type="Resource" uid="uid://b8fvl4oqt6r02" path="res://Resources/PlaceableObjects/placeable_test.tres" id="1_2jyuj"]
+[ext_resource type="Script" path="res://Scripts/Resources/Placeables/PlaceableAndUIData.gd" id="1_03drh"]
+[ext_resource type="Texture2D" uid="uid://cb165qmum7emr" path="res://Assets/UI/UI_Images/towerRound_sampleB_W.png" id="1_062ky"]
+
+[resource]
+script = ExtResource("1_03drh")
+placeable_data = ExtResource("1_2jyuj")
+image = ExtResource("1_062ky")
+name = "Mage Tower"

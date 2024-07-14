@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://b7ghrwyk4rfix"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_65sfs"]
-[ext_resource type="ArrayMesh" uid="uid://buqu8kex8t7fx" path="res://Assets/Meshes/enemy_ufo_mesh.tres" id="2_jwe3w"]
 [ext_resource type="Script" path="res://Scripts/Components/EnemyDetectionComponent.gd" id="2_uf7qf"]
+[ext_resource type="ArrayMesh" uid="uid://d32o28lbubvjt" path="res://Assets/Meshes/tower_round_mage_a.tres" id="2_urxvi"]
 [ext_resource type="Script" path="res://Scripts/Components/AttackComponent.gd" id="4_dp0r7"]
 [ext_resource type="Script" path="res://Scripts/Components/AttackAnimationComponent.gd" id="5_lnp2y"]
 [ext_resource type="Resource" uid="uid://cptrc2v10cv84" path="res://Resources/AttackAnimations/bullet_animation.tres" id="6_wx2m2"]
@@ -16,8 +16,8 @@ enemy_detection = NodePath("EnemyDetectionComponent")
 attack_component = NodePath("AttackComponent")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
-mesh = ExtResource("2_jwe3w")
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = ExtResource("2_urxvi")
 
 [node name="EnemyDetectionComponent" type="Area3D" parent="." node_paths=PackedStringArray("collision")]
 collision_layer = 0
