@@ -1,17 +1,12 @@
-[gd_resource type="Resource" script_class="BulletAnimation" load_steps=4 format=3 uid="uid://cptrc2v10cv84"]
+[gd_resource type="Resource" script_class="BulletAnimation" load_steps=3 format=3 uid="uid://cptrc2v10cv84"]
 
 [ext_resource type="PackedScene" uid="uid://dt3flwvvxwwd8" path="res://Assets/Gameplay_Scenes/bullet.tscn" id="1_3ldq4"]
 [ext_resource type="Script" path="res://Scripts/Resources/AttackAnimations/BulletAnimation.gd" id="1_ovyjs"]
-
-[sub_resource type="Curve" id="Curve_f6s0s"]
-_data = [Vector2(0, 0), 0.0, 1.29452, 0, 0, Vector2(0.132159, 0.192881), 2.183, 2.183, 0, 0, Vector2(0.94702, 1), 0.15268, 0.0, 0, 0]
-point_count = 3
 
 [resource]
 script = ExtResource("1_ovyjs")
 animation_scene = ExtResource("1_3ldq4")
 is_looking_at_target = false
-travel_speed = SubResource("Curve_f6s0s")
 height_offset_start = 0.2
 height_offset_end = 0.0
 duration_type = 0

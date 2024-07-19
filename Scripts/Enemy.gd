@@ -28,6 +28,10 @@ func connect_to_dead_event(callable : Callable) -> void:
 	_health_component.health_depleted.connect(callable)
 	
 
+func is_damage_value_lethal(damage : int) -> void:
+	return _health_component.is_damage_value_lethal(damage)
+	
+
 func deal_damage(damage : int) -> void:
 	if _health_component.is_health_depleted:
 		return
@@ -73,7 +77,6 @@ func _set_mesh(set_mesh : Mesh) -> void:
 	
 
 func _handle_death() -> void:
-	print("Killed enemy %s" % name)
 	_currency_component.add_money()
 	queue_free()
 	

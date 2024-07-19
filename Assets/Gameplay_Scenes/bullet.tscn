@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dt3flwvvxwwd8"]
+[gd_scene load_steps=13 format=3 uid="uid://dt3flwvvxwwd8"]
 
-[ext_resource type="Script" path="res://Scripts/NotifiedNode3D.gd" id="1_2lpwb"]
+[ext_resource type="Script" path="res://Scripts/NotifiedAndAnimationNode3D.gd" id="1_18k5j"]
 [ext_resource type="Script" path="res://Scripts/Components/ParticlesComponent.gd" id="1_kps5j"]
 
 [sub_resource type="Curve" id="Curve_5dx2k"]
@@ -49,13 +49,51 @@ height = 0.2
 radial_segments = 10
 rings = 10
 
-[node name="NotifiedNode3D" type="Node3D" node_paths=PackedStringArray("hide_on_free")]
-script = ExtResource("1_2lpwb")
-hide_on_free = [NodePath("Bullet")]
+[sub_resource type="Animation" id="Animation_pqfhr"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1.23114, 0.482968, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.3, 1.3, 1.3), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ixdnv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lhutu"]
+_data = {
+"END OF LIFETIME": SubResource("Animation_pqfhr"),
+"RESET": SubResource("Animation_ixdnv")
+}
+
+[node name="BulletNotifier" type="Node3D" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_18k5j")
+animation_player = NodePath("AnimationPlayer")
+lifetime = 0.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 amount = 7
 lifetime = 0.7
+preprocess = 0.1
 explosiveness = 0.07
 collision_base_size = 0.0
 visibility_aabb = AABB(-4, -0.4, -4, 8, 3.186, 8)
@@ -70,3 +108,9 @@ is_auto_play = true
 
 [node name="Bullet" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_ahi46")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lhutu")
+}

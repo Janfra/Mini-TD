@@ -32,7 +32,7 @@ shape = SubResource("CylinderShape3D_u0e4s")
 [node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("animation_component")]
 script = ExtResource("4_dp0r7")
 animation_component = NodePath("../AttackAnimationComponent")
-attack_duration = 0.6
+attack_velocity = 3.0
 
 [node name="AttackAnimationComponent" type="Node" parent="."]
 script = ExtResource("5_lnp2y")

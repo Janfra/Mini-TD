@@ -6,7 +6,6 @@ extends AttackAnimation
 
 @export_category("Configuration")
 @export var is_looking_at_target: bool = false
-@export var travel_speed: Curve
 @export_subgroup("Height Offset")
 @export var height_offset_start: float
 @export var height_offset_end: float
@@ -36,7 +35,7 @@ class BulletData:
 		if current_duration > animation_data.duration:
 			current_duration = animation_data.duration
 		
-		return MathUtils.normalise_range(current_duration, 0, animation_data.duration)
+		return MathUtils.normalise_range(current_duration, 0.0, animation_data.duration)
 		
 	
 	func look_at_target() -> void:
@@ -69,7 +68,6 @@ func is_valid() -> bool:
 	
 
 func bake_values() -> void:
-	travel_speed.bake()
 	assert(duration_type != DurationType.Infinite, "Bullets dont support infinite duration")
 	
 
@@ -81,7 +79,16 @@ func start_animation(animation_data : AttackAnimationData) -> void:
 	_generate_bullet(animation_data)
 	
 
-func stop_animation() -> void:
+func end_animation() -> void:
+	for bullet in _generated_bullets:
+		bullet.clear_bullet()
+		
+	
+	_generated_bullets.clear()
+	ended.emit()
+	
+
+func forcefully_stop_animating() -> void:
 	print("Stopped animating")
 	
 
@@ -98,7 +105,6 @@ func update_animation_duration_by(value : float) -> void:
 		
 		var is_completed: bool = bullet.update_progress_by(value)
 		var progress = bullet.get_progress_value()
-		progress = travel_speed.sample_baked(progress)
 		bullet.update_bullet_position(progress, Vector2(height_offset_start, height_offset_end))
 		
 		if is_completed:
