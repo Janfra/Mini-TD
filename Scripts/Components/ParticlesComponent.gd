@@ -10,7 +10,6 @@ extends Node
 @export_category("Configuration")
 @export var is_auto_play: bool
 @export var duration_type: ParticleLifetimeDuration
-@export var duration: float
 
 enum ParticleLifetimeDuration
 {

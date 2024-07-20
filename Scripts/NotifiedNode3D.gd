@@ -7,7 +7,7 @@ extends Node3D
 signal freed
 
 @export_category("Configuration")
-@export var lifetime: float
+@export var lifetime: float = 0.1: set = set_lifetime
 @export var hide_on_free: Array[Node3D]
 
 func end_of_lifetime() -> void:
@@ -18,4 +18,8 @@ func end_of_lifetime() -> void:
 	
 	await get_tree().create_timer(abs(lifetime), false).timeout
 	queue_free()
+	
+
+func set_lifetime(set_lifetime : float) -> void:
+	lifetime = set_lifetime
 	
