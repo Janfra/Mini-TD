@@ -1,4 +1,0 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctw8lc2avc3am"]
-
-[ext_resource type="PackedScene" uid="uid://dxfcdwcg11w3u" path="res://Assets/Gameplay_Scenes/map_generation.tscn" id="2_k70xm"]
-[ext_resource type="Resource" uid="uid://b8fvl4oqt6r02" path="res://Resources/PlaceableObjects/placeable_test.tres" id="2_owpkx"]

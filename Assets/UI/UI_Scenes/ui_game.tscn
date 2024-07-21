@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cqrc5aq7pgx0n" path="res://Assets/UI/UI_Scenes/build_option.tscn" id="3_orx4t"]
 [ext_resource type="Resource" uid="uid://bekv6fk1b0845" path="res://Resources/PlaceableObjects/PlaceablesAndUI/placeable_test_ui_two.tres" id="4_i64dq"]
 
-[node name="UI" type="Control" node_paths=PackedStringArray("canvas", "money_label", "health_label", "bottom_section", "build_tab")]
+[node name="UIGame" type="Control" node_paths=PackedStringArray("canvas", "money_label", "health_label", "bottom_section", "build_tab")]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 15

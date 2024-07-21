@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PlaceableAndUIData" load_steps=4 format=3 uid="uid://bekv6fk1b0845"]
 
-[ext_resource type="Resource" uid="uid://citb7vkolnb1n" path="res://Resources/PlaceableObjects/placeable_test_two.tres" id="1_1vkui"]
+[ext_resource type="Resource" uid="uid://citb7vkolnb1n" path="res://Resources/PlaceableObjects/placeable_enemy_test.tres" id="1_1vkui"]
 [ext_resource type="Texture2D" uid="uid://cxwvybp6b5mvu" path="res://Assets/UI/UI_Images/enemy_ufoRed_E.png" id="1_v3wog"]
 [ext_resource type="Script" path="res://Scripts/Resources/Placeables/PlaceableAndUIData.gd" id="2_6vbqy"]
 

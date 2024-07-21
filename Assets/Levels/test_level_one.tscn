@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctw8lc2avc3am"]
 
 [ext_resource type="PackedScene" uid="uid://dxfcdwcg11w3u" path="res://Assets/Gameplay_Scenes/map_generation.tscn" id="2_k70xm"]
-[ext_resource type="PackedScene" uid="uid://si8sgvx8k6rb" path="res://Assets/Gameplay_Scenes/camera_controller.tscn" id="3_ihval"]
+[ext_resource type="PackedScene" uid="uid://si8sgvx8k6rb" path="res://Assets/Gameplay_Scenes/player.tscn" id="3_ihval"]
 [ext_resource type="PackedScene" uid="uid://dhvxplh8y7foq" path="res://Assets/UI/UI_Scenes/ui_game.tscn" id="4_jk3b5"]
 
 [node name="Test Level One" type="Node3D"]
@@ -14,7 +14,6 @@ transform = Transform3D(1, 0, 0, 0, 0.375691, 0.926745, 0, -0.926745, 0.375691, 
 [node name="Camera3D" parent="." instance=ExtResource("3_ihval")]
 transform = Transform3D(1, 0, 0, 0, 0.0871558, 0.996195, 0, -0.996195, 0.0871558, 0, 3, 0)
 _speed = 4.0
-_placeable = null
 
 [node name="MapGeneration" parent="." instance=ExtResource("2_k70xm")]
 grid_size = Vector2i(6, 6)
