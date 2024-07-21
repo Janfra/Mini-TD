@@ -17,10 +17,11 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PlayerInputs="*res://Scripts/Singleton/InputHandler.gd"
-Economy="*res://Scripts/Singleton/EconomyHandler.gd"
-UIEvents="*res://Scripts/Singleton/UINotifier.gd"
+PlayerInputs="*res://Scripts/Singleton/InputSingleton.gd"
+Economy="*res://Scripts/Singleton/EconomySingleton.gd"
+UIEvents="*res://Scripts/Singleton/UINotifierSingleton.gd"
 GameEvents="*res://Scripts/Singleton/GameEventsBus.gd"
+GameManager="*res://Scripts/Singleton/GameManagerSingleton.gd"
 
 [display]
 

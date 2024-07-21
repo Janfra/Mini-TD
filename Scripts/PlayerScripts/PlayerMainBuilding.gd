@@ -30,7 +30,8 @@ func _damage_building(value : int) -> void:
 
 func _player_died() -> void:
 	print("Lost Game")
-	GameEvents.lost_game.emit()
+	health_component.health_depleted.disconnect(_player_died.bind())
+	GameManager.try_update_game_state(GameManager.GameStates.Lost)
 	
 
 func _update_ui_health() -> void:

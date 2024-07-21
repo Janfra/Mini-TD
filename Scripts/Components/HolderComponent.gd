@@ -57,8 +57,8 @@ func _on_selectable_component_mouse_entered():
 
 func _update_cursor_state() -> void:
 	if is_instance_valid(created_scene):
-		PlayerInputs.set_cursor(InputHandler.CursorState.Highlight)
+		PlayerInputs.set_cursor(PlayerInputs.CursorState.Highlight)
 	else:
-		PlayerInputs.set_cursor(InputHandler.CursorState.Default)
+		PlayerInputs.set_cursor(PlayerInputs.CursorState.Default)
 		
 	

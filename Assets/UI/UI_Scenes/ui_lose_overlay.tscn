@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnuy0fy7t8cji"]
+
+[ext_resource type="Script" path="res://Scripts/UI/UILose.gd" id="1_7mimn"]
+[ext_resource type="StyleBox" uid="uid://c28x1xwl4n875" path="res://Assets/UI/UI_Textures/fade_divide_right.tres" id="1_ti0gf"]
+
+[sub_resource type="Animation" id="Animation_cv5ag"]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.517632, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wyad6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k7kbe"]
+_data = {
+"FadeIn": SubResource("Animation_cv5ag"),
+"RESET": SubResource("Animation_wyad6")
+}
+
+[node name="UiLoseOverlay" type="Control"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7mimn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.7
+offset_left = 4.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"LostPanel"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="LostLabel" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+size_flags_stretch_ratio = 1.25
+
+[node name="FadeLeft" type="Panel" parent="PanelContainer/VBoxContainer/LostLabel"]
+texture_filter = 2
+texture_repeat = 1
+clip_contents = true
+custom_minimum_size = Vector2(0, 18.14)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_type_variation = &"FadeDivide"
+
+[node name="LostLabel" type="Label" parent="PanelContainer/VBoxContainer/LostLabel"]
+layout_mode = 2
+text = "LOST GAME"
+
+[node name="FadeRight" type="Panel" parent="PanelContainer/VBoxContainer/LostLabel"]
+texture_filter = 2
+texture_repeat = 1
+clip_contents = true
+custom_minimum_size = Vector2(0, 18.14)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_type_variation = &"FadeDivide"
+theme_override_styles/panel = ExtResource("1_ti0gf")
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "RETRY"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k7kbe")
+}
+autoplay = "FadeIn"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
