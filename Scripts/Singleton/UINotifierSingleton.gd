@@ -1,4 +1,3 @@
-class_name UINotifier
 extends Node
 
 ## Handles sending off UI notifications for separated scenes

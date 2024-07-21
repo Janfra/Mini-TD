@@ -45,7 +45,7 @@ func _setup_map_enemy_path() -> void:
 	var path: Array[GridComponent.CellHandle] = grid_generation.get_path_from_to_cell(path_endings[0], path_endings[1])
 	
 	path_generation.add_to_path_given_locations(grid_generation.get_cells_positions(path))
-	print("Point count: %s, lenght: %s" % [path_generation.curve.point_count, path_generation.curve.get_baked_length()])
+	print("Added Count: %s, Point count: %s, lenght: %s" % [path.size(), path_generation.curve.point_count, path_generation.curve.get_baked_length()])
 	
 	var index: int
 	var last_direction: Vector3

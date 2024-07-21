@@ -1,4 +1,3 @@
-class_name EconomyHandler
 extends Node
 
 signal money_changed(new_value : int)

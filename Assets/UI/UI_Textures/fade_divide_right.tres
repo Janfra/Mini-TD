@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://c28x1xwl4n875"]
+
+[ext_resource type="Texture2D" uid="uid://dxlkubt7fai6l" path="res://Assets/Kenneys_Assets/Fantasy_UI/divider-fade-003 - Flipped.png" id="1_sn45x"]
+
+[resource]
+texture = ExtResource("1_sn45x")
+texture_margin_left = 30.0

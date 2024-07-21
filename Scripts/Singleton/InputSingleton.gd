@@ -1,4 +1,3 @@
-class_name InputHandler
 extends Node
 
 ## Input designed to assume there will only be one player for simplicity

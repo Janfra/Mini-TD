@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhvxplh8y7foq"]
+[gd_scene load_steps=7 format=3 uid="uid://dhvxplh8y7foq"]
 
-[ext_resource type="Script" path="res://Scripts/UI/GameUI.gd" id="1_3gav5"]
+[ext_resource type="Script" path="res://Scripts/UI/UIGame.gd" id="1_3gav5"]
 [ext_resource type="Theme" uid="uid://ch35pidq376ny" path="res://Assets/UI/Themes/theme_ui.tres" id="2_2p4bm"]
+[ext_resource type="PackedScene" uid="uid://bnuy0fy7t8cji" path="res://Assets/UI/UI_Scenes/ui_lose_overlay.tscn" id="2_hegv0"]
 [ext_resource type="Resource" uid="uid://hsytkkst11qo" path="res://Resources/PlaceableObjects/PlaceablesAndUI/placeable_test_ui.tres" id="3_77583"]
 [ext_resource type="PackedScene" uid="uid://cqrc5aq7pgx0n" path="res://Assets/UI/UI_Scenes/build_option.tscn" id="3_orx4t"]
 [ext_resource type="Resource" uid="uid://bekv6fk1b0845" path="res://Resources/PlaceableObjects/PlaceablesAndUI/placeable_test_ui_two.tres" id="4_i64dq"]
 
-[node name="UI" type="Control" node_paths=PackedStringArray("money_label", "health_label", "bottom_section", "build_tab")]
+[node name="UI" type="Control" node_paths=PackedStringArray("canvas", "money_label", "health_label", "bottom_section", "build_tab")]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 15
@@ -16,6 +17,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_3gav5")
+canvas = NodePath("CanvasLayer")
+lose_screen = ExtResource("2_hegv0")
 money_label = NodePath("CanvasLayer/MoneyContainer/MoneyLabel")
 health_label = NodePath("CanvasLayer/HealthContainer/HealthLabel")
 bottom_section = NodePath("CanvasLayer/TabContainer")

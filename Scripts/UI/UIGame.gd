@@ -1,7 +1,10 @@
-class_name GameUI
+class_name UIGame
 extends Control
 
 @export_category("Dependencies")
+@export var canvas: CanvasLayer
+@export_subgroup("Overlay UI")
+@export var lose_screen: PackedScene
 @export_subgroup("Top Left Section")
 @export var money_label: Label
 @export var health_label: Label
@@ -18,7 +21,7 @@ extends Control
 func _ready():
 	Economy.money_changed.connect(set_money_label.bind())
 	UIEvents.player_health_updated.connect(set_health_label.bind())
-	GameEvents.lost_game.connect(display_lost_screen.bind())
+	GameManager.lost_game.connect(display_lost_screen.bind())
 	
 	for build_option in preloaded_build_options:
 		add_build_option(build_option)
@@ -34,6 +37,9 @@ func set_health_label(value : int) -> void:
 	
 
 func display_lost_screen() -> void:
+	if lose_screen and lose_screen.can_instantiate():
+		GenerationUtils.setup_node_parent(lose_screen.instantiate(), "Lose Overlay", canvas)
+		
 	print("Display lost screen")
 	
 

@@ -21,6 +21,11 @@ class PathTravelData:
 		is_path_completed = is_completed
 		
 
+func _ready() -> void:
+	## Clear resource to avoid stacking path from before restarting
+	curve.clear_points()
+	
+
 func add_path_follower_listener(follower : PathFollowerComponent) -> void:
 	if not follower:
 		printerr("Trying to add a null path follower")

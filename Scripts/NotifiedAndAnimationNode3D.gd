@@ -18,6 +18,7 @@ const END_LIFETIME_ANIMATION = "END OF LIFETIME"
 
 func _ready():
 	assert(animation_player, "No animation player set")
+	
 
 func end_of_lifetime() -> void:
 	animation_player.play(END_LIFETIME_ANIMATION)
