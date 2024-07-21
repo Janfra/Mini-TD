@@ -3,11 +3,10 @@ extends Camera3D
 
 ## Handles camera movement
 
+signal player_selected(Selectable : SelectableComponent)
+
 @export_category("Movement Configuration")
 @export var _speed: float = 1.0
-
-@export_category("Debugging")
-@export var _placeable: PlaceableData
 
 var _velocity:Vector3 = Vector3.ZERO
 var _velocity_last_frame:Vector3 = Vector3.ZERO
@@ -17,7 +16,10 @@ func _ready() -> void:
 	PlayerInputs.moved.connect(_perform_camera_movement.bind())
 	PlayerInputs.stopped_moving.connect(stop_movement.bind())
 	PlayerInputs.just_clicked.connect(_try_select.bind())
-	GameEvents.update_selected_placeable.connect(_set_selected_placeable.bind())
+	
+	var BuildComponent: PlayerBuildComponent = %PlayerBuildComponent
+	assert(BuildComponent)
+	BuildComponent.setup(self)
 	
 
 
@@ -41,10 +43,6 @@ func _perform_camera_movement(move_input : Vector2) -> void:
 	
 
 func _try_select(event : InputEventMouseButton) -> void:
-	if not _placeable or not _placeable.is_valid():
-		return
-		
-	
 	var space = get_world_3d().direct_space_state
 	var start = project_ray_origin(event.position)
 	var end = start + project_ray_normal(event.position) * 1000
@@ -58,21 +56,7 @@ func _try_select(event : InputEventMouseButton) -> void:
 	
 	# TEST: Selecting and building
 	if array.collider is SelectableComponent:
-		var selectable = array.collider as SelectableComponent
-		if selectable.selected_node is HolderComponent:
-			var holder = selectable.selected_node as HolderComponent
-			holder.set_placeable(_placeable)
-		else:
-			printerr("Not holder component - %s" % array.collider)
+		player_selected.emit(array.collider as SelectableComponent)
 	else:
 		printerr("Not selectable - %s" % array.collider)
-	
-
-func _set_selected_placeable(set_placeable : PlaceableData) -> void:
-	if set_placeable and !set_placeable.is_valid():
-		printerr("Setting invalid placeable as selected placeable")
-		return
-		
-	
-	_placeable = set_placeable
 	

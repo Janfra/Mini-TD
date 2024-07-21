@@ -1,10 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://si8sgvx8k6rb"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScripts/CameraController.gd" id="1_siyni"]
-[ext_resource type="Resource" uid="uid://b8fvl4oqt6r02" path="res://Resources/PlaceableObjects/placeable_test.tres" id="2_78ou7"]
+[ext_resource type="Script" path="res://Scripts/PlayerScripts/PlayerBuildComponent.gd" id="3_1sd41"]
 
-[node name="Camera3D" type="Camera3D"]
+[node name="CameraController" type="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 current = true
 script = ExtResource("1_siyni")
-_placeable = ExtResource("2_78ou7")
+
+[node name="PlayerBuildComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_1sd41")

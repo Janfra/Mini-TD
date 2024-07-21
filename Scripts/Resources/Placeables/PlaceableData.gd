@@ -5,6 +5,7 @@ extends Resource
 
 @export_category("Dependencies")
 @export var placeable_scene: PackedScene
+@export var cost: int
 
 var debug_counter: int = 0
 
