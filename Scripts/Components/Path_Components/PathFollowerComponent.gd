@@ -1,10 +1,8 @@
 class_name PathFollowerComponent
 extends Node
 
-@export_category("Node To Move")
-@export var _target: Node3D
-
 @export_category("Configuration")
+@export var _target: Node3D
 @export var speed: float
 
 var _distance_traveled: float

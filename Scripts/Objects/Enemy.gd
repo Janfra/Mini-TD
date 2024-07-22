@@ -6,6 +6,7 @@ extends Node3D
 @export var _mesh_instance: MeshInstance3D
 @export var _health_component: HealthComponent
 @export var _currency_component: CurrencyComponent
+@export var _lifetime_component: LifetimeNode3D
 
 func _ready():
 	connect_to_dead_event(_handle_death.bind())
@@ -78,5 +79,5 @@ func _set_mesh(set_mesh : Mesh) -> void:
 
 func _handle_death() -> void:
 	_currency_component.add_money()
-	queue_free()
+	_lifetime_component.end_of_lifetime()
 	

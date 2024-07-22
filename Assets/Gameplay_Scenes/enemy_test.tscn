@@ -1,26 +1,111 @@
-[gd_scene load_steps=7 format=3 uid="uid://c35r2h228e3pp"]
+[gd_scene load_steps=17 format=3 uid="uid://c35r2h228e3pp"]
 
-[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_8w17f"]
+[ext_resource type="Script" path="res://Scripts/Objects/Enemy.gd" id="1_glbi1"]
 [ext_resource type="Script" path="res://Scripts/Components/Path_Components/PathFollowerComponent.gd" id="2_kl1pw"]
 [ext_resource type="ArrayMesh" uid="uid://buqu8kex8t7fx" path="res://Assets/Meshes/enemy_ufo_mesh.tres" id="2_lxs1r"]
 [ext_resource type="Script" path="res://Scripts/Components/HealthComponent.gd" id="4_c12ir"]
 [ext_resource type="Script" path="res://Scripts/Components/CurrencyComponent.gd" id="5_5aaii"]
+[ext_resource type="Script" path="res://Scripts/Objects/LifetimeAndAnimationNode3D.gd" id="6_17b5y"]
+[ext_resource type="Script" path="res://Scripts/Components/SignalBasedAnimationPlayer.gd" id="7_tqity"]
+[ext_resource type="Script" path="res://Scripts/Resources/SignalData/AnimationSignalData.gd" id="8_6xcnt"]
+[ext_resource type="Script" path="res://Scripts/Resources/SignalData/SignalData.gd" id="9_4ghe3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f4ns1"]
 
-[node name="EnemyTest" type="Node3D" node_paths=PackedStringArray("path_follower", "_mesh_instance", "_health_component", "_currency_component")]
-script = ExtResource("1_8w17f")
+[sub_resource type="Animation" id="Animation_25h22"]
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.2, 1.2, 1.2), Vector3(1.22, 1.22, 1.22), Vector3(0.1, 0.1, 0.1)]
+}
+
+[sub_resource type="Animation" id="Animation_b5yab"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hw3s7"]
+resource_name = "damaged"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 0.5, 1.23114, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.174533, 0, 0), Vector3(0.244346, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5d5q4"]
+_data = {
+"END OF LIFETIME": SubResource("Animation_25h22"),
+"RESET": SubResource("Animation_b5yab"),
+"damaged": SubResource("Animation_hw3s7")
+}
+
+[sub_resource type="Resource" id="Resource_lrguh"]
+script = ExtResource("9_4ghe3")
+signal_owner = NodePath("../HealthComponent")
+signal_name = "damaged"
+
+[sub_resource type="Resource" id="Resource_m6trv"]
+script = ExtResource("8_6xcnt")
+signal_data = SubResource("Resource_lrguh")
+animation_name = "damaged"
+is_reset_queued = true
+stop_current_animation = false
+
+[node name="EnemyTest" type="Node3D" node_paths=PackedStringArray("path_follower", "_mesh_instance", "_health_component", "_currency_component", "_lifetime_component")]
+script = ExtResource("1_glbi1")
 path_follower = NodePath("PathFollowerComponent")
 _mesh_instance = NodePath("MeshInstance3D")
 _health_component = NodePath("HealthComponent")
 _currency_component = NodePath("CurrencyComponent")
+_lifetime_component = NodePath("LifetimeAndAnimationNode3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 mesh = ExtResource("2_lxs1r")
 
-[node name="PathFollowerComponent" type="Node" parent="."]
+[node name="PathFollowerComponent" type="Node" parent="." node_paths=PackedStringArray("_target")]
 script = ExtResource("2_kl1pw")
+_target = NodePath("..")
 speed = 1.0
 
 [node name="HealthComponent" type="Node" parent="."]
@@ -37,3 +122,17 @@ monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_f4ns1")
+
+[node name="LifetimeAndAnimationNode3D" type="Node3D" parent="." node_paths=PackedStringArray("animation_player", "optional_parent")]
+script = ExtResource("6_17b5y")
+animation_player = NodePath("../SignalAnimationPlayer")
+lifetime = 0.3
+optional_parent = NodePath("..")
+
+[node name="SignalAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5d5q4")
+}
+script = ExtResource("7_tqity")
+signals = Array[ExtResource("8_6xcnt")]([SubResource("Resource_m6trv")])
+is_valid = true
