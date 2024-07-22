@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dt3flwvvxwwd8"]
 
-[ext_resource type="Script" path="res://Scripts/NotifiedAndAnimationNode3D.gd" id="1_18k5j"]
+[ext_resource type="Script" path="res://Scripts/Objects/LifetimeAndAnimationNode3D.gd" id="1_em53d"]
 [ext_resource type="Script" path="res://Scripts/Components/ParticlesComponent.gd" id="1_kps5j"]
 
 [sub_resource type="Curve" id="Curve_5dx2k"]
@@ -61,7 +61,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.5),
 "transitions": PackedFloat32Array(1.23114, 0.482968, 1),
 "update": 0,
-"values": [Vector3(1, 1, 1), Vector3(1.3, 1.3, 1.3), Vector3(0, 0, 0)]
+"values": [Vector3(1, 1, 1), Vector3(1.3, 1.3, 1.3), Vector3(0.1, 0.1, 0.1)]
 }
 
 [sub_resource type="Animation" id="Animation_ixdnv"]
@@ -86,9 +86,9 @@ _data = {
 }
 
 [node name="BulletNotifier" type="Node3D" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("1_18k5j")
+script = ExtResource("1_em53d")
 animation_player = NodePath("AnimationPlayer")
-lifetime = 0.0
+lifetime = 0.5
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 amount = 7

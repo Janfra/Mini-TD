@@ -4,7 +4,7 @@ extends Node
 ## Handles the logic for particles emittion and lifetime
 
 @export_category("Dependencies")
-@export var target: NotifiedNode3D
+@export var target: LifetimeNode3D
 @export var particles: GPUParticles3D
 
 @export_category("Configuration")

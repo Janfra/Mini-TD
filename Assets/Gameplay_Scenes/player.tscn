@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/PlayerScripts/CameraController.gd" id="1_siyni"]
 [ext_resource type="Script" path="res://Scripts/PlayerScripts/PlayerBuildComponent.gd" id="3_1sd41"]
 
-[node name="CameraController" type="Camera3D"]
+[node name="PlayerCamera" type="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 current = true
 script = ExtResource("1_siyni")

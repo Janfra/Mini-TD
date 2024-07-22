@@ -11,11 +11,9 @@
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.375691, 0.926745, 0, -0.926745, 0.375691, 0, 14.991, 3.30632)
 
-[node name="Camera3D" parent="." instance=ExtResource("3_ihval")]
+[node name="PlayerCamera" parent="." instance=ExtResource("3_ihval")]
 transform = Transform3D(1, 0, 0, 0, 0.0871558, 0.996195, 0, -0.996195, 0.0871558, 0, 3, 0)
 _speed = 4.0
 
 [node name="MapGeneration" parent="." instance=ExtResource("2_k70xm")]
 grid_size = Vector2i(6, 6)
-
-[editable path="Camera3D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b7ghrwyk4rfix"]
 
-[ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_65sfs"]
+[ext_resource type="Script" path="res://Scripts/Objects/Tower.gd" id="1_65sfs"]
 [ext_resource type="Script" path="res://Scripts/Components/EnemyDetectionComponent.gd" id="2_uf7qf"]
 [ext_resource type="ArrayMesh" uid="uid://d32o28lbubvjt" path="res://Assets/Meshes/tower_round_mage_a.tres" id="2_urxvi"]
 [ext_resource type="Script" path="res://Scripts/Components/AttackComponent.gd" id="4_dp0r7"]

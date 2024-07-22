@@ -55,7 +55,7 @@ class BulletData:
 	
 	func clear_bullet() -> void:
 		if is_instance_valid(bullet):
-			if bullet is NotifiedNode3D:
+			if bullet is LifetimeNode3D:
 				bullet.end_of_lifetime()
 			else:
 				bullet.queue_free()
