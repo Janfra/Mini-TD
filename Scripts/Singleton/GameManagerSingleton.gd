@@ -11,7 +11,21 @@ enum GameStates
 	Lost,
 }
 
+var enemy_manager: EnemyManager
 var current_state: GameStates = GameStates.Play
+
+func get_enemy_manager() -> EnemyManager:
+	return enemy_manager
+	
+
+func set_enemy_manager(manager : EnemyManager) -> void:
+	if not is_instance_valid(manager):
+		assert(false, "Don't set enemy manager to invalid reference")
+		return
+	
+	assert(!enemy_manager, "Enemy manager is already set, it shouldn't be set twice")
+	enemy_manager = manager
+	
 
 func try_update_game_state(new_state : GameStates) -> bool:
 	if not _is_state_valid_transition(new_state):
@@ -19,9 +33,19 @@ func try_update_game_state(new_state : GameStates) -> bool:
 		return false
 	
 	current_state = new_state
-	handle_state_transition()
+	_handle_state_transition()
 	
 	return true
+
+
+func _handle_state_transition() -> void:
+	match(current_state):
+		GameStates.Lost:
+			lost_game.emit()
+		GameStates.Play:
+			## TEST: For now just reload scene
+			get_tree().reload_current_scene()
+	
 
 func _is_state_valid_transition(state : GameStates) -> bool:
 	if current_state == state:
@@ -36,12 +60,3 @@ func _is_state_valid_transition(state : GameStates) -> bool:
 			return current_state == GameStates.Play
 	
 	return false
-
-func handle_state_transition() -> void:
-	match(current_state):
-		GameStates.Lost:
-			lost_game.emit()
-		GameStates.Play:
-			## TEST: For now just reload scene
-			get_tree().reload_current_scene()
-	

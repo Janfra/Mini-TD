@@ -11,20 +11,21 @@ script = ExtResource("2_3rurf")
 _enemy_definition = ExtResource("1_gmogh")
 _is_first_spawn_instant = true
 _enemy_count = 2
-_spawn_rate = 3.0
+_spawn_rate = 1.0
 _spawn_delay = 1.0
 
 [sub_resource type="Resource" id="Resource_1phy8"]
 script = ExtResource("2_3rurf")
 _enemy_definition = ExtResource("3_b34dd")
-_is_first_spawn_instant = false
-_enemy_count = 0
-_spawn_rate = 3.0
+_is_first_spawn_instant = true
+_enemy_count = 4
+_spawn_rate = 0.6
 _spawn_delay = 1.0
 
 [sub_resource type="Resource" id="Resource_540js"]
 script = ExtResource("3_d6omo")
 _enemies_spawn_data = Array[ExtResource("2_3rurf")]([SubResource("Resource_8khny"), SubResource("Resource_1phy8")])
+_wave_start_delay = 3.0
 
 [resource]
 script = ExtResource("2_f1yfi")
