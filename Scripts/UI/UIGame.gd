@@ -5,9 +5,10 @@ extends Control
 @export var canvas: CanvasLayer
 @export_subgroup("Overlay UI")
 @export var lose_screen: PackedScene
-@export_subgroup("Top Left Section")
+@export_subgroup("Top Section")
 @export var money_label: Label
 @export var health_label: Label
+@export var wave_countdown_label: Label
 @export_subgroup("Bottom Section")
 @export var bottom_section: TabContainer
 @export var build_tab: HBoxContainer
@@ -21,7 +22,11 @@ extends Control
 func _ready():
 	Economy.money_changed.connect(set_money_label.bind())
 	UIEvents.player_health_updated.connect(set_health_label.bind())
+	UIEvents.wave_countdown_started.connect(display_wave_countdown.bind())
 	GameManager.lost_game.connect(display_lost_screen.bind())
+	GameEvents.wave_spawning_started.connect(hide_countdown.bind())
+	
+	assert(wave_countdown_label)
 	
 	for build_option in preloaded_build_options:
 		add_build_option(build_option)
@@ -62,3 +67,11 @@ func add_build_option(complete_placeable_data : PlaceableAndUIData) -> void:
 	build_option.setup_option_ui(complete_placeable_data)
 	
 
+func display_wave_countdown(time : float) -> void:
+	wave_countdown_label.visible = true
+	wave_countdown_label.text = "Wave starts in: %s" % time
+	
+
+func hide_countdown() -> void:
+	wave_countdown_label.visible = false
+	

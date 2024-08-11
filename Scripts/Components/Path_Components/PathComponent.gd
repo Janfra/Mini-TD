@@ -1,7 +1,7 @@
-class_name EnemyPathComponent
+class_name PathComponent
 extends Path3D
 
-signal updated_movement(path_handler : EnemyPathComponent, delta : float)
+signal updated_movement(path_handler : PathComponent, delta : float)
 signal completed_path(follower : Node3D)
 
 @export_category("Dependencies")

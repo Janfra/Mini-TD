@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhvxplh8y7foq"]
+[gd_scene load_steps=8 format=3 uid="uid://dhvxplh8y7foq"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UIGame.gd" id="1_3gav5"]
 [ext_resource type="Theme" uid="uid://ch35pidq376ny" path="res://Assets/UI/Themes/theme_ui.tres" id="2_2p4bm"]
@@ -6,8 +6,9 @@
 [ext_resource type="Resource" uid="uid://hsytkkst11qo" path="res://Resources/PlaceableObjects/PlaceablesAndUI/placeable_test_ui.tres" id="3_77583"]
 [ext_resource type="PackedScene" uid="uid://cqrc5aq7pgx0n" path="res://Assets/UI/UI_Scenes/build_option.tscn" id="3_orx4t"]
 [ext_resource type="Resource" uid="uid://bekv6fk1b0845" path="res://Resources/PlaceableObjects/PlaceablesAndUI/placeable_test_ui_two.tres" id="4_i64dq"]
+[ext_resource type="PackedScene" uid="uid://cku2g10r5mp1u" path="res://Assets/UI/UI_Scenes/ui_wave_countdown.tscn" id="7_dhu8f"]
 
-[node name="UIGame" type="Control" node_paths=PackedStringArray("canvas", "money_label", "health_label", "bottom_section", "build_tab")]
+[node name="UIGame" type="Control" node_paths=PackedStringArray("canvas", "money_label", "health_label", "wave_countdown_label", "bottom_section", "build_tab")]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 15
@@ -21,6 +22,7 @@ canvas = NodePath("CanvasLayer")
 lose_screen = ExtResource("2_hegv0")
 money_label = NodePath("CanvasLayer/MoneyContainer/MoneyLabel")
 health_label = NodePath("CanvasLayer/HealthContainer/HealthLabel")
+wave_countdown_label = NodePath("CanvasLayer/UiWaveCountdown")
 bottom_section = NodePath("CanvasLayer/TabContainer")
 build_tab = NodePath("CanvasLayer/TabContainer/Build")
 spacer_size = 5
@@ -29,6 +31,8 @@ preloaded_build_options = Array[Resource("res://Scripts/Resources/Placeables/Pla
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
+
+[node name="UiWaveCountdown" parent="CanvasLayer" instance=ExtResource("7_dhu8f")]
 
 [node name="MoneyContainer" type="PanelContainer" parent="CanvasLayer"]
 custom_minimum_size = Vector2(132, 51)

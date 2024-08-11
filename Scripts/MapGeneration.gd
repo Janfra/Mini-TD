@@ -2,7 +2,7 @@ extends Node3D
 
 @export_category("Dependencies")
 @export var grid_generation: GridComponent
-@export var path_generation: EnemyPathComponent
+@export var path_generation: PathComponent
 @export var main_building: PlayerMainBuilding
 
 @export_category("Configuration")

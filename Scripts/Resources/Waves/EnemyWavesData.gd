@@ -3,6 +3,7 @@ extends Resource
 
 signal enemy_spawned(enemy : Enemy)
 signal updated_time_rate(reduce_time : float)
+signal wave_spawn_started
 
 @export_category("Waves Configuration")
 @export var _waves: Array[WaveSpawnData]
@@ -15,7 +16,7 @@ func is_valid() -> bool:
 	return _waves and not _waves.is_empty()
 	
 
-func start_wave_spawning_at(position : Vector3, parent_to : Node) -> void:
+func start_wave_spawning_at(position : Vector3, parent_to : Node) -> WaveSpawnData:
 	if not GenerationUtils.is_parent_valid(parent_to):
 		assert(false, "Parent must be inside tree and not null, otherwise instances wont be visible")
 		return
@@ -27,8 +28,15 @@ func start_wave_spawning_at(position : Vector3, parent_to : Node) -> void:
 	spawn_position = position
 	_parent = parent_to
 	var first_wave: WaveSpawnData = _waves[_current_wave]
+	var node_tree: SceneTree = _parent.get_tree()
+	var spawn_start_delay_timer = node_tree.create_timer(first_wave._wave_start_delay, false)
+	spawn_start_delay_timer.timeout.connect(_start_wave_spawning.bind(first_wave, node_tree))
+	return first_wave
 	
-	for enemy_spawn_data in first_wave._enemies_spawn_data:
+
+func _start_wave_spawning(wave_data : WaveSpawnData, node_tree : SceneTree) -> void:
+	wave_spawn_started.emit()
+	for enemy_spawn_data in wave_data._enemies_spawn_data:
 		if not enemy_spawn_data or not enemy_spawn_data.is_valid():
 			printerr("Enemy data has invalid scene")
 			continue
@@ -37,7 +45,7 @@ func start_wave_spawning_at(position : Vector3, parent_to : Node) -> void:
 			continue
 		
 		enemy_spawn_data.setup_spawn_rate()
-		var tree_delay_timer = _parent.get_tree().create_timer(enemy_spawn_data.get_spawn_delay())
+		var tree_delay_timer = node_tree.create_timer(enemy_spawn_data.get_spawn_delay(), false)
 		tree_delay_timer.timeout.connect(_start_enemy_spawn_rate.bind(enemy_spawn_data))
 		
 	

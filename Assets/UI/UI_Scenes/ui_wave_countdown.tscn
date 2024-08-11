@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cku2g10r5mp1u"]
+
+[node name="UiWaveCountdown" type="Label"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -82.5
+offset_right = 82.5
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "Wave starts in: "
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -13,7 +13,7 @@ func _ready():
 	UIEvents.update_player_health(health_component.health)
 	
 
-func setup_building_connections(path : EnemyPathComponent) -> void:
+func setup_building_connections(path : PathComponent) -> void:
 	path.completed_path.connect(_handle_entering_node.bind())
 	
 

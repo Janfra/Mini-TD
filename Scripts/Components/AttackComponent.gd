@@ -90,10 +90,35 @@ func _start_animation(target : Node3D) -> void:
 	
 
 func _select_target() -> Enemy:
-	var target: Enemy = available_targets.front() as Enemy
-	assert(target, "Timer should be disabled when all targets are removed")
+	var target: Enemy
+	if available_targets.is_empty():
+		assert(target, "Timer should be disabled when all targets are removed")
+		return target
+	
+	match(target_priority):
+		FocusPriority.First:
+			target = _get_first_target()
+		FocusPriority.Last:
+			target = _get_last_target()
+		FocusPriority.Random:
+			target = _get_random_target()
+	
 	selected_target.emit(target)
 	return target
+	
+
+func _get_first_target() -> Enemy:
+	var enemy_manager: EnemyManager = GameManager.get_enemy_manager()
+	return enemy_manager.get_most_distance_travelled_enemy(available_targets)
+	
+
+func _get_last_target() -> Enemy:
+	var enemy_manager: EnemyManager = GameManager.get_enemy_manager()
+	return enemy_manager.get_least_distance_travelled_enemy(available_targets)
+	
+
+func _get_random_target() -> Enemy:
+	return available_targets.pick_random()
 	
 
 func _set_current_target() -> void:
