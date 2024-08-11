@@ -1,5 +1,5 @@
 # Mini-TD
-I have decided to try out a new approach to my mini projects. I will outline goals directly in this repository. With this project I will continue exploring Godot, focusing on experimenting with my first tower defense game.
+I have decided to try out a new approach to my mini projects. I will outline goals directly in this repository. With this project I will continue exploring Godot & GDScript, focusing on experimenting with my first tower defense game.
 
 ### Plan Description
 Mini TD will be a project that I will divide in sections with separate main goals. Starting with section small in scope focusing mostly on just exploring common tower defense mechanics, later sections focusing on expanding it to an actual game. I may or may not complete all sections.
@@ -72,7 +72,14 @@ As an extra I decided to make PRs a requirement just to make sure I keep making 
 
 #### Players Health
 - [X] Add players health AKA losing condition
+	- [X] Player's can retry (play again)
+- [ ] Add feedback for taking damage
+ 
+#### Tower Targeting
+- [X] Towers correctly select their attacking target
 
 #### Basic Game UI
 - [x] Add basic game UI
 - [x] Add basic tower selection
+- [ ] Add basic countdown for wave start
+- [X] Add a lose overlay
