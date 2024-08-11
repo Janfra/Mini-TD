@@ -13,7 +13,7 @@
 [node name="MapGeneration" type="Node3D" node_paths=PackedStringArray("grid_generation", "path_generation", "main_building")]
 script = ExtResource("1_1g4sv")
 grid_generation = NodePath("Grid Generator")
-path_generation = NodePath("EnemyPath")
+path_generation = NodePath("PathComponent")
 main_building = NodePath("PlayerMainBuilding")
 grid_size = Vector2i(1, 1)
 path_straight_mesh = ExtResource("2_0n20a")
@@ -24,10 +24,10 @@ path_corner_mesh = ExtResource("4_som84")
 
 [node name="Grid Generator" parent="." instance=ExtResource("1_yv21r")]
 
-[node name="EnemyPath" parent="." instance=ExtResource("2_l1v4g")]
+[node name="PathComponent" parent="." instance=ExtResource("2_l1v4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 
 [node name="EnemyManager" type="Node" parent="." node_paths=PackedStringArray("path")]
 script = ExtResource("4_gsnwd")
-path = NodePath("../EnemyPath")
+path = NodePath("../PathComponent")
 waves_data = ExtResource("9_pue8y")

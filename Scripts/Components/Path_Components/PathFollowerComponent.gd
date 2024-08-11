@@ -11,9 +11,9 @@ func is_valid() -> bool:
 	return _target and is_instance_valid(_target)
 	
 
-func update_distance_traveled(path_handler : EnemyPathComponent, delta : float):
+func update_distance_traveled(path_handler : PathComponent, delta : float):
 	_distance_traveled += speed * delta
-	var path_data: EnemyPathComponent.PathTravelData = path_handler.get_position_data_along_path(_distance_traveled)
+	var path_data: PathComponent.PathTravelData = path_handler.get_position_data_along_path(_distance_traveled)
 	_target.global_position = path_data.position
 	
 	if path_data.is_path_completed:
@@ -28,4 +28,8 @@ func set_path_follower(set_target : Node3D) -> void:
 		
 	
 	_target = set_target
+	
+
+func has_travelled_further_than(other_path_follower : PathFollowerComponent) -> bool:
+	return _distance_traveled > other_path_follower._distance_traveled
 	
